@@ -16,6 +16,7 @@
 		0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0588D0E4246B8E5A00960BFC /* Assets.xcassets */; };
 		0588D0F5246B8E5A00960BFC /* BMeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* BMeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* BMeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* BMeaksFinderUITests.m */; };
+		05A6A2B2246B9546008B2B36 /* BMNetworkingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0588D0FB246B8E5A00960BFC /* BMeaksFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMeaksFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0FF246B8E5A00960BFC /* BMeaksFinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMeaksFinderUITests.m; sourceTree = "<group>"; };
 		0588D101246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNetworkingLog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				051C9D30246B92EA001387E6 /* UIViewController+BMMemoryLeak.m */,
+				05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				0588D0E3246B8E5700960BFC /* BMeaksFinder.xcdatamodeld in Sources */,
 				051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */,
 				051C9D34246B92EA001387E6 /* UIViewController+BMMemoryLeak.m in Sources */,
+				05A6A2B2246B9546008B2B36 /* BMNetworkingLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
