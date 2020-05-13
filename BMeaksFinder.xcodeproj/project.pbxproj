@@ -12,6 +12,14 @@
 		051C9D34246B92EA001387E6 /* UIViewController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D30246B92EA001387E6 /* UIViewController+BMMemoryLeak.m */; };
 		051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D3B246B9367001387E6 /* BMHomeVC.m */; };
 		051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051C9D3C246B9367001387E6 /* BMHomeVC.xib */; };
+		0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD7246B98FA00C77363 /* XXNibBridge.m */; };
+		0580DDDB246B98FA00C77363 /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD9246B98FA00C77363 /* XXNibConvention.m */; };
+		0580DDE2246B996300C77363 /* BMErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDE0246B996300C77363 /* BMErrorVC.m */; };
+		0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0580DDE1246B996300C77363 /* BMErrorVC.xib */; };
+		0580DDE7246B996F00C77363 /* BMCorrectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDE5246B996F00C77363 /* BMCorrectVC.m */; };
+		0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0580DDE6246B996F00C77363 /* BMCorrectVC.xib */; };
+		0580DDEC246B999D00C77363 /* BMTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDEB246B999D00C77363 /* BMTopView.m */; };
+		0580DDEE246B99A300C77363 /* BMTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0580DDED246B99A300C77363 /* BMTopView.xib */; };
 		0588D0E3246B8E5700960BFC /* BMeaksFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0E1246B8E5700960BFC /* BMeaksFinder.xcdatamodeld */; };
 		0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0588D0E4246B8E5A00960BFC /* Assets.xcassets */; };
 		0588D0F5246B8E5A00960BFC /* BMeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* BMeaksFinderTests.m */; };
@@ -44,6 +52,19 @@
 		051C9D3A246B9367001387E6 /* BMHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
 		051C9D3B246B9367001387E6 /* BMHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
 		051C9D3C246B9367001387E6 /* BMHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		0580DDD6246B98FA00C77363 /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
+		0580DDD7246B98FA00C77363 /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
+		0580DDD8246B98FA00C77363 /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
+		0580DDD9246B98FA00C77363 /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
+		0580DDDF246B996300C77363 /* BMErrorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMErrorVC.h; sourceTree = "<group>"; };
+		0580DDE0246B996300C77363 /* BMErrorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMErrorVC.m; sourceTree = "<group>"; };
+		0580DDE1246B996300C77363 /* BMErrorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMErrorVC.xib; sourceTree = "<group>"; };
+		0580DDE4246B996F00C77363 /* BMCorrectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMCorrectVC.h; sourceTree = "<group>"; };
+		0580DDE5246B996F00C77363 /* BMCorrectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMCorrectVC.m; sourceTree = "<group>"; };
+		0580DDE6246B996F00C77363 /* BMCorrectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMCorrectVC.xib; sourceTree = "<group>"; };
+		0580DDEA246B999D00C77363 /* BMTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMTopView.h; sourceTree = "<group>"; };
+		0580DDEB246B999D00C77363 /* BMTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMTopView.m; sourceTree = "<group>"; };
+		0580DDED246B99A300C77363 /* BMTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMTopView.xib; sourceTree = "<group>"; };
 		0588D0D2246B8E5700960BFC /* BMeaksFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMeaksFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0E2246B8E5700960BFC /* BMeaksFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BMeaksFinder.xcdatamodel; sourceTree = "<group>"; };
 		0588D0E4246B8E5A00960BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,9 +116,9 @@
 		051C9D2C246B92EA001387E6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				051C9D3A246B9367001387E6 /* BMHomeVC.h */,
-				051C9D3B246B9367001387E6 /* BMHomeVC.m */,
-				051C9D3C246B9367001387E6 /* BMHomeVC.xib */,
+				0580DDE9246B997800C77363 /* Home */,
+				0580DDDE246B991300C77363 /* Error */,
+				0580DDDD246B991100C77363 /* Correct */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -109,6 +130,58 @@
 				05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		0580DDD5246B98FA00C77363 /* XXNibBridge */ = {
+			isa = PBXGroup;
+			children = (
+				0580DDD6246B98FA00C77363 /* XXNibBridge.h */,
+				0580DDD7246B98FA00C77363 /* XXNibBridge.m */,
+				0580DDD8246B98FA00C77363 /* XXNibConvention.h */,
+				0580DDD9246B98FA00C77363 /* XXNibConvention.m */,
+			);
+			path = XXNibBridge;
+			sourceTree = "<group>";
+		};
+		0580DDDC246B98FC00C77363 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				0580DDD5246B98FA00C77363 /* XXNibBridge */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		0580DDDD246B991100C77363 /* Correct */ = {
+			isa = PBXGroup;
+			children = (
+				0580DDE4246B996F00C77363 /* BMCorrectVC.h */,
+				0580DDE5246B996F00C77363 /* BMCorrectVC.m */,
+				0580DDE6246B996F00C77363 /* BMCorrectVC.xib */,
+			);
+			path = Correct;
+			sourceTree = "<group>";
+		};
+		0580DDDE246B991300C77363 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0580DDEA246B999D00C77363 /* BMTopView.h */,
+				0580DDEB246B999D00C77363 /* BMTopView.m */,
+				0580DDED246B99A300C77363 /* BMTopView.xib */,
+				0580DDDF246B996300C77363 /* BMErrorVC.h */,
+				0580DDE0246B996300C77363 /* BMErrorVC.m */,
+				0580DDE1246B996300C77363 /* BMErrorVC.xib */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		0580DDE9246B997800C77363 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				051C9D3A246B9367001387E6 /* BMHomeVC.h */,
+				051C9D3B246B9367001387E6 /* BMHomeVC.m */,
+				051C9D3C246B9367001387E6 /* BMHomeVC.xib */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		0588D0C9246B8E5700960BFC = {
@@ -134,6 +207,7 @@
 		0588D0D4246B8E5700960BFC /* BMeaksFinder */ = {
 			isa = PBXGroup;
 			children = (
+				0580DDDC246B98FC00C77363 /* Lib */,
 				051C9D28246B92EA001387E6 /* AppDelegate */,
 				051C9D2C246B92EA001387E6 /* Classes */,
 				051C9D2F246B92EA001387E6 /* Sources */,
@@ -265,7 +339,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0580DDEE246B99A300C77363 /* BMTopView.xib in Resources */,
 				051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */,
+				0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */,
+				0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */,
 				0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,12 +368,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0580DDDB246B98FA00C77363 /* XXNibConvention.m in Sources */,
 				051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */,
 				051C9D31246B92EA001387E6 /* main.m in Sources */,
+				0580DDEC246B999D00C77363 /* BMTopView.m in Sources */,
+				0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */,
+				0580DDE7246B996F00C77363 /* BMCorrectVC.m in Sources */,
 				0588D0E3246B8E5700960BFC /* BMeaksFinder.xcdatamodeld in Sources */,
 				051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */,
 				051C9D34246B92EA001387E6 /* UIViewController+BMMemoryLeak.m in Sources */,
 				05A6A2B2246B9546008B2B36 /* BMNetworkingLog.m in Sources */,
+				0580DDE2246B996300C77363 /* BMErrorVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
