@@ -1,6 +1,8 @@
-## 效果演示
+## 介绍
 
-> 用于项目中自动检测控制器内存泄漏的工具，让你在开发中实时关注你的控制器是否泄漏了。
+本项目是一款用于自动检测项目【控制器内存泄漏】的工具，如果你想所以，只需要把 `https://github.com/liangdahong/BMeaksFinder/tree/master/BMeaksFinder/Sources` 路径下的文件拖入项目即可，效果如下，在上线时请务必移除框架，目前处于开发尝试阶段，所以功能比较单一，如果你感兴趣可以一起聊聊。
+
+## 效果演示
 
 <p align="center">
     <img  width="22%" src="Images/001.gif"/>
