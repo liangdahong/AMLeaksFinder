@@ -64,8 +64,7 @@ static void *associatedKey = &associatedKey;
 
 - (void)bm_test_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.memoryLeakDeallocModel.controller == self
-            && !obj.memoryLeakDeallocModel.controller) {
+        if (obj.memoryLeakDeallocModel.controller == self) {
             obj.memoryLeakDeallocModel.shouldDealloc = YES;
             *stop = YES;
         }
@@ -78,11 +77,16 @@ static void *associatedKey = &associatedKey;
 }
 
 + (NSMutableArray<BMMemoryLeakModel *> *)memoryLeakModelArray {
-    static NSMutableArray *arr = nil;
+    static NSMutableArray <BMMemoryLeakModel *> *arr = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         arr = @[].mutableCopy;
     });
+    [arr enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.memoryLeakDeallocModel.controller) {
+            [arr removeObjectAtIndex:idx];
+        }
+    }];
     return arr;
 }
 

@@ -50,12 +50,6 @@ static BMDragViewLabel *dragViewLabel;
     __block int leakCount = 0;
     __block int customizeCount = 0;
 
-    [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!obj.memoryLeakDeallocModel.controller) {
-            [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
-        }
-    }];
-
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel.shouldDealloc) {
             leakCount++;
