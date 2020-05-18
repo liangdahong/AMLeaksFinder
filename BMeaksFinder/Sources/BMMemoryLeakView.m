@@ -97,7 +97,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
     if (model.shouldDealloc) {
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否忽略此控制器的泄漏" message:@"如果控制器是特意长驻内存的，可以点击忽略" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否忽略此控制器" message:@"如果控制器是特意长驻内存的，可以点击忽略" preferredStyle:UIAlertControllerStyleAlert];
         [alertVC addAction:[UIAlertAction actionWithTitle:@"忽略此控制器" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (obj.memoryLeakDeallocModel == model) {
