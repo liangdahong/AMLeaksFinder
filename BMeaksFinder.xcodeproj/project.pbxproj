@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045E3C202472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C1F2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m */; };
+		045E3C232472D02900EBC381 /* BMMemoryLeakModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C222472D02900EBC381 /* BMMemoryLeakModel.m */; };
+		045E3C262472D04300EBC381 /* BMMemoryLeakDeallocModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C252472D04300EBC381 /* BMMemoryLeakDeallocModel.m */; };
+		045E3C292472D12200EBC381 /* BMMemoryLeakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C282472D12200EBC381 /* BMMemoryLeakView.m */; };
+		045E3C2B2472D12E00EBC381 /* BMMemoryLeakView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045E3C2A2472D12E00EBC381 /* BMMemoryLeakView.xib */; };
+		0491263B2472DA49002CABCA /* BMDragViewLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491263A2472DA49002CABCA /* BMDragViewLabel.m */; };
+		05150D3324727F2100EA87F3 /* UIViewController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 05150D3224727F2100EA87F3 /* UIViewController+BMMemoryLeak.m */; };
 		051C9D31246B92EA001387E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D2A246B92EA001387E6 /* main.m */; };
 		051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D2B246B92EA001387E6 /* AppDelegate.m */; };
-		051C9D34246B92EA001387E6 /* UIViewController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D30246B92EA001387E6 /* UIViewController+BMMemoryLeak.m */; };
 		051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D3B246B9367001387E6 /* BMHomeVC.m */; };
 		051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051C9D3C246B9367001387E6 /* BMHomeVC.xib */; };
 		0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD7246B98FA00C77363 /* XXNibBridge.m */; };
@@ -24,7 +30,7 @@
 		0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0588D0E4246B8E5A00960BFC /* Assets.xcassets */; };
 		0588D0F5246B8E5A00960BFC /* BMeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* BMeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* BMeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* BMeaksFinderUITests.m */; };
-		05A6A2B2246B9546008B2B36 /* BMNetworkingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */; };
+		05B61EE22472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +51,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045E3C1E2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BMMemoryLeak.h"; sourceTree = "<group>"; };
+		045E3C1F2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BMMemoryLeak.m"; sourceTree = "<group>"; };
+		045E3C212472D02900EBC381 /* BMMemoryLeakModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakModel.h; sourceTree = "<group>"; };
+		045E3C222472D02900EBC381 /* BMMemoryLeakModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakModel.m; sourceTree = "<group>"; };
+		045E3C242472D04300EBC381 /* BMMemoryLeakDeallocModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakDeallocModel.h; sourceTree = "<group>"; };
+		045E3C252472D04300EBC381 /* BMMemoryLeakDeallocModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakDeallocModel.m; sourceTree = "<group>"; };
+		045E3C272472D12200EBC381 /* BMMemoryLeakView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakView.h; sourceTree = "<group>"; };
+		045E3C282472D12200EBC381 /* BMMemoryLeakView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakView.m; sourceTree = "<group>"; };
+		045E3C2A2472D12E00EBC381 /* BMMemoryLeakView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMMemoryLeakView.xib; sourceTree = "<group>"; };
+		049126392472DA49002CABCA /* BMDragViewLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMDragViewLabel.h; sourceTree = "<group>"; };
+		0491263A2472DA49002CABCA /* BMDragViewLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMDragViewLabel.m; sourceTree = "<group>"; };
+		05150D3124727F2100EA87F3 /* UIViewController+BMMemoryLeak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeak.h"; sourceTree = "<group>"; };
+		05150D3224727F2100EA87F3 /* UIViewController+BMMemoryLeak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeak.m"; sourceTree = "<group>"; };
 		051C9D29246B92EA001387E6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		051C9D2A246B92EA001387E6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		051C9D2B246B92EA001387E6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		051C9D30246B92EA001387E6 /* UIViewController+BMMemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeak.m"; sourceTree = "<group>"; };
 		051C9D3A246B9367001387E6 /* BMHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
 		051C9D3B246B9367001387E6 /* BMHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
 		051C9D3C246B9367001387E6 /* BMHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
@@ -75,7 +93,8 @@
 		0588D0FB246B8E5A00960BFC /* BMeaksFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMeaksFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0FF246B8E5A00960BFC /* BMeaksFinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMeaksFinderUITests.m; sourceTree = "<group>"; };
 		0588D101246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNetworkingLog.m; sourceTree = "<group>"; };
+		05B61EE02472885B009CAD84 /* UIViewController+BMMemoryLeakUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeakUI.h"; sourceTree = "<group>"; };
+		05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeakUI.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +145,21 @@
 		051C9D2F246B92EA001387E6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				051C9D30246B92EA001387E6 /* UIViewController+BMMemoryLeak.m */,
-				05A6A2B1246B9546008B2B36 /* BMNetworkingLog.m */,
+				049126392472DA49002CABCA /* BMDragViewLabel.h */,
+				0491263A2472DA49002CABCA /* BMDragViewLabel.m */,
+				045E3C272472D12200EBC381 /* BMMemoryLeakView.h */,
+				045E3C282472D12200EBC381 /* BMMemoryLeakView.m */,
+				045E3C2A2472D12E00EBC381 /* BMMemoryLeakView.xib */,
+				05B61EE02472885B009CAD84 /* UIViewController+BMMemoryLeakUI.h */,
+				05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */,
+				05150D3124727F2100EA87F3 /* UIViewController+BMMemoryLeak.h */,
+				05150D3224727F2100EA87F3 /* UIViewController+BMMemoryLeak.m */,
+				045E3C1E2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.h */,
+				045E3C1F2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m */,
+				045E3C212472D02900EBC381 /* BMMemoryLeakModel.h */,
+				045E3C222472D02900EBC381 /* BMMemoryLeakModel.m */,
+				045E3C242472D04300EBC381 /* BMMemoryLeakDeallocModel.h */,
+				045E3C252472D04300EBC381 /* BMMemoryLeakDeallocModel.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -207,10 +239,10 @@
 		0588D0D4246B8E5700960BFC /* BMeaksFinder */ = {
 			isa = PBXGroup;
 			children = (
-				0580DDDC246B98FC00C77363 /* Lib */,
+				051C9D2F246B92EA001387E6 /* Sources */,
 				051C9D28246B92EA001387E6 /* AppDelegate */,
 				051C9D2C246B92EA001387E6 /* Classes */,
-				051C9D2F246B92EA001387E6 /* Sources */,
+				0580DDDC246B98FC00C77363 /* Lib */,
 				0588D0E4246B8E5A00960BFC /* Assets.xcassets */,
 				0588D0E9246B8E5A00960BFC /* Info.plist */,
 				0588D0E1246B8E5700960BFC /* BMeaksFinder.xcdatamodeld */,
@@ -340,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0580DDEE246B99A300C77363 /* BMTopView.xib in Resources */,
+				045E3C2B2472D12E00EBC381 /* BMMemoryLeakView.xib in Resources */,
 				051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */,
 				0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */,
 				0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */,
@@ -368,17 +401,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05150D3324727F2100EA87F3 /* UIViewController+BMMemoryLeak.m in Sources */,
 				0580DDDB246B98FA00C77363 /* XXNibConvention.m in Sources */,
 				051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */,
 				051C9D31246B92EA001387E6 /* main.m in Sources */,
+				045E3C292472D12200EBC381 /* BMMemoryLeakView.m in Sources */,
 				0580DDEC246B999D00C77363 /* BMTopView.m in Sources */,
+				05B61EE22472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m in Sources */,
+				0491263B2472DA49002CABCA /* BMDragViewLabel.m in Sources */,
+				045E3C202472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m in Sources */,
 				0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */,
 				0580DDE7246B996F00C77363 /* BMCorrectVC.m in Sources */,
 				0588D0E3246B8E5700960BFC /* BMeaksFinder.xcdatamodeld in Sources */,
 				051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */,
-				051C9D34246B92EA001387E6 /* UIViewController+BMMemoryLeak.m in Sources */,
-				05A6A2B2246B9546008B2B36 /* BMNetworkingLog.m in Sources */,
+				045E3C232472D02900EBC381 /* BMMemoryLeakModel.m in Sources */,
 				0580DDE2246B996300C77363 /* BMErrorVC.m in Sources */,
+				045E3C262472D04300EBC381 /* BMMemoryLeakDeallocModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,9 +567,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VG78JT6CG8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BMeaksFinder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,9 +585,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VG78JT6CG8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BMeaksFinder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
