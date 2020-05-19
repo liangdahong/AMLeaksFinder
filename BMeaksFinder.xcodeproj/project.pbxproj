@@ -18,6 +18,9 @@
 		051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D2B246B92EA001387E6 /* AppDelegate.m */; };
 		051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D3B246B9367001387E6 /* BMHomeVC.m */; };
 		051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051C9D3C246B9367001387E6 /* BMHomeVC.xib */; };
+		053E99EB24738F6100806B8E /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E824738F6100806B8E /* README_CN.md */; };
+		053E99EC24738F6100806B8E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E924738F6100806B8E /* LICENSE */; };
+		053E99ED24738F6100806B8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99EA24738F6100806B8E /* README.md */; };
 		0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD7246B98FA00C77363 /* XXNibBridge.m */; };
 		0580DDDB246B98FA00C77363 /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD9246B98FA00C77363 /* XXNibConvention.m */; };
 		0580DDE2246B996300C77363 /* BMErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDE0246B996300C77363 /* BMErrorVC.m */; };
@@ -70,6 +73,9 @@
 		051C9D3A246B9367001387E6 /* BMHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
 		051C9D3B246B9367001387E6 /* BMHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
 		051C9D3C246B9367001387E6 /* BMHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		053E99E824738F6100806B8E /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = "<group>"; };
+		053E99E924738F6100806B8E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		053E99EA24738F6100806B8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0580DDD6246B98FA00C77363 /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
 		0580DDD7246B98FA00C77363 /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
 		0580DDD8246B98FA00C77363 /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
@@ -219,6 +225,9 @@
 		0588D0C9246B8E5700960BFC = {
 			isa = PBXGroup;
 			children = (
+				053E99E924738F6100806B8E /* LICENSE */,
+				053E99E824738F6100806B8E /* README_CN.md */,
+				053E99EA24738F6100806B8E /* README.md */,
 				0588D0D4246B8E5700960BFC /* BMeaksFinder */,
 				0588D0F3246B8E5A00960BFC /* BMeaksFinderTests */,
 				0588D0FE246B8E5A00960BFC /* BMeaksFinderUITests */,
@@ -372,9 +381,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0580DDEE246B99A300C77363 /* BMTopView.xib in Resources */,
+				053E99EB24738F6100806B8E /* README_CN.md in Resources */,
+				053E99EC24738F6100806B8E /* LICENSE in Resources */,
 				045E3C2B2472D12E00EBC381 /* BMMemoryLeakView.xib in Resources */,
 				051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */,
 				0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */,
+				053E99ED24738F6100806B8E /* README.md in Resources */,
 				0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */,
 				0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */,
 			);

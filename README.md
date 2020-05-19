@@ -1,8 +1,10 @@
-## 介绍
+## Introduction
 
-本项目是一款用于自动检测项目中【控制器内存泄漏】的工具，如果你想使用，只需要把 `https://github.com/liangdahong/BMeaksFinder/tree/master/BMeaksFinder/Sources` 路径下的文件拖入项目即可，效果如下，在上线时请务必移除框架，目前处于开发尝试阶段，功能比较单一，代码未整理，如果你感兴趣可以一起聊聊。
+A small tool for automatically detecting the [controller memory leak] in the project, Just drag the files under the path of `https://github.com/liangdahong/BMeaksFinder/tree/master/BMeaksFinder/Sources` into the project, the effect is as follows, please be sure to remove the framework when going online, it is currently in development attempt At this stage, the function is relatively simple, and the code is not organized. If you are interested, you can talk together.
 
-## 效果演示
+[中文版🇨🇳](README_CN.md)
+
+## Renderings
 
 <p align="center">
     <img  width="22%" src="Images/001.gif"/>
