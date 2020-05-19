@@ -12,6 +12,12 @@
 
 [English 📔](README.md)
 
+## Cocoapods
+
+```
+pod 'AMLeaksFinder', '1.0.1', :configurations => ['Debug']
+```
+
 ## 效果演示
 
 <p align="center">
