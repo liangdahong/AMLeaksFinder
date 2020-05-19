@@ -32,11 +32,11 @@ static void *associatedKey = &associatedKey;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(UIViewController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(viewDidLoad),
                               @selector(bm_test_viewDidLoad));
         
-        swizzleInstanceMethod(UIViewController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(dismissViewControllerAnimated:completion:),
                               @selector(bm_test_dismissViewControllerAnimated:completion:));
         

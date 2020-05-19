@@ -15,11 +15,11 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(UINavigationController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:),
                               @selector(bm_test_setViewControllers:));
         
-        swizzleInstanceMethod(UINavigationController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:),
                               @selector(bm_test_setViewControllers:));
     });

@@ -16,19 +16,19 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(UINavigationController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(popViewControllerAnimated:),
                               @selector(bm_test_popViewControllerAnimated:));
 
-        swizzleInstanceMethod(UINavigationController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(popToViewController:animated:),
                               @selector(bm_test_popToViewController:animated:));
 
-        swizzleInstanceMethod(UINavigationController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(popToRootViewControllerAnimated:),
                               @selector(bm_test_popToRootViewControllerAnimated:));
 
-        swizzleInstanceMethod(UINavigationController.class,
+        swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:),
                               @selector(bm_test_setViewControllers:));
     });
