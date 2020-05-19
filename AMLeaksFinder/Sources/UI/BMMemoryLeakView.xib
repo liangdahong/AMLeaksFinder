@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,21 +29,14 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKX-mg-dec">
-                    <rect key="frame" x="0.0" y="0.0" width="121" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="181.5" height="30"/>
                     <state key="normal" title="全部"/>
                     <connections>
                         <action selector="showAllButtonClick" destination="iN0-l3-epB" eventType="touchUpInside" id="88A-l9-yWy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvW-RS-U7u">
-                    <rect key="frame" x="121" y="0.0" width="121" height="30"/>
-                    <state key="normal" title="自定义"/>
-                    <connections>
-                        <action selector="showCustomizeButtonClick" destination="iN0-l3-epB" eventType="touchUpInside" id="mdu-Gs-cdN"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfh-Ja-nG9">
-                    <rect key="frame" x="242" y="0.0" width="121" height="30"/>
+                    <rect key="frame" x="181.5" y="0.0" width="181.5" height="30"/>
                     <state key="normal" title="已泄漏"/>
                     <connections>
                         <action selector="showLeakButtonClick" destination="iN0-l3-epB" eventType="touchUpInside" id="OoY-de-gWS"/>
@@ -56,15 +49,12 @@
                 <constraint firstItem="mKX-mg-dec" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Ph-Aw-OHA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZGR-BQ-71J" secondAttribute="bottom" id="8Zx-QF-GAn"/>
                 <constraint firstItem="mKX-mg-dec" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9kI-pF-EIK"/>
-                <constraint firstItem="xvW-RS-U7u" firstAttribute="width" secondItem="mKX-mg-dec" secondAttribute="width" id="Bve-2x-jpd"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kl1-DU-RUx"/>
-                <constraint firstItem="Jfh-Ja-nG9" firstAttribute="leading" secondItem="xvW-RS-U7u" secondAttribute="trailing" id="Ng8-fL-d4H"/>
+                <constraint firstItem="Jfh-Ja-nG9" firstAttribute="leading" secondItem="mKX-mg-dec" secondAttribute="trailing" id="Unm-bS-BP7"/>
                 <constraint firstItem="ZGR-BQ-71J" firstAttribute="top" secondItem="mKX-mg-dec" secondAttribute="bottom" id="UvU-Kp-7tZ"/>
-                <constraint firstItem="xvW-RS-U7u" firstAttribute="leading" secondItem="mKX-mg-dec" secondAttribute="trailing" id="aTT-Sk-eHG"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZGR-BQ-71J" secondAttribute="trailing" id="cs8-4w-oD7"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="width" secondItem="mKX-mg-dec" secondAttribute="width" id="gP8-2u-afv"/>
                 <constraint firstAttribute="trailing" secondItem="Jfh-Ja-nG9" secondAttribute="trailing" id="lcY-D5-2Q5"/>
-                <constraint firstItem="xvW-RS-U7u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xiQ-2a-7B4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -15,4 +15,6 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
 
 @property (class, nonatomic, strong, readonly) NSMutableArray <BMMemoryLeakModel *> *memoryLeakModelArray; ///< memoryLeakModelArray
 
+@property (nonatomic, strong, readonly) NSArray <UIViewController *> *bm_test_selfAndAllChildController;
+
 @end

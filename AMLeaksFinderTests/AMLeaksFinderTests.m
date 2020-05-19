@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface BMeaksFinderTests : XCTestCase
+@interface AMLeaksFinderTests : XCTestCase
 
 @end
 
-@implementation BMeaksFinderTests
+@implementation AMLeaksFinderTests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

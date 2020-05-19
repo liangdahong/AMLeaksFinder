@@ -16,6 +16,7 @@
     [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel == self) {
             [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
+            *stop = YES;
          }
     }];
     [UIViewController udpateUI];

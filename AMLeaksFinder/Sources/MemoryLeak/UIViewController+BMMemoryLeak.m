@@ -63,8 +63,17 @@ static void *associatedKey = &associatedKey;
 }
 
 - (void)bm_test_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+    [self bm_test_dismissViewControllerAnimated:flag completion:completion];
+    UIViewController *dismissedViewController = self.presentedViewController;
+    if (!dismissedViewController && self.presentingViewController) {
+        dismissedViewController = self;
+    }
+    if (!dismissedViewController) {
+        return;
+    }
+    
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.memoryLeakDeallocModel.controller == self) {
+        if (obj.memoryLeakDeallocModel.controller == dismissedViewController) {
             obj.memoryLeakDeallocModel.shouldDealloc = YES;
             *stop = YES;
         }
@@ -73,7 +82,7 @@ static void *associatedKey = &associatedKey;
         // update ui
         [UIViewController udpateUI];
     });
-    [self bm_test_dismissViewControllerAnimated:flag completion:completion];
+    NSLog(@"bm_test_dismissViewControllerAnimated: %@", self);
 }
 
 + (NSMutableArray<BMMemoryLeakModel *> *)memoryLeakModelArray {
@@ -88,6 +97,14 @@ static void *associatedKey = &associatedKey;
         }
     }];
     return arr;
+}
+
+- (NSArray<UIViewController *> *)bm_test_selfAndAllChildController {
+    NSMutableArray *arr = @[self].mutableCopy;
+    [self.childViewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [arr addObjectsFromArray:obj.bm_test_selfAndAllChildController.copy];
+    }];
+    return arr.copy;
 }
 
 @end

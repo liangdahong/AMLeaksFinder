@@ -48,21 +48,13 @@ static BMDragViewLabel *dragViewLabel;
 
 + (void)udpateUI {
     __block int leakCount = 0;
-    __block int customizeCount = 0;
-
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel.shouldDealloc) {
             leakCount++;
         }
-        if (![NSStringFromClass(obj.memoryLeakDeallocModel.controller.class) hasPrefix:@"_"]
-            && ![NSStringFromClass(obj.memoryLeakDeallocModel.controller.class) hasPrefix:@"UI"]) {
-            customizeCount++;
-        }
     }];
-
-    NSString *str = [NSString stringWithFormat:@"已泄漏VC:%d\n自定义VC:%d\n全部VC:%lu\n点击看详情\n(供参考)" ,
+    NSString *str = [NSString stringWithFormat:@"泄漏:%d\n全部:%lu\n点击看详情\n(供参考)" ,
                      leakCount,
-                     customizeCount,
                      (unsigned long)UIViewController.memoryLeakModelArray.count];
 
     NSArray <NSString *> *strs = [str componentsSeparatedByString:@"\n"];
