@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSArray <BMMemoryLeakModel *> *dataSourceArray;
+@property (nonatomic, assign, getter=isShowAll) BOOL showAll; ///< 是否选中全部控制器
 
 @end
 
@@ -25,7 +26,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.layer.cornerRadius = 30;
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.1];
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
     self.layer.masksToBounds = YES;
 }
 
@@ -41,22 +42,12 @@
 }
 
 - (IBAction)showAllButtonClick {
+    self.showAll = YES;
     self.dataSourceArray = self.memoryLeakModelArray;
 }
 
-- (IBAction)showCustomizeButtonClick {
-    NSMutableArray <BMMemoryLeakModel *> *arr = @[].mutableCopy;
-    [self.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *className = NSStringFromClass(obj.memoryLeakDeallocModel.controller.class);
-        if (![className hasPrefix:@"_"]
-            && ![className hasPrefix:@"UI"]) {
-            [arr addObject:obj];
-        }
-    }];
-    self.dataSourceArray = arr;
-}
-
 - (IBAction)showLeakButtonClick {
+    self.showAll = NO;
     NSMutableArray <BMMemoryLeakModel *> *arr = @[].mutableCopy;
     [self.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel.shouldDealloc) {
@@ -119,7 +110,17 @@
 }
 
 - (void)setDataSourceArray:(NSArray<BMMemoryLeakModel *> *)dataSourceArray {
-    _dataSourceArray = dataSourceArray.copy;
+    if (self.isShowAll) {
+        _dataSourceArray = dataSourceArray.copy;
+    } else {
+        NSMutableArray <BMMemoryLeakModel *> *arr = @[].mutableCopy;
+        [self.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.memoryLeakDeallocModel.shouldDealloc) {
+                [arr addObject:obj];
+            }
+        }];
+        _dataSourceArray = arr.copy;
+    }
     [self.tableView reloadData];
 }
 

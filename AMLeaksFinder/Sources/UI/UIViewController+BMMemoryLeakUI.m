@@ -34,8 +34,9 @@ static BMDragViewLabel *dragViewLabel;
             dragViewLabel.font = [UIFont systemFontOfSize:12];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
-                [UIApplication.sharedApplication.keyWindow addSubview:memoryLeakView];
-                [UIApplication.sharedApplication.keyWindow addSubview:dragViewLabel];
+                UIViewController *rootVC = UIApplication.sharedApplication.keyWindow.rootViewController;
+                [rootVC.view addSubview:memoryLeakView];
+                [rootVC.view addSubview:dragViewLabel];
                 [dragViewLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDragClick)]];
             });
         });
@@ -47,6 +48,12 @@ static BMDragViewLabel *dragViewLabel;
 }
 
 + (void)udpateUI {
+    UIViewController *rootVC = UIApplication.sharedApplication.keyWindow.rootViewController;
+    if (memoryLeakView.superview != rootVC.view) {
+        [rootVC.view addSubview:memoryLeakView];
+        [rootVC.view addSubview:dragViewLabel];
+    }
+    
     __block int leakCount = 0;
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel.shouldDealloc) {
