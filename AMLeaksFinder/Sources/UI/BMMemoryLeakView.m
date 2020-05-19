@@ -16,27 +16,22 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSArray <BMMemoryLeakModel *> *dataSourceArray;
 @property (nonatomic, assign, getter=isShowAll) BOOL showAll; ///< 是否选中全部控制器
+@property (nonatomic, assign) CGPoint oldPoint; ///< oldPoint
 
 @end
 
 @implementation BMMemoryLeakView
 
-#pragma mark -
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.layer.cornerRadius = 30;
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
-    self.layer.masksToBounds = YES;
+    [self initUI];
 }
 
 #pragma mark - init
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.layer.cornerRadius = 30;
-        self.layer.masksToBounds = YES;
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.1];
+        [self initUI];
     }
     return self;
 }
@@ -122,6 +117,39 @@
         _dataSourceArray = arr.copy;
     }
     [self.tableView reloadData];
+}
+
+#pragma mark - 私有方法
+
+- (void)initUI {
+    self.layer.cornerRadius = 30;
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
+    self.layer.masksToBounds = YES;
+    [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
+}
+
+#pragma mark - 事件响应
+
+- (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    CGPoint point = [panGestureRecognizer locationInView:self.superview];
+    switch (panGestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            self.oldPoint = point;
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            CGRect frame = self.frame;
+            frame.origin.y = (self.frame.origin.y + (point.y - self.oldPoint.y));
+            frame.origin.x = (self.frame.origin.x + (point.x - self.oldPoint.x));
+            self.oldPoint = point;
+            self.frame = frame;
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+            break;
+        default:
+            break;
+    }
 }
 
 @end

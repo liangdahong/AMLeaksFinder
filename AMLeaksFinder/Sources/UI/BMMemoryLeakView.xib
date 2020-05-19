@@ -15,10 +15,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-BQ-71J">
-                    <rect key="frame" x="0.0" y="30" width="363" height="223"/>
+                    <rect key="frame" x="10" y="30" width="343" height="213"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <view key="tableFooterView" contentMode="scaleToFill" id="cVL-fF-7V8">
-                        <rect key="frame" x="0.0" y="828" width="363" height="0.0"/>
+                        <rect key="frame" x="0.0" y="828" width="343" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="06H-Ef-did"/>
@@ -45,14 +45,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ZGR-BQ-71J" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6yS-BH-Q4y"/>
+                <constraint firstItem="ZGR-BQ-71J" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="6yS-BH-Q4y"/>
                 <constraint firstItem="mKX-mg-dec" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Ph-Aw-OHA"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZGR-BQ-71J" secondAttribute="bottom" id="8Zx-QF-GAn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZGR-BQ-71J" secondAttribute="bottom" constant="10" id="8Zx-QF-GAn"/>
                 <constraint firstItem="mKX-mg-dec" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9kI-pF-EIK"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kl1-DU-RUx"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="leading" secondItem="mKX-mg-dec" secondAttribute="trailing" id="Unm-bS-BP7"/>
                 <constraint firstItem="ZGR-BQ-71J" firstAttribute="top" secondItem="mKX-mg-dec" secondAttribute="bottom" id="UvU-Kp-7tZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZGR-BQ-71J" secondAttribute="trailing" id="cs8-4w-oD7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZGR-BQ-71J" secondAttribute="trailing" constant="10" id="cs8-4w-oD7"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="width" secondItem="mKX-mg-dec" secondAttribute="width" id="gP8-2u-afv"/>
                 <constraint firstAttribute="trailing" secondItem="Jfh-Ja-nG9" secondAttribute="trailing" id="lcY-D5-2Q5"/>
             </constraints>
