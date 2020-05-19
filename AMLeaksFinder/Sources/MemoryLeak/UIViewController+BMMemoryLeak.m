@@ -35,11 +35,11 @@ static void *associatedKey = &associatedKey;
         swizzleInstanceMethod(UIViewController.class,
                               @selector(viewDidLoad),
                               @selector(bm_test_viewDidLoad));
-
+        
         swizzleInstanceMethod(UIViewController.class,
                               @selector(dismissViewControllerAnimated:completion:),
                               @selector(bm_test_dismissViewControllerAnimated:completion:));
-
+        
     });
 }
 
@@ -57,7 +57,7 @@ static void *associatedKey = &associatedKey;
     BMMemoryLeakModel *memoryLeakModel = BMMemoryLeakModel.new;
     memoryLeakModel.memoryLeakDeallocModel = deallocModel;
     [UIViewController.memoryLeakModelArray insertObject:memoryLeakModel atIndex:0];
-
+    
     // update ui
     [UIViewController udpateUI];
 }
@@ -71,18 +71,7 @@ static void *associatedKey = &associatedKey;
     if (!dismissedViewController) {
         return;
     }
-    
-    [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.memoryLeakDeallocModel.controller == dismissedViewController) {
-            obj.memoryLeakDeallocModel.shouldDealloc = YES;
-            *stop = YES;
-        }
-    }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // update ui
-        [UIViewController udpateUI];
-    });
-    NSLog(@"bm_test_dismissViewControllerAnimated: %@", self);
+    [dismissedViewController bm_test_shouldDealloc];
 }
 
 + (NSMutableArray<BMMemoryLeakModel *> *)memoryLeakModelArray {
@@ -105,6 +94,20 @@ static void *associatedKey = &associatedKey;
         [arr addObjectsFromArray:obj.bm_test_selfAndAllChildController.copy];
     }];
     return arr.copy;
+}
+
+- (void)bm_test_shouldDealloc {
+    [self.bm_test_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+            if (obj1.memoryLeakDeallocModel.controller == obj) {
+                obj1.memoryLeakDeallocModel.shouldDealloc = YES;
+            }
+        }];
+    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // update ui
+        [UIViewController udpateUI];
+    });
 }
 
 @end

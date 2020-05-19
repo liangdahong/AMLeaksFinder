@@ -35,20 +35,12 @@
             }
         }];
         if (!flag) {
-            [muarray addObjectsFromArray:obj.bm_test_selfAndAllChildController];
+            [muarray addObject:obj];
         }
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-            if (obj1.memoryLeakDeallocModel.controller == obj) {
-                obj1.memoryLeakDeallocModel.shouldDealloc = YES;
-            }
-        }];
+        [obj bm_test_shouldDealloc];
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // update ui
-        [UIViewController udpateUI];
-    });
     [self bm_test_setViewControllers:viewControllers];
 }
 
@@ -66,16 +58,8 @@
         }
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(BMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-            if (obj1.memoryLeakDeallocModel.controller == obj) {
-                obj1.memoryLeakDeallocModel.shouldDealloc = YES;
-            }
-        }];
+        [obj bm_test_shouldDealloc];
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // update ui
-        [UIViewController udpateUI];
-    });
     [self bm_test_setViewControllers:viewControllers animated:animated];
 }
 

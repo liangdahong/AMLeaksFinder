@@ -17,4 +17,6 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
 
 @property (nonatomic, strong, readonly) NSArray <UIViewController *> *bm_test_selfAndAllChildController;
 
+- (void)bm_test_shouldDealloc;
+
 @end
