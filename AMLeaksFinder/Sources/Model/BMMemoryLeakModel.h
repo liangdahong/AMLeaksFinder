@@ -13,5 +13,4 @@
 
 @property (nonatomic, weak) BMMemoryLeakDeallocModel *memoryLeakDeallocModel; ///< memoryLeakDeallocModel
 
-
 @end

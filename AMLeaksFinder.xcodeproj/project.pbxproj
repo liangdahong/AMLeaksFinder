@@ -3,40 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		045E3C202472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C1F2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m */; };
-		045E3C232472D02900EBC381 /* BMMemoryLeakModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C222472D02900EBC381 /* BMMemoryLeakModel.m */; };
-		045E3C262472D04300EBC381 /* BMMemoryLeakDeallocModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C252472D04300EBC381 /* BMMemoryLeakDeallocModel.m */; };
-		045E3C292472D12200EBC381 /* BMMemoryLeakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E3C282472D12200EBC381 /* BMMemoryLeakView.m */; };
-		045E3C2B2472D12E00EBC381 /* BMMemoryLeakView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045E3C2A2472D12E00EBC381 /* BMMemoryLeakView.xib */; };
-		0491263B2472DA49002CABCA /* BMDragViewLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491263A2472DA49002CABCA /* BMDragViewLabel.m */; };
-		05150D3324727F2100EA87F3 /* UIViewController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 05150D3224727F2100EA87F3 /* UIViewController+BMMemoryLeak.m */; };
-		051C9D31246B92EA001387E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D2A246B92EA001387E6 /* main.m */; };
-		051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D2B246B92EA001387E6 /* AppDelegate.m */; };
-		051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 051C9D3B246B9367001387E6 /* BMHomeVC.m */; };
-		051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051C9D3C246B9367001387E6 /* BMHomeVC.xib */; };
+		04F26BDB247434B200EAE0C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BAA247434B100EAE0C0 /* AppDelegate.m */; };
+		04F26BDC247434B200EAE0C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BAB247434B100EAE0C0 /* main.m */; };
+		04F26BDD247434B200EAE0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BAC247434B100EAE0C0 /* Assets.xcassets */; };
+		04F26BDE247434B200EAE0C0 /* BMeaksFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BAD247434B100EAE0C0 /* BMeaksFinder.xcdatamodeld */; };
+		04F26BDF247434B200EAE0C0 /* BMCorrectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB2247434B100EAE0C0 /* BMCorrectVC.m */; };
+		04F26BE0247434B200EAE0C0 /* BMCorrectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BB3247434B100EAE0C0 /* BMCorrectVC.xib */; };
+		04F26BE1247434B200EAE0C0 /* BMErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB6247434B100EAE0C0 /* BMErrorVC.m */; };
+		04F26BE2247434B200EAE0C0 /* BMErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BB7247434B100EAE0C0 /* BMErrorVC.xib */; };
+		04F26BE3247434B200EAE0C0 /* BMTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB9247434B100EAE0C0 /* BMTopView.m */; };
+		04F26BE4247434B200EAE0C0 /* BMTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBA247434B100EAE0C0 /* BMTopView.xib */; };
+		04F26BE5247434B200EAE0C0 /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BBD247434B100EAE0C0 /* BMHomeVC.m */; };
+		04F26BE6247434B200EAE0C0 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBE247434B100EAE0C0 /* BMHomeVC.xib */; };
+		04F26BE7247434B200EAE0C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBF247434B100EAE0C0 /* Info.plist */; };
+		04F26BE8247434B200EAE0C0 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BC3247434B100EAE0C0 /* XXNibBridge.m */; };
+		04F26BE9247434B200EAE0C0 /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BC5247434B100EAE0C0 /* XXNibConvention.m */; };
 		053E99EB24738F6100806B8E /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E824738F6100806B8E /* README_CN.md */; };
 		053E99EC24738F6100806B8E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E924738F6100806B8E /* LICENSE */; };
 		053E99ED24738F6100806B8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99EA24738F6100806B8E /* README.md */; };
-		056092362473ABA6004B492D /* UITabBarController+BMMemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 056092352473ABA6004B492D /* UITabBarController+BMMemoryLeak.m */; };
-		0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD7246B98FA00C77363 /* XXNibBridge.m */; };
-		0580DDDB246B98FA00C77363 /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDD9246B98FA00C77363 /* XXNibConvention.m */; };
-		0580DDE2246B996300C77363 /* BMErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDE0246B996300C77363 /* BMErrorVC.m */; };
-		0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0580DDE1246B996300C77363 /* BMErrorVC.xib */; };
-		0580DDE7246B996F00C77363 /* BMCorrectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDE5246B996F00C77363 /* BMCorrectVC.m */; };
-		0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0580DDE6246B996F00C77363 /* BMCorrectVC.xib */; };
-		0580DDEC246B999D00C77363 /* BMTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580DDEB246B999D00C77363 /* BMTopView.m */; };
-		0580DDEE246B99A300C77363 /* BMTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0580DDED246B99A300C77363 /* BMTopView.xib */; };
-		0588D0E3246B8E5700960BFC /* BMeaksFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0E1246B8E5700960BFC /* BMeaksFinder.xcdatamodeld */; };
-		0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0588D0E4246B8E5A00960BFC /* Assets.xcassets */; };
 		0588D0F5246B8E5A00960BFC /* AMLeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* AMLeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */; };
 		05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */; };
 		05A496312473C49700B3FACD /* pod.sh in Resources */ = {isa = PBXBuildFile; fileRef = 05A496302473C49700B3FACD /* pod.sh */; };
-		05B61EE22472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */; };
+		BA7F1C08CAAC812AC980A431 /* libPods-AMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,47 +50,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		045E3C1E2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BMMemoryLeak.h"; sourceTree = "<group>"; };
-		045E3C1F2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BMMemoryLeak.m"; sourceTree = "<group>"; };
-		045E3C212472D02900EBC381 /* BMMemoryLeakModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakModel.h; sourceTree = "<group>"; };
-		045E3C222472D02900EBC381 /* BMMemoryLeakModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakModel.m; sourceTree = "<group>"; };
-		045E3C242472D04300EBC381 /* BMMemoryLeakDeallocModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakDeallocModel.h; sourceTree = "<group>"; };
-		045E3C252472D04300EBC381 /* BMMemoryLeakDeallocModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakDeallocModel.m; sourceTree = "<group>"; };
-		045E3C272472D12200EBC381 /* BMMemoryLeakView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakView.h; sourceTree = "<group>"; };
-		045E3C282472D12200EBC381 /* BMMemoryLeakView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakView.m; sourceTree = "<group>"; };
-		045E3C2A2472D12E00EBC381 /* BMMemoryLeakView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMMemoryLeakView.xib; sourceTree = "<group>"; };
-		049126392472DA49002CABCA /* BMDragViewLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMDragViewLabel.h; sourceTree = "<group>"; };
-		0491263A2472DA49002CABCA /* BMDragViewLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMDragViewLabel.m; sourceTree = "<group>"; };
-		05150D3124727F2100EA87F3 /* UIViewController+BMMemoryLeak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeak.h"; sourceTree = "<group>"; };
-		05150D3224727F2100EA87F3 /* UIViewController+BMMemoryLeak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeak.m"; sourceTree = "<group>"; };
-		051C9D29246B92EA001387E6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		051C9D2A246B92EA001387E6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		051C9D2B246B92EA001387E6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		051C9D3A246B9367001387E6 /* BMHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
-		051C9D3B246B9367001387E6 /* BMHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
-		051C9D3C246B9367001387E6 /* BMHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		04F26BA9247434B100EAE0C0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04F26BAA247434B100EAE0C0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04F26BAB247434B100EAE0C0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04F26BAC247434B100EAE0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04F26BAE247434B100EAE0C0 /* BMeaksFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BMeaksFinder.xcdatamodel; sourceTree = "<group>"; };
+		04F26BB1247434B100EAE0C0 /* BMCorrectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCorrectVC.h; sourceTree = "<group>"; };
+		04F26BB2247434B100EAE0C0 /* BMCorrectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCorrectVC.m; sourceTree = "<group>"; };
+		04F26BB3247434B100EAE0C0 /* BMCorrectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCorrectVC.xib; sourceTree = "<group>"; };
+		04F26BB5247434B100EAE0C0 /* BMErrorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMErrorVC.h; sourceTree = "<group>"; };
+		04F26BB6247434B100EAE0C0 /* BMErrorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMErrorVC.m; sourceTree = "<group>"; };
+		04F26BB7247434B100EAE0C0 /* BMErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMErrorVC.xib; sourceTree = "<group>"; };
+		04F26BB8247434B100EAE0C0 /* BMTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTopView.h; sourceTree = "<group>"; };
+		04F26BB9247434B100EAE0C0 /* BMTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTopView.m; sourceTree = "<group>"; };
+		04F26BBA247434B100EAE0C0 /* BMTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMTopView.xib; sourceTree = "<group>"; };
+		04F26BBC247434B100EAE0C0 /* BMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
+		04F26BBD247434B100EAE0C0 /* BMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
+		04F26BBE247434B100EAE0C0 /* BMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		04F26BBF247434B100EAE0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F26BC2247434B100EAE0C0 /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
+		04F26BC3247434B100EAE0C0 /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
+		04F26BC4247434B100EAE0C0 /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
+		04F26BC5247434B100EAE0C0 /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
 		053E99E824738F6100806B8E /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = "<group>"; };
 		053E99E924738F6100806B8E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		053E99EA24738F6100806B8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		056092342473ABA6004B492D /* UITabBarController+BMMemoryLeak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+BMMemoryLeak.h"; sourceTree = "<group>"; };
-		056092352473ABA6004B492D /* UITabBarController+BMMemoryLeak.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+BMMemoryLeak.m"; sourceTree = "<group>"; };
-		0580DDD6246B98FA00C77363 /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
-		0580DDD7246B98FA00C77363 /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
-		0580DDD8246B98FA00C77363 /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
-		0580DDD9246B98FA00C77363 /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
-		0580DDDF246B996300C77363 /* BMErrorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMErrorVC.h; sourceTree = "<group>"; };
-		0580DDE0246B996300C77363 /* BMErrorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMErrorVC.m; sourceTree = "<group>"; };
-		0580DDE1246B996300C77363 /* BMErrorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMErrorVC.xib; sourceTree = "<group>"; };
-		0580DDE4246B996F00C77363 /* BMCorrectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMCorrectVC.h; sourceTree = "<group>"; };
-		0580DDE5246B996F00C77363 /* BMCorrectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMCorrectVC.m; sourceTree = "<group>"; };
-		0580DDE6246B996F00C77363 /* BMCorrectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMCorrectVC.xib; sourceTree = "<group>"; };
-		0580DDEA246B999D00C77363 /* BMTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMTopView.h; sourceTree = "<group>"; };
-		0580DDEB246B999D00C77363 /* BMTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMTopView.m; sourceTree = "<group>"; };
-		0580DDED246B99A300C77363 /* BMTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMTopView.xib; sourceTree = "<group>"; };
 		0588D0D2246B8E5700960BFC /* AMLeaksFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMLeaksFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0588D0E2246B8E5700960BFC /* BMeaksFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BMeaksFinder.xcdatamodel; sourceTree = "<group>"; };
-		0588D0E4246B8E5A00960BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0588D0E9246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0588D0F0246B8E5A00960BFC /* AMLeaksFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMLeaksFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMLeaksFinderTests.m; sourceTree = "<group>"; };
 		0588D0F6246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,8 +84,9 @@
 		0588D101246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AMLeaksFinder.podspec; sourceTree = "<group>"; };
 		05A496302473C49700B3FACD /* pod.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod.sh; sourceTree = "<group>"; };
-		05B61EE02472885B009CAD84 /* UIViewController+BMMemoryLeakUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeakUI.h"; sourceTree = "<group>"; };
-		05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeakUI.m"; sourceTree = "<group>"; };
+		6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3423B6F635C7E53054B88FE /* Pods-AMLeaksFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder.release.xcconfig"; sourceTree = "<group>"; };
+		EF28320575D35D75656AB5CC /* Pods-AMLeaksFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7F1C08CAAC812AC980A431 /* libPods-AMLeaksFinder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,86 +115,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		051C9D28246B92EA001387E6 /* AppDelegate */ = {
+		04F26BA7247434B100EAE0C0 /* AMLeaksFinder */ = {
 			isa = PBXGroup;
 			children = (
-				051C9D2A246B92EA001387E6 /* main.m */,
-				051C9D29246B92EA001387E6 /* AppDelegate.h */,
-				051C9D2B246B92EA001387E6 /* AppDelegate.m */,
+				04F26BA8247434B100EAE0C0 /* AppDelegate */,
+				04F26BAF247434B100EAE0C0 /* Classes */,
+				04F26BC0247434B100EAE0C0 /* Lib */,
+				04F26BAC247434B100EAE0C0 /* Assets.xcassets */,
+				04F26BAD247434B100EAE0C0 /* BMeaksFinder.xcdatamodeld */,
+				04F26BBF247434B100EAE0C0 /* Info.plist */,
+			);
+			path = AMLeaksFinder;
+			sourceTree = "<group>";
+		};
+		04F26BA8247434B100EAE0C0 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				04F26BA9247434B100EAE0C0 /* AppDelegate.h */,
+				04F26BAA247434B100EAE0C0 /* AppDelegate.m */,
+				04F26BAB247434B100EAE0C0 /* main.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		051C9D2C246B92EA001387E6 /* Classes */ = {
+		04F26BAF247434B100EAE0C0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0580DDE9246B997800C77363 /* Home */,
-				0580DDDE246B991300C77363 /* Error */,
-				0580DDDD246B991100C77363 /* Correct */,
+				04F26BB0247434B100EAE0C0 /* Correct */,
+				04F26BB4247434B100EAE0C0 /* Error */,
+				04F26BBB247434B100EAE0C0 /* Home */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		051C9D2F246B92EA001387E6 /* Sources */ = {
+		04F26BB0247434B100EAE0C0 /* Correct */ = {
 			isa = PBXGroup;
 			children = (
-				05A7FBF7247396A60016A45B /* Model */,
-				05A7FBF6247396A40016A45B /* MemoryLeak */,
-				05A7FBF52473968A0016A45B /* UI */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		0580DDD5246B98FA00C77363 /* XXNibBridge */ = {
-			isa = PBXGroup;
-			children = (
-				0580DDD6246B98FA00C77363 /* XXNibBridge.h */,
-				0580DDD7246B98FA00C77363 /* XXNibBridge.m */,
-				0580DDD8246B98FA00C77363 /* XXNibConvention.h */,
-				0580DDD9246B98FA00C77363 /* XXNibConvention.m */,
-			);
-			path = XXNibBridge;
-			sourceTree = "<group>";
-		};
-		0580DDDC246B98FC00C77363 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				0580DDD5246B98FA00C77363 /* XXNibBridge */,
-			);
-			path = Lib;
-			sourceTree = "<group>";
-		};
-		0580DDDD246B991100C77363 /* Correct */ = {
-			isa = PBXGroup;
-			children = (
-				0580DDE4246B996F00C77363 /* BMCorrectVC.h */,
-				0580DDE5246B996F00C77363 /* BMCorrectVC.m */,
-				0580DDE6246B996F00C77363 /* BMCorrectVC.xib */,
+				04F26BB1247434B100EAE0C0 /* BMCorrectVC.h */,
+				04F26BB2247434B100EAE0C0 /* BMCorrectVC.m */,
+				04F26BB3247434B100EAE0C0 /* BMCorrectVC.xib */,
 			);
 			path = Correct;
 			sourceTree = "<group>";
 		};
-		0580DDDE246B991300C77363 /* Error */ = {
+		04F26BB4247434B100EAE0C0 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				0580DDEA246B999D00C77363 /* BMTopView.h */,
-				0580DDEB246B999D00C77363 /* BMTopView.m */,
-				0580DDED246B99A300C77363 /* BMTopView.xib */,
-				0580DDDF246B996300C77363 /* BMErrorVC.h */,
-				0580DDE0246B996300C77363 /* BMErrorVC.m */,
-				0580DDE1246B996300C77363 /* BMErrorVC.xib */,
+				04F26BB5247434B100EAE0C0 /* BMErrorVC.h */,
+				04F26BB6247434B100EAE0C0 /* BMErrorVC.m */,
+				04F26BB7247434B100EAE0C0 /* BMErrorVC.xib */,
+				04F26BB8247434B100EAE0C0 /* BMTopView.h */,
+				04F26BB9247434B100EAE0C0 /* BMTopView.m */,
+				04F26BBA247434B100EAE0C0 /* BMTopView.xib */,
 			);
 			path = Error;
 			sourceTree = "<group>";
 		};
-		0580DDE9246B997800C77363 /* Home */ = {
+		04F26BBB247434B100EAE0C0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				051C9D3A246B9367001387E6 /* BMHomeVC.h */,
-				051C9D3B246B9367001387E6 /* BMHomeVC.m */,
-				051C9D3C246B9367001387E6 /* BMHomeVC.xib */,
+				04F26BBC247434B100EAE0C0 /* BMHomeVC.h */,
+				04F26BBD247434B100EAE0C0 /* BMHomeVC.m */,
+				04F26BBE247434B100EAE0C0 /* BMHomeVC.xib */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		04F26BC0247434B100EAE0C0 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				04F26BC1247434B100EAE0C0 /* XXNibBridge */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		04F26BC1247434B100EAE0C0 /* XXNibBridge */ = {
+			isa = PBXGroup;
+			children = (
+				04F26BC2247434B100EAE0C0 /* XXNibBridge.h */,
+				04F26BC3247434B100EAE0C0 /* XXNibBridge.m */,
+				04F26BC4247434B100EAE0C0 /* XXNibConvention.h */,
+				04F26BC5247434B100EAE0C0 /* XXNibConvention.m */,
+			);
+			path = XXNibBridge;
 			sourceTree = "<group>";
 		};
 		0588D0C9246B8E5700960BFC = {
@@ -225,10 +208,12 @@
 				053E99EA24738F6100806B8E /* README.md */,
 				05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */,
 				05A496302473C49700B3FACD /* pod.sh */,
-				0588D0D4246B8E5700960BFC /* AMLeaksFinder */,
+				04F26BA7247434B100EAE0C0 /* AMLeaksFinder */,
 				0588D0F3246B8E5A00960BFC /* AMLeaksFinderTests */,
 				0588D0FE246B8E5A00960BFC /* AMLeaksFinderUITests */,
 				0588D0D3246B8E5700960BFC /* Products */,
+				C826977CE69D30649F6FFBC9 /* Pods */,
+				A6A33BE6F41CC35608821A9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,20 +225,6 @@
 				0588D0FB246B8E5A00960BFC /* AMLeaksFinderUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0588D0D4246B8E5700960BFC /* AMLeaksFinder */ = {
-			isa = PBXGroup;
-			children = (
-				051C9D2F246B92EA001387E6 /* Sources */,
-				051C9D28246B92EA001387E6 /* AppDelegate */,
-				051C9D2C246B92EA001387E6 /* Classes */,
-				0580DDDC246B98FC00C77363 /* Lib */,
-				0588D0E4246B8E5A00960BFC /* Assets.xcassets */,
-				0588D0E9246B8E5A00960BFC /* Info.plist */,
-				0588D0E1246B8E5700960BFC /* BMeaksFinder.xcdatamodeld */,
-			);
-			path = AMLeaksFinder;
 			sourceTree = "<group>";
 		};
 		0588D0F3246B8E5A00960BFC /* AMLeaksFinderTests */ = {
@@ -274,42 +245,21 @@
 			path = AMLeaksFinderUITests;
 			sourceTree = "<group>";
 		};
-		05A7FBF52473968A0016A45B /* UI */ = {
+		A6A33BE6F41CC35608821A9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				049126392472DA49002CABCA /* BMDragViewLabel.h */,
-				0491263A2472DA49002CABCA /* BMDragViewLabel.m */,
-				045E3C272472D12200EBC381 /* BMMemoryLeakView.h */,
-				045E3C282472D12200EBC381 /* BMMemoryLeakView.m */,
-				045E3C2A2472D12E00EBC381 /* BMMemoryLeakView.xib */,
-				05B61EE02472885B009CAD84 /* UIViewController+BMMemoryLeakUI.h */,
-				05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */,
+				6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */,
 			);
-			path = UI;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		05A7FBF6247396A40016A45B /* MemoryLeak */ = {
+		C826977CE69D30649F6FFBC9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05150D3124727F2100EA87F3 /* UIViewController+BMMemoryLeak.h */,
-				05150D3224727F2100EA87F3 /* UIViewController+BMMemoryLeak.m */,
-				045E3C1E2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.h */,
-				045E3C1F2472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m */,
-				056092342473ABA6004B492D /* UITabBarController+BMMemoryLeak.h */,
-				056092352473ABA6004B492D /* UITabBarController+BMMemoryLeak.m */,
+				EF28320575D35D75656AB5CC /* Pods-AMLeaksFinder.debug.xcconfig */,
+				A3423B6F635C7E53054B88FE /* Pods-AMLeaksFinder.release.xcconfig */,
 			);
-			path = MemoryLeak;
-			sourceTree = "<group>";
-		};
-		05A7FBF7247396A60016A45B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				045E3C212472D02900EBC381 /* BMMemoryLeakModel.h */,
-				045E3C222472D02900EBC381 /* BMMemoryLeakModel.m */,
-				045E3C242472D04300EBC381 /* BMMemoryLeakDeallocModel.h */,
-				045E3C252472D04300EBC381 /* BMMemoryLeakDeallocModel.m */,
-			);
-			path = Model;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +269,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0588D104246B8E5A00960BFC /* Build configuration list for PBXNativeTarget "AMLeaksFinder" */;
 			buildPhases = (
+				3CA8CC5B9C9F26A70746E590 /* [CP] Check Pods Manifest.lock */,
 				0588D0CE246B8E5700960BFC /* Sources */,
 				0588D0CF246B8E5700960BFC /* Frameworks */,
 				0588D0D0246B8E5700960BFC /* Resources */,
+				5C00613D74886444A0C50324 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,17 +367,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0580DDEE246B99A300C77363 /* BMTopView.xib in Resources */,
+				04F26BE2247434B200EAE0C0 /* BMErrorVC.xib in Resources */,
 				053E99EB24738F6100806B8E /* README_CN.md in Resources */,
 				053E99EC24738F6100806B8E /* LICENSE in Resources */,
 				05A496312473C49700B3FACD /* pod.sh in Resources */,
-				045E3C2B2472D12E00EBC381 /* BMMemoryLeakView.xib in Resources */,
-				051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */,
+				04F26BE4247434B200EAE0C0 /* BMTopView.xib in Resources */,
 				05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */,
-				0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */,
+				04F26BE0247434B200EAE0C0 /* BMCorrectVC.xib in Resources */,
+				04F26BDD247434B200EAE0C0 /* Assets.xcassets in Resources */,
+				04F26BE7247434B200EAE0C0 /* Info.plist in Resources */,
+				04F26BE6247434B200EAE0C0 /* BMHomeVC.xib in Resources */,
 				053E99ED24738F6100806B8E /* README.md in Resources */,
-				0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */,
-				0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,28 +397,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CA8CC5B9C9F26A70746E590 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AMLeaksFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C00613D74886444A0C50324 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0588D0CE246B8E5700960BFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05150D3324727F2100EA87F3 /* UIViewController+BMMemoryLeak.m in Sources */,
-				0580DDDB246B98FA00C77363 /* XXNibConvention.m in Sources */,
-				051C9D3D246B9368001387E6 /* BMHomeVC.m in Sources */,
-				051C9D31246B92EA001387E6 /* main.m in Sources */,
-				045E3C292472D12200EBC381 /* BMMemoryLeakView.m in Sources */,
-				0580DDEC246B999D00C77363 /* BMTopView.m in Sources */,
-				05B61EE22472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m in Sources */,
-				0491263B2472DA49002CABCA /* BMDragViewLabel.m in Sources */,
-				045E3C202472CC5C00EBC381 /* UINavigationController+BMMemoryLeak.m in Sources */,
-				0580DDDA246B98FA00C77363 /* XXNibBridge.m in Sources */,
-				0580DDE7246B996F00C77363 /* BMCorrectVC.m in Sources */,
-				0588D0E3246B8E5700960BFC /* BMeaksFinder.xcdatamodeld in Sources */,
-				051C9D32246B92EA001387E6 /* AppDelegate.m in Sources */,
-				045E3C232472D02900EBC381 /* BMMemoryLeakModel.m in Sources */,
-				056092362473ABA6004B492D /* UITabBarController+BMMemoryLeak.m in Sources */,
-				0580DDE2246B996300C77363 /* BMErrorVC.m in Sources */,
-				045E3C262472D04300EBC381 /* BMMemoryLeakDeallocModel.m in Sources */,
+				04F26BDC247434B200EAE0C0 /* main.m in Sources */,
+				04F26BE5247434B200EAE0C0 /* BMHomeVC.m in Sources */,
+				04F26BE3247434B200EAE0C0 /* BMTopView.m in Sources */,
+				04F26BE1247434B200EAE0C0 /* BMErrorVC.m in Sources */,
+				04F26BDE247434B200EAE0C0 /* BMeaksFinder.xcdatamodeld in Sources */,
+				04F26BDF247434B200EAE0C0 /* BMCorrectVC.m in Sources */,
+				04F26BE8247434B200EAE0C0 /* XXNibBridge.m in Sources */,
+				04F26BE9247434B200EAE0C0 /* XXNibConvention.m in Sources */,
+				04F26BDB247434B200EAE0C0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +600,7 @@
 		};
 		0588D105246B8E5A00960BFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF28320575D35D75656AB5CC /* Pods-AMLeaksFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +619,7 @@
 		};
 		0588D106246B8E5A00960BFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3423B6F635C7E53054B88FE /* Pods-AMLeaksFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -766,12 +754,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0588D0E1246B8E5700960BFC /* BMeaksFinder.xcdatamodeld */ = {
+		04F26BAD247434B100EAE0C0 /* BMeaksFinder.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0588D0E2246B8E5700960BFC /* BMeaksFinder.xcdatamodel */,
+				04F26BAE247434B100EAE0C0 /* BMeaksFinder.xcdatamodel */,
 			);
-			currentVersion = 0588D0E2246B8E5700960BFC /* BMeaksFinder.xcdatamodel */;
+			currentVersion = 04F26BAE247434B100EAE0C0 /* BMeaksFinder.xcdatamodel */;
 			path = BMeaksFinder.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

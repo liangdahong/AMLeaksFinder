@@ -20,11 +20,10 @@ static BMDragViewLabel *dragViewLabel;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-            memoryLeakView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(BMMemoryLeakView.class) owner:nil options:nil].firstObject;
+            memoryLeakView = [[UINib nibWithNibName:NSStringFromClass(BMMemoryLeakView.class) bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
             memoryLeakView.frame = CGRectMake(30, 60, 200, 300);
             memoryLeakView.hidden = YES;
-
+            
             dragViewLabel = BMDragViewLabel.new;
             dragViewLabel.frame = CGRectMake(0, 100, 88, 88);
             dragViewLabel.layer.cornerRadius = 30;

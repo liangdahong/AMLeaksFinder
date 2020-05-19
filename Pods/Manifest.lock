@@ -1,0 +1,16 @@
+PODS:
+  - AMLeaksFinder (1.0.2)
+
+DEPENDENCIES:
+  - AMLeaksFinder (from `../AMLeaksFinder/`)
+
+EXTERNAL SOURCES:
+  AMLeaksFinder:
+    :path: "../AMLeaksFinder/"
+
+SPEC CHECKSUMS:
+  AMLeaksFinder: cabbb5b04849a907e329dba36cdc917ee884d5eb
+
+PODFILE CHECKSUM: 0fa1a74d077c9a953c19ac2500462950c7f6ddc9
+
+COCOAPODS: 1.8.4
