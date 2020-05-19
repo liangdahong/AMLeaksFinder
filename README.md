@@ -15,7 +15,5 @@ A small tool for automatically detecting the [controller memory leak] in the pro
 ## Renderings
 
 <p align="center">
-    <img  width="22%" src="Images/001.gif"/>
-    <img  width="22%" src="Images/002.gif"/>
     <img  width="22%" src="Images/003.gif"/>
 <p/>
