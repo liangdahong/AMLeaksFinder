@@ -1,1 +1,1 @@
-../../../../AMLeaksFinder/Sources/Model/BMMemoryLeakDeallocModel.h
+../../../../Sources/Model/BMMemoryLeakDeallocModel.h

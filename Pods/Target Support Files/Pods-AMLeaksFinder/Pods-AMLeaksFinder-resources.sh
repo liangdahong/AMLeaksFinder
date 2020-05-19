@@ -97,10 +97,10 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/../AMLeaksFinder/Sources/UI/BMMemoryLeakView.xib"
+  install_resource "${PODS_ROOT}/../Sources/UI/BMMemoryLeakView.xib"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/../AMLeaksFinder/Sources/UI/BMMemoryLeakView.xib"
+  install_resource "${PODS_ROOT}/../Sources/UI/BMMemoryLeakView.xib"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

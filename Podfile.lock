@@ -1,5 +1,5 @@
 PODS:
-  - AMLeaksFinder (1.0.2)
+  - AMLeaksFinder (1.0.3)
 
 DEPENDENCIES:
   - AMLeaksFinder (from `../AMLeaksFinder/`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../AMLeaksFinder/"
 
 SPEC CHECKSUMS:
-  AMLeaksFinder: cabbb5b04849a907e329dba36cdc917ee884d5eb
+  AMLeaksFinder: ed9763c8b10f8a3f525a00f87e21debcbd0e01b5
 
 PODFILE CHECKSUM: 0fa1a74d077c9a953c19ac2500462950c7f6ddc9
 

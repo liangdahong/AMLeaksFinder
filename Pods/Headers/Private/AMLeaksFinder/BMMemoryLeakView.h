@@ -1,1 +1,1 @@
-../../../../AMLeaksFinder/Sources/UI/BMMemoryLeakView.h
+../../../../Sources/UI/BMMemoryLeakView.h

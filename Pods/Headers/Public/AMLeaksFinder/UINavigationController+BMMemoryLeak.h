@@ -1,1 +1,1 @@
-../../../../AMLeaksFinder/Sources/MemoryLeak/UINavigationController+BMMemoryLeak.h
+../../../../Sources/MemoryLeak/UINavigationController+BMMemoryLeak.h

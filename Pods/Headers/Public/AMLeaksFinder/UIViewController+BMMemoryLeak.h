@@ -1,1 +1,1 @@
-../../../../AMLeaksFinder/Sources/MemoryLeak/UIViewController+BMMemoryLeak.h
+../../../../Sources/MemoryLeak/UIViewController+BMMemoryLeak.h

@@ -1,1 +1,1 @@
-../../../../AMLeaksFinder/Sources/MemoryLeak/UITabBarController+BMMemoryLeak.h
+../../../../Sources/MemoryLeak/UITabBarController+BMMemoryLeak.h

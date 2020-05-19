@@ -1,1 +1,1 @@
-../../../../AMLeaksFinder/Sources/UI/BMDragViewLabel.h
+../../../../Sources/UI/BMDragViewLabel.h
