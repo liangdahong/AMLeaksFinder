@@ -15,7 +15,5 @@
 ## 效果演示
 
 <p align="center">
-    <img  width="22%" src="Images/001.gif"/>
-    <img  width="22%" src="Images/002.gif"/>
     <img  width="22%" src="Images/003.gif"/>
 <p/>
