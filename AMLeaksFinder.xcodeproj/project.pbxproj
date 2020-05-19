@@ -34,6 +34,7 @@
 		0588D0E5246B8E5A00960BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0588D0E4246B8E5A00960BFC /* Assets.xcassets */; };
 		0588D0F5246B8E5A00960BFC /* AMLeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* AMLeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */; };
+		05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */; };
 		05B61EE22472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		0588D0FB246B8E5A00960BFC /* AMLeaksFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMLeaksFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMLeaksFinderUITests.m; sourceTree = "<group>"; };
 		0588D101246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AMLeaksFinder.podspec; sourceTree = "<group>"; };
 		05B61EE02472885B009CAD84 /* UIViewController+BMMemoryLeakUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeakUI.h"; sourceTree = "<group>"; };
 		05B61EE12472885B009CAD84 /* UIViewController+BMMemoryLeakUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeakUI.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +221,7 @@
 				053E99E924738F6100806B8E /* LICENSE */,
 				053E99E824738F6100806B8E /* README_CN.md */,
 				053E99EA24738F6100806B8E /* README.md */,
+				05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */,
 				0588D0D4246B8E5700960BFC /* AMLeaksFinder */,
 				0588D0F3246B8E5A00960BFC /* AMLeaksFinderTests */,
 				0588D0FE246B8E5A00960BFC /* AMLeaksFinderUITests */,
@@ -414,6 +417,7 @@
 				053E99EC24738F6100806B8E /* LICENSE in Resources */,
 				045E3C2B2472D12E00EBC381 /* BMMemoryLeakView.xib in Resources */,
 				051C9D3E246B9368001387E6 /* BMHomeVC.xib in Resources */,
+				05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */,
 				0580DDE3246B996300C77363 /* BMErrorVC.xib in Resources */,
 				053E99ED24738F6100806B8E /* README.md in Resources */,
 				0580DDE8246B996F00C77363 /* BMCorrectVC.xib in Resources */,
