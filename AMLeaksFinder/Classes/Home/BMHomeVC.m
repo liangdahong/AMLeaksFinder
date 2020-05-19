@@ -17,15 +17,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"测试" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"去正常释放的界面" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-           [self.navigationController pushViewController:BMCorrectVC.new animated:YES];
-    }]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"去用内存泄露的局面" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController pushViewController:BMErrorVC.new animated:YES];
-    }]];
-    [self presentViewController:alertVC animated:YES completion:nil];
+- (IBAction)noLeakButtonClick {
+    [self.navigationController pushViewController:BMCorrectVC.new animated:YES];
+}
+
+- (IBAction)leakButtonClick {
+    [self.navigationController pushViewController:BMErrorVC.new animated:YES];
 }
 
 @end
