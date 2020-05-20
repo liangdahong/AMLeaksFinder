@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054A1B9C247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 054A1B9A247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.h */; };
+		054A1B9D247502260067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B9B247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.m */; };
+		054A1BA0247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 054A1B9E247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.h */; };
+		054A1BA1247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B9F247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.m */; };
 		1AAFB16355C98E9C9079BD763649AB91 /* UIViewController+AMLeaksFinderUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8428DE6DDAE8FDF70F873A663FBD7B90 /* UIViewController+AMLeaksFinderUI.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		27BAFF539CE6640687FC6AB94B465F2C /* Pods-AMLeaksFinder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 358223970EDEA1AD75F43249D9108338 /* Pods-AMLeaksFinder-dummy.m */; };
 		42D1249C1E31936DFCD43998A7B9556D /* UINavigationController+AMLeaksFinderSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7404B871F8ECA31A5DDD67F3741E5D1B /* UINavigationController+AMLeaksFinderSwizzle.m */; };
@@ -40,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054A1B9A247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+AMLeaksFinderSwizzle.h"; sourceTree = "<group>"; };
+		054A1B9B247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+AMLeaksFinderSwizzle.m"; sourceTree = "<group>"; };
+		054A1B9E247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+AMLeaksFinderSwizzle.h"; sourceTree = "<group>"; };
+		054A1B9F247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+AMLeaksFinderSwizzle.m"; sourceTree = "<group>"; };
 		150E859F305142231F7EB79A77DA742A /* AMLeaksFinder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AMLeaksFinder.xcconfig; sourceTree = "<group>"; };
 		17317A0D176985DC7C26D67855E85194 /* AMMemoryLeakModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AMMemoryLeakModel.m; sourceTree = "<group>"; };
 		19F32A1EA8A512B7E3653923B14F5F69 /* UIViewController+AMLeaksFinderUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AMLeaksFinderUI.m"; sourceTree = "<group>"; };
@@ -240,6 +248,10 @@
 				809C9D8B3AD17D3BE76E8856BCB843E9 /* UITabBarController+AMLeaksFinderSwizzle.m */,
 				77102526292DE9CF75DA2F46314D828E /* UIViewController+AMLeaksFinderSwizzle.h */,
 				5109F2078326D4CDB7D1AE765A7F216A /* UIViewController+AMLeaksFinderSwizzle.m */,
+				054A1B9A247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.h */,
+				054A1B9B247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.m */,
+				054A1B9E247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.h */,
+				054A1B9F247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.m */,
 			);
 			name = MemoryLeak;
 			path = Sources/MemoryLeak;
@@ -255,7 +267,9 @@
 				50383BB3994DEC3E6CB035032A191228 /* AMDragViewLabel.h in Headers */,
 				FAA83B2B021CFAA75424709F499857A8 /* AMMemoryLeakDeallocModel.h in Headers */,
 				CC211559D6C1F19408BE2279E69011BF /* AMMemoryLeakModel.h in Headers */,
+				054A1BA0247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.h in Headers */,
 				7F3137D21596E61F3C88CC4DAD1F6A9E /* AMMemoryLeakView.h in Headers */,
+				054A1B9C247502250067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.h in Headers */,
 				ADC4A62B96BF40D5A24570FBB96D83BA /* UINavigationController+AMLeaksFinderSwizzle.h in Headers */,
 				9B03E75CC89D4F407E33E44F790A4AE9 /* UITabBarController+AMLeaksFinderSwizzle.h in Headers */,
 				E55BA7D45411CDD88972F00B86DC1A92 /* UIViewController+AMLeaksFinderTools.h in Headers */,
@@ -342,8 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C1D07BB15436ACB301547EEB3F7CAC9 /* AMLeaksFinder-dummy.m in Sources */,
+				054A1BA1247502760067A9CF /* UISplitViewController+AMLeaksFinderSwizzle.m in Sources */,
 				AE5FD227897620034A8A772A08C57CB3 /* AMDragViewLabel.m in Sources */,
 				7084724DD3AA86015817B86C9A53297F /* AMMemoryLeakDeallocModel.m in Sources */,
+				054A1B9D247502260067A9CF /* UIPageViewController+AMLeaksFinderSwizzle.m in Sources */,
 				B1D7C4110D33D5D8767A457EC567AAD6 /* AMMemoryLeakModel.m in Sources */,
 				E4D27B7C00FACC5DBF2FB8F751F7B6E6 /* AMMemoryLeakView.m in Sources */,
 				42D1249C1E31936DFCD43998A7B9556D /* UINavigationController+AMLeaksFinderSwizzle.m in Sources */,

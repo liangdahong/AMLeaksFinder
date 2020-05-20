@@ -46,6 +46,7 @@
         [viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj == obj1) {
                 flag = YES;
+                *stop1 = YES;
             }
         }];
         if (!flag) {
@@ -65,6 +66,7 @@
         [viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj == obj1) {
                 flag = YES;
+                *stop1 = YES;
             }
         }];
         if (!flag) {
