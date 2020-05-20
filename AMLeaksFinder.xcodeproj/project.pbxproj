@@ -11,20 +11,19 @@
 		04F26BDC247434B200EAE0C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BAB247434B100EAE0C0 /* main.m */; };
 		04F26BDD247434B200EAE0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BAC247434B100EAE0C0 /* Assets.xcassets */; };
 		04F26BDE247434B200EAE0C0 /* BMeaksFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BAD247434B100EAE0C0 /* BMeaksFinder.xcdatamodeld */; };
-		04F26BDF247434B200EAE0C0 /* BMCorrectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB2247434B100EAE0C0 /* BMCorrectVC.m */; };
-		04F26BE0247434B200EAE0C0 /* BMCorrectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BB3247434B100EAE0C0 /* BMCorrectVC.xib */; };
-		04F26BE1247434B200EAE0C0 /* BMErrorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB6247434B100EAE0C0 /* BMErrorVC.m */; };
-		04F26BE2247434B200EAE0C0 /* BMErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BB7247434B100EAE0C0 /* BMErrorVC.xib */; };
-		04F26BE3247434B200EAE0C0 /* BMTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB9247434B100EAE0C0 /* BMTopView.m */; };
-		04F26BE4247434B200EAE0C0 /* BMTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBA247434B100EAE0C0 /* BMTopView.xib */; };
-		04F26BE5247434B200EAE0C0 /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BBD247434B100EAE0C0 /* BMHomeVC.m */; };
-		04F26BE6247434B200EAE0C0 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBE247434B100EAE0C0 /* BMHomeVC.xib */; };
+		04F26BE3247434B200EAE0C0 /* AMTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BB9247434B100EAE0C0 /* AMTopView.m */; };
+		04F26BE4247434B200EAE0C0 /* AMTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBA247434B100EAE0C0 /* AMTopView.xib */; };
+		04F26BE5247434B200EAE0C0 /* AMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BBD247434B100EAE0C0 /* AMHomeVC.m */; };
+		04F26BE6247434B200EAE0C0 /* AMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBE247434B100EAE0C0 /* AMHomeVC.xib */; };
 		04F26BE7247434B200EAE0C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBF247434B100EAE0C0 /* Info.plist */; };
-		04F26BE8247434B200EAE0C0 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BC3247434B100EAE0C0 /* XXNibBridge.m */; };
-		04F26BE9247434B200EAE0C0 /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BC5247434B100EAE0C0 /* XXNibConvention.m */; };
 		053E99EB24738F6100806B8E /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E824738F6100806B8E /* README_CN.md */; };
 		053E99EC24738F6100806B8E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E924738F6100806B8E /* LICENSE */; };
 		053E99ED24738F6100806B8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99EA24738F6100806B8E /* README.md */; };
+		054A1B7D2474F9150067A9CF /* AMPushNoLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B7B2474F9150067A9CF /* AMPushNoLeakVC.m */; };
+		054A1B822474F9240067A9CF /* AMPushHasLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B802474F9240067A9CF /* AMPushHasLeakVC.m */; };
+		054A1B8C2474F9390067A9CF /* AMPresentHasLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B8A2474F9390067A9CF /* AMPresentHasLeakVC.m */; };
+		054A1B912474F97D0067A9CF /* AMPresentNoLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B8F2474F97D0067A9CF /* AMPresentNoLeakVC.m */; };
+		054A1B962474F9E50067A9CF /* AMBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B942474F9E50067A9CF /* AMBaseVC.m */; };
 		0588D0F5246B8E5A00960BFC /* AMLeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* AMLeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */; };
 		05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */; };
@@ -55,26 +54,26 @@
 		04F26BAB247434B100EAE0C0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04F26BAC247434B100EAE0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04F26BAE247434B100EAE0C0 /* BMeaksFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BMeaksFinder.xcdatamodel; sourceTree = "<group>"; };
-		04F26BB1247434B100EAE0C0 /* BMCorrectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCorrectVC.h; sourceTree = "<group>"; };
-		04F26BB2247434B100EAE0C0 /* BMCorrectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCorrectVC.m; sourceTree = "<group>"; };
-		04F26BB3247434B100EAE0C0 /* BMCorrectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCorrectVC.xib; sourceTree = "<group>"; };
-		04F26BB5247434B100EAE0C0 /* BMErrorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMErrorVC.h; sourceTree = "<group>"; };
-		04F26BB6247434B100EAE0C0 /* BMErrorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMErrorVC.m; sourceTree = "<group>"; };
-		04F26BB7247434B100EAE0C0 /* BMErrorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMErrorVC.xib; sourceTree = "<group>"; };
-		04F26BB8247434B100EAE0C0 /* BMTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTopView.h; sourceTree = "<group>"; };
-		04F26BB9247434B100EAE0C0 /* BMTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTopView.m; sourceTree = "<group>"; };
-		04F26BBA247434B100EAE0C0 /* BMTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMTopView.xib; sourceTree = "<group>"; };
-		04F26BBC247434B100EAE0C0 /* BMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
-		04F26BBD247434B100EAE0C0 /* BMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
-		04F26BBE247434B100EAE0C0 /* BMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		04F26BB8247434B100EAE0C0 /* AMTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTopView.h; sourceTree = "<group>"; };
+		04F26BB9247434B100EAE0C0 /* AMTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTopView.m; sourceTree = "<group>"; };
+		04F26BBA247434B100EAE0C0 /* AMTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMTopView.xib; sourceTree = "<group>"; };
+		04F26BBC247434B100EAE0C0 /* AMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMHomeVC.h; sourceTree = "<group>"; };
+		04F26BBD247434B100EAE0C0 /* AMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMHomeVC.m; sourceTree = "<group>"; };
+		04F26BBE247434B100EAE0C0 /* AMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMHomeVC.xib; sourceTree = "<group>"; };
 		04F26BBF247434B100EAE0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04F26BC2247434B100EAE0C0 /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
-		04F26BC3247434B100EAE0C0 /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
-		04F26BC4247434B100EAE0C0 /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
-		04F26BC5247434B100EAE0C0 /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
 		053E99E824738F6100806B8E /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = "<group>"; };
 		053E99E924738F6100806B8E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		053E99EA24738F6100806B8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		054A1B7A2474F9150067A9CF /* AMPushNoLeakVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMPushNoLeakVC.h; sourceTree = "<group>"; };
+		054A1B7B2474F9150067A9CF /* AMPushNoLeakVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMPushNoLeakVC.m; sourceTree = "<group>"; };
+		054A1B7F2474F9240067A9CF /* AMPushHasLeakVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMPushHasLeakVC.h; sourceTree = "<group>"; };
+		054A1B802474F9240067A9CF /* AMPushHasLeakVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMPushHasLeakVC.m; sourceTree = "<group>"; };
+		054A1B892474F9390067A9CF /* AMPresentHasLeakVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMPresentHasLeakVC.h; sourceTree = "<group>"; };
+		054A1B8A2474F9390067A9CF /* AMPresentHasLeakVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMPresentHasLeakVC.m; sourceTree = "<group>"; };
+		054A1B8E2474F97D0067A9CF /* AMPresentNoLeakVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMPresentNoLeakVC.h; sourceTree = "<group>"; };
+		054A1B8F2474F97D0067A9CF /* AMPresentNoLeakVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMPresentNoLeakVC.m; sourceTree = "<group>"; };
+		054A1B932474F9E50067A9CF /* AMBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMBaseVC.h; sourceTree = "<group>"; };
+		054A1B942474F9E50067A9CF /* AMBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMBaseVC.m; sourceTree = "<group>"; };
 		0588D0D2246B8E5700960BFC /* AMLeaksFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMLeaksFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0F0246B8E5A00960BFC /* AMLeaksFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMLeaksFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMLeaksFinderTests.m; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 			children = (
 				04F26BA8247434B100EAE0C0 /* AppDelegate */,
 				04F26BAF247434B100EAE0C0 /* Classes */,
-				04F26BC0247434B100EAE0C0 /* Lib */,
 				04F26BAC247434B100EAE0C0 /* Assets.xcassets */,
 				04F26BAD247434B100EAE0C0 /* BMeaksFinder.xcdatamodeld */,
 				04F26BBF247434B100EAE0C0 /* Info.plist */,
@@ -141,63 +139,56 @@
 		04F26BAF247434B100EAE0C0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				04F26BB0247434B100EAE0C0 /* Correct */,
-				04F26BB4247434B100EAE0C0 /* Error */,
+				054A1B992474FB5D0067A9CF /* View */,
+				054A1B982474FB4F0067A9CF /* Base */,
+				054A1B792474F8E80067A9CF /* Controllers */,
 				04F26BBB247434B100EAE0C0 /* Home */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		04F26BB0247434B100EAE0C0 /* Correct */ = {
-			isa = PBXGroup;
-			children = (
-				04F26BB1247434B100EAE0C0 /* BMCorrectVC.h */,
-				04F26BB2247434B100EAE0C0 /* BMCorrectVC.m */,
-				04F26BB3247434B100EAE0C0 /* BMCorrectVC.xib */,
-			);
-			path = Correct;
-			sourceTree = "<group>";
-		};
-		04F26BB4247434B100EAE0C0 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				04F26BB5247434B100EAE0C0 /* BMErrorVC.h */,
-				04F26BB6247434B100EAE0C0 /* BMErrorVC.m */,
-				04F26BB7247434B100EAE0C0 /* BMErrorVC.xib */,
-				04F26BB8247434B100EAE0C0 /* BMTopView.h */,
-				04F26BB9247434B100EAE0C0 /* BMTopView.m */,
-				04F26BBA247434B100EAE0C0 /* BMTopView.xib */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
 		04F26BBB247434B100EAE0C0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				04F26BBC247434B100EAE0C0 /* BMHomeVC.h */,
-				04F26BBD247434B100EAE0C0 /* BMHomeVC.m */,
-				04F26BBE247434B100EAE0C0 /* BMHomeVC.xib */,
+				04F26BBC247434B100EAE0C0 /* AMHomeVC.h */,
+				04F26BBD247434B100EAE0C0 /* AMHomeVC.m */,
+				04F26BBE247434B100EAE0C0 /* AMHomeVC.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		04F26BC0247434B100EAE0C0 /* Lib */ = {
+		054A1B792474F8E80067A9CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				04F26BC1247434B100EAE0C0 /* XXNibBridge */,
+				054A1B7A2474F9150067A9CF /* AMPushNoLeakVC.h */,
+				054A1B7B2474F9150067A9CF /* AMPushNoLeakVC.m */,
+				054A1B7F2474F9240067A9CF /* AMPushHasLeakVC.h */,
+				054A1B802474F9240067A9CF /* AMPushHasLeakVC.m */,
+				054A1B8E2474F97D0067A9CF /* AMPresentNoLeakVC.h */,
+				054A1B8F2474F97D0067A9CF /* AMPresentNoLeakVC.m */,
+				054A1B892474F9390067A9CF /* AMPresentHasLeakVC.h */,
+				054A1B8A2474F9390067A9CF /* AMPresentHasLeakVC.m */,
 			);
-			path = Lib;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		04F26BC1247434B100EAE0C0 /* XXNibBridge */ = {
+		054A1B982474FB4F0067A9CF /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				04F26BC2247434B100EAE0C0 /* XXNibBridge.h */,
-				04F26BC3247434B100EAE0C0 /* XXNibBridge.m */,
-				04F26BC4247434B100EAE0C0 /* XXNibConvention.h */,
-				04F26BC5247434B100EAE0C0 /* XXNibConvention.m */,
+				054A1B932474F9E50067A9CF /* AMBaseVC.h */,
+				054A1B942474F9E50067A9CF /* AMBaseVC.m */,
 			);
-			path = XXNibBridge;
+			path = Base;
+			sourceTree = "<group>";
+		};
+		054A1B992474FB5D0067A9CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04F26BB8247434B100EAE0C0 /* AMTopView.h */,
+				04F26BB9247434B100EAE0C0 /* AMTopView.m */,
+				04F26BBA247434B100EAE0C0 /* AMTopView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0588D0C9246B8E5700960BFC = {
@@ -367,16 +358,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F26BE2247434B200EAE0C0 /* BMErrorVC.xib in Resources */,
 				053E99EB24738F6100806B8E /* README_CN.md in Resources */,
 				053E99EC24738F6100806B8E /* LICENSE in Resources */,
 				05A496312473C49700B3FACD /* pod.sh in Resources */,
-				04F26BE4247434B200EAE0C0 /* BMTopView.xib in Resources */,
+				04F26BE4247434B200EAE0C0 /* AMTopView.xib in Resources */,
 				05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */,
-				04F26BE0247434B200EAE0C0 /* BMCorrectVC.xib in Resources */,
 				04F26BDD247434B200EAE0C0 /* Assets.xcassets in Resources */,
 				04F26BE7247434B200EAE0C0 /* Info.plist in Resources */,
-				04F26BE6247434B200EAE0C0 /* BMHomeVC.xib in Resources */,
+				04F26BE6247434B200EAE0C0 /* AMHomeVC.xib in Resources */,
 				053E99ED24738F6100806B8E /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,14 +433,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054A1B8C2474F9390067A9CF /* AMPresentHasLeakVC.m in Sources */,
 				04F26BDC247434B200EAE0C0 /* main.m in Sources */,
-				04F26BE5247434B200EAE0C0 /* BMHomeVC.m in Sources */,
-				04F26BE3247434B200EAE0C0 /* BMTopView.m in Sources */,
-				04F26BE1247434B200EAE0C0 /* BMErrorVC.m in Sources */,
+				054A1B912474F97D0067A9CF /* AMPresentNoLeakVC.m in Sources */,
+				054A1B962474F9E50067A9CF /* AMBaseVC.m in Sources */,
+				04F26BE5247434B200EAE0C0 /* AMHomeVC.m in Sources */,
+				04F26BE3247434B200EAE0C0 /* AMTopView.m in Sources */,
 				04F26BDE247434B200EAE0C0 /* BMeaksFinder.xcdatamodeld in Sources */,
-				04F26BDF247434B200EAE0C0 /* BMCorrectVC.m in Sources */,
-				04F26BE8247434B200EAE0C0 /* XXNibBridge.m in Sources */,
-				04F26BE9247434B200EAE0C0 /* XXNibConvention.m in Sources */,
+				054A1B822474F9240067A9CF /* AMPushHasLeakVC.m in Sources */,
+				054A1B7D2474F9150067A9CF /* AMPushNoLeakVC.m in Sources */,
 				04F26BDB247434B200EAE0C0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

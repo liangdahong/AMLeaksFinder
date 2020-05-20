@@ -21,15 +21,7 @@
 //    SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "AMMemoryLeakModel.h"
 
-void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
-
-@interface UIViewController (AMLeaksFinderTools)
-
-/// 全局管理控制器的 Array
-@property (class, nonatomic, strong, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-/// 控制器标记准备释放
-- (void)bm_test_shouldDealloc;
+@interface UIViewController (AMLeaksFinderSwizzle)
 
 @end

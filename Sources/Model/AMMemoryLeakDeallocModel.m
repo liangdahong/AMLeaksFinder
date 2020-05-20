@@ -20,16 +20,21 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "AMMemoryLeakDeallocModel.h"
+#import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakModel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
-void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
+@implementation AMMemoryLeakDeallocModel
 
-@interface UIViewController (AMLeaksFinderTools)
-
-/// 全局管理控制器的 Array
-@property (class, nonatomic, strong, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-/// 控制器标记准备释放
-- (void)bm_test_shouldDealloc;
+- (void)dealloc {
+    [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.memoryLeakDeallocModel == self) {
+            [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
+            *stop = YES;
+         }
+    }];
+    [UIViewController udpateUI];
+}
 
 @end

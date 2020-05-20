@@ -1,6 +1,6 @@
 //
-//  BMeaksFinderUITests.m
-//  BMeaksFinderUITests
+//  AMLeaksFinderUITests.m
+//  AMLeaksFinderUITests
 //
 //  Created by liangdahong on 2020/5/13.
 //  Copyright © 2020 liangdahong. All rights reserved.
