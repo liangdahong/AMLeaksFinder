@@ -20,8 +20,8 @@
                               @selector(bm_test_setViewControllers:));
         
         swizzleInstanceMethod(self.class,
-                              @selector(setViewControllers:),
-                              @selector(bm_test_setViewControllers:));
+                              @selector(setViewControllers:animated:),
+                              @selector(bm_test_setViewControllers:animated:));
     });
 }
 
