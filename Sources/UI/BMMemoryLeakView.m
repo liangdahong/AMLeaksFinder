@@ -10,6 +10,7 @@
 #import "BMMemoryLeakView.h"
 #import "UIViewController+BMMemoryLeak.h"
 #import "UIViewController+BMMemoryLeakUI.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 @interface BMMemoryLeakView () <UITableViewDelegate, UITableViewDataSource>
 

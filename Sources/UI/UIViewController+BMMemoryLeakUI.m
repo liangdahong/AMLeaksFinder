@@ -10,6 +10,7 @@
 #import "UIViewController+BMMemoryLeak.h"
 #import "BMMemoryLeakView.h"
 #import "BMDragViewLabel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 static BMMemoryLeakView *memoryLeakView;
 static BMDragViewLabel *dragViewLabel;

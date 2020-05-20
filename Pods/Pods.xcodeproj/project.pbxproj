@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054A1B712474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 054A1B6F2474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.h */; };
+		054A1B722474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B702474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.m */; };
 		17C2452F43280594432BE944FF08FBE0 /* BMMemoryLeakDeallocModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA86306C2DD259B01A675456C02C3BA /* BMMemoryLeakDeallocModel.m */; };
 		1A39B8844C8CDA3BBE9289FFC238D751 /* UITabBarController+BMMemoryLeak.h in Headers */ = {isa = PBXBuildFile; fileRef = 56FB1B0443946927F737AF2583E3A769 /* UITabBarController+BMMemoryLeak.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		27BAFF539CE6640687FC6AB94B465F2C /* Pods-AMLeaksFinder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 358223970EDEA1AD75F43249D9108338 /* Pods-AMLeaksFinder-dummy.m */; };
@@ -38,12 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054A1B6F2474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AMLeaksFinderTools.h"; sourceTree = "<group>"; };
+		054A1B702474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AMLeaksFinderTools.m"; sourceTree = "<group>"; };
 		0A82512C389CF5F39497F5D2A3AEA3A5 /* AMLeaksFinder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AMLeaksFinder.xcconfig; sourceTree = "<group>"; };
 		0E712F349B28F7C0D6B3A667D1A9E351 /* UINavigationController+BMMemoryLeak.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BMMemoryLeak.m"; sourceTree = "<group>"; };
-		3493016FACEC37CBE0ACDD695A1E184B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		3493016FACEC37CBE0ACDD695A1E184B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		358223970EDEA1AD75F43249D9108338 /* Pods-AMLeaksFinder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AMLeaksFinder-dummy.m"; sourceTree = "<group>"; };
 		39CB9289DD9CEAE4C7D809707B8A025D /* AMLeaksFinder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AMLeaksFinder-dummy.m"; sourceTree = "<group>"; };
-		3B815E3E75985D83773BC1121A707ACF /* libPods-AMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-AMLeaksFinder.a"; path = "libPods-AMLeaksFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B815E3E75985D83773BC1121A707ACF /* libPods-AMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD6984D98078AB478F634A2FD9D578E /* UIViewController+BMMemoryLeak.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeak.h"; sourceTree = "<group>"; };
 		54AEA96FDE760BF7F58602E711FACD76 /* BMMemoryLeakDeallocModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakDeallocModel.h; sourceTree = "<group>"; };
 		56FB1B0443946927F737AF2583E3A769 /* UITabBarController+BMMemoryLeak.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+BMMemoryLeak.h"; sourceTree = "<group>"; };
@@ -52,10 +56,10 @@
 		64B337E947691AD030F672DE606A7887 /* BMMemoryLeakView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BMMemoryLeakView.h; sourceTree = "<group>"; };
 		8BFB438C07F1BBBB67D56339DE4C2DAF /* UITabBarController+BMMemoryLeak.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+BMMemoryLeak.m"; sourceTree = "<group>"; };
 		938D572FE764FF87B91F3EAA833212C0 /* BMDragViewLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BMDragViewLabel.m; sourceTree = "<group>"; };
-		9617A7C3D44B61F5B1F2942B642F894E /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AMLeaksFinder.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9617A7C3D44B61F5B1F2942B642F894E /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AMLeaksFinder.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9704B61D024DE06065379EA592969031 /* UIViewController+BMMemoryLeakUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BMMemoryLeakUI.m"; sourceTree = "<group>"; };
 		9A2090B835C776CD9D7758257A5402C6 /* BMDragViewLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BMDragViewLabel.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0BBDAEC37C0419068FE7A64E43A29AD /* Pods-AMLeaksFinder-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AMLeaksFinder-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B743C237DFA27E6A1C7CFBACE7D6B83F /* Pods-AMLeaksFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AMLeaksFinder.release.xcconfig"; sourceTree = "<group>"; };
 		C82A5FDE9C4A157FB60AE2C1F35B8232 /* Pods-AMLeaksFinder-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AMLeaksFinder-resources.sh"; sourceTree = "<group>"; };
@@ -66,9 +70,9 @@
 		DF9BDB92D358B909354F795E71E21E9E /* UIViewController+BMMemoryLeakUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BMMemoryLeakUI.h"; sourceTree = "<group>"; };
 		E4AC2CA28E7535977EB03AE83013A70A /* BMMemoryLeakView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BMMemoryLeakView.m; sourceTree = "<group>"; };
 		EC4548288D3DA1AC5A067E51C619AE90 /* AMLeaksFinder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMLeaksFinder-prefix.pch"; sourceTree = "<group>"; };
-		ED414B3F3EB2E979315DB85010AB09FB /* libAMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAMLeaksFinder.a; path = libAMLeaksFinder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED414B3F3EB2E979315DB85010AB09FB /* libAMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAMLeaksFinder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58F8607165F74AC68376C1463B9895A /* UINavigationController+BMMemoryLeak.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BMMemoryLeak.h"; sourceTree = "<group>"; };
-		F98836C0A070C041233424D6F24BE13D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		F98836C0A070C041233424D6F24BE13D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA8DB079E479CC5F7341CCBA73093913 /* Pods-AMLeaksFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AMLeaksFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		054A1B6E2474D8AE0067A9CF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				054A1B6F2474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.h */,
+				054A1B702474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		075B5E962F0DDCDBA1972D024F0359D3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 		680F31BED9C1D816BC6B4C18E43C562C /* AMLeaksFinder */ = {
 			isa = PBXGroup;
 			children = (
+				054A1B6E2474D8AE0067A9CF /* Tools */,
 				94A0B27F505B9CA03ABA70A89996544A /* MemoryLeak */,
 				B1B71480A98981F373400EA0E712A4D1 /* Model */,
 				9D787EFCDA379F57D0CA7D193B5884EE /* Pod */,
@@ -238,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F1AAE0F65A47123B4A122BBB07B4F6E /* BMDragViewLabel.h in Headers */,
+				054A1B712474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.h in Headers */,
 				8D6A7F69ABAEBC0D4083C29AF30D2842 /* BMMemoryLeakDeallocModel.h in Headers */,
 				54C735A09C1DDCA4AFF1F1B9EB1C27D9 /* BMMemoryLeakModel.h in Headers */,
 				A3C30939622989036AE0F2E22E4304FB /* BMMemoryLeakView.h in Headers */,
@@ -333,6 +348,7 @@
 				AF4398820064615E06EED963417B131E /* BMMemoryLeakView.m in Sources */,
 				7B4FA00AF7E02D4D7559A43217FA6397 /* UINavigationController+BMMemoryLeak.m in Sources */,
 				48596B28BC78DF026BBA188CEECE33D0 /* UITabBarController+BMMemoryLeak.m in Sources */,
+				054A1B722474D8F50067A9CF /* UIViewController+AMLeaksFinderTools.m in Sources */,
 				FEF8DA1BC2CEE73AA006F2C01ECB43A9 /* UIViewController+BMMemoryLeak.m in Sources */,
 				50176196D8329B92D0FD5ADD3B8D652D /* UIViewController+BMMemoryLeakUI.m in Sources */,
 			);

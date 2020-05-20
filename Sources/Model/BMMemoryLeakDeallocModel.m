@@ -9,6 +9,7 @@
 #import "BMMemoryLeakDeallocModel.h"
 #import "UIViewController+BMMemoryLeakUI.h"
 #import "BMMemoryLeakModel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 @implementation BMMemoryLeakDeallocModel
 

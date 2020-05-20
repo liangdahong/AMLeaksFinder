@@ -10,6 +10,7 @@
 #import "UINavigationController+BMMemoryLeak.h"
 #import "UIViewController+BMMemoryLeak.h"
 #import "UIViewController+BMMemoryLeakUI.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 @implementation UINavigationController (BMMemoryLeak)
 
@@ -50,7 +51,7 @@
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj bm_test_shouldDealloc];
     }];
-
+    
     [self bm_test_setViewControllers:viewControllers];
 }
 

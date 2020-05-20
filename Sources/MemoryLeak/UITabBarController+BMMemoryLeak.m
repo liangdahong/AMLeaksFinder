@@ -9,6 +9,7 @@
 #import "UITabBarController+BMMemoryLeak.h"
 #import "UIViewController+BMMemoryLeak.h"
 #import "UIViewController+BMMemoryLeakUI.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 @implementation UITabBarController (BMMemoryLeak)
 
@@ -54,7 +55,7 @@
             }
         }];
         if (!flag) {
-            [muarray addObjectsFromArray:obj.bm_test_selfAndAllChildController];
+            [muarray addObject:obj];
         }
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
