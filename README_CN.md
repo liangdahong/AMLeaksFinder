@@ -15,7 +15,7 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', :configurations => ['Debug']
+pod 'AMLeaksFinder', '1.1.1',  :configurations => ['Debug']
 ```
 
 ## 效果演示
