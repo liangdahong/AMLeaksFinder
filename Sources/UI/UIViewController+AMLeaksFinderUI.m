@@ -79,7 +79,7 @@ static AMDragViewLabel *dragViewLabel;
             leakCount++;
         }
     }];
-    NSString *str = [NSString stringWithFormat:@"泄漏:%d\n全部:%lu\n点击看详情\n(供参考)" ,
+    NSString *str = [NSString stringWithFormat:@"泄漏:%d\n全部:%lu\n点击可切换\n(供参考)" ,
                      leakCount,
                      (unsigned long)UIViewController.memoryLeakModelArray.count];
 
@@ -95,9 +95,9 @@ static AMDragViewLabel *dragViewLabel;
     } range:NSMakeRange(strs.firstObject.length+1, strs[1].length)];
 
     [att setAttributes:@{
-        NSForegroundColorAttributeName : UIColor.blackColor,
+        NSForegroundColorAttributeName : UIColor.greenColor,
     } range:NSMakeRange(strs.firstObject.length+1+strs[1].length+1, strs.lastObject.length)];
-
+    
     dragViewLabel.attributedText = att;
     [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
 }
