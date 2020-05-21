@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,7 +19,6 @@
                         <rect key="frame" x="0.0" y="828" width="333" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="06H-Ef-did"/>
                     </view>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="9WJ-BU-PiY"/>
@@ -44,19 +42,18 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ZGR-BQ-71J" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="6yS-BH-Q4y"/>
+                <constraint firstItem="ZGR-BQ-71J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="6yS-BH-Q4y"/>
                 <constraint firstItem="mKX-mg-dec" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Ph-Aw-OHA"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZGR-BQ-71J" secondAttribute="bottom" constant="15" id="8Zx-QF-GAn"/>
-                <constraint firstItem="mKX-mg-dec" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9kI-pF-EIK"/>
+                <constraint firstAttribute="bottom" secondItem="ZGR-BQ-71J" secondAttribute="bottom" constant="15" id="8Zx-QF-GAn"/>
+                <constraint firstItem="mKX-mg-dec" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9kI-pF-EIK"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kl1-DU-RUx"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="leading" secondItem="mKX-mg-dec" secondAttribute="trailing" id="Unm-bS-BP7"/>
                 <constraint firstItem="ZGR-BQ-71J" firstAttribute="top" secondItem="mKX-mg-dec" secondAttribute="bottom" id="UvU-Kp-7tZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZGR-BQ-71J" secondAttribute="trailing" constant="15" id="cs8-4w-oD7"/>
+                <constraint firstAttribute="trailing" secondItem="ZGR-BQ-71J" secondAttribute="trailing" constant="15" id="cs8-4w-oD7"/>
                 <constraint firstItem="Jfh-Ja-nG9" firstAttribute="width" secondItem="mKX-mg-dec" secondAttribute="width" id="gP8-2u-afv"/>
                 <constraint firstAttribute="trailing" secondItem="Jfh-Ja-nG9" secondAttribute="trailing" id="lcY-D5-2Q5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="tableView" destination="ZGR-BQ-71J" id="XXn-Hd-QkR"/>
             </connections>
