@@ -22,6 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (AMLeaksFinderSwizzle)
+@interface UIViewController (AMLeaksFinderSwizzleDealloc)
 
 @end

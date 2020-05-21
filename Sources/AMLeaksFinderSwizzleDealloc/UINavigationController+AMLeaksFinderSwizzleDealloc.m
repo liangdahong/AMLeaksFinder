@@ -20,11 +20,11 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import "UINavigationController+AMLeaksFinderSwizzle.h"
+#import "UINavigationController+AMLeaksFinderSwizzleDealloc.h"
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "UIViewController+AMLeaksFinderTools.h"
 
-@implementation UINavigationController (AMLeaksFinderSwizzle)
+@implementation UINavigationController (AMLeaksFinderSwizzleDealloc)
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -62,6 +62,7 @@
         }
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 设置为将要释放
         [obj bm_test_shouldDealloc];
     }];
     
@@ -70,6 +71,7 @@
 
 - (UIViewController *)bm_test_popViewControllerAnimated:(BOOL)animated {
     UIViewController *vc = [self bm_test_popViewControllerAnimated:YES];
+    // 设置为将要释放
     [vc bm_test_shouldDealloc];
     return vc;
 }
@@ -77,6 +79,7 @@
 - (NSArray<UIViewController *> *)bm_test_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     NSArray *vcs = [self bm_test_popToViewController:viewController animated:animated];
     [vcs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 设置为将要释放
         [obj bm_test_shouldDealloc];
     }];
     return vcs;
@@ -85,6 +88,7 @@
 - (NSArray<UIViewController *> *)bm_test_popToRootViewControllerAnimated:(BOOL)animated {
     NSArray <UIViewController *> *vcs = [self bm_test_popToRootViewControllerAnimated:animated];
     [vcs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 设置为将要释放
         [obj bm_test_shouldDealloc];
     }];
     return vcs;

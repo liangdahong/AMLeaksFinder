@@ -22,6 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationController (AMLeaksFinderSwizzle)
+@interface UIViewController (AMLeaksFinderSwizzleViewDidLoad)
 
 @end

@@ -22,6 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITabBarController (AMLeaksFinderSwizzle)
+@interface UINavigationController (AMLeaksFinderSwizzleDealloc)
 
 @end

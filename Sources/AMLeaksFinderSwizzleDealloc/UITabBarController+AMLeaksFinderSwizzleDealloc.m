@@ -20,11 +20,11 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import "UITabBarController+AMLeaksFinderSwizzle.h"
+#import "UITabBarController+AMLeaksFinderSwizzleDealloc.h"
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "UIViewController+AMLeaksFinderTools.h"
 
-@implementation UITabBarController (AMLeaksFinderSwizzle)
+@implementation UITabBarController (AMLeaksFinderSwizzleDealloc)
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -54,6 +54,7 @@
         }
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 设置为将要释放
         [obj bm_test_shouldDealloc];
     }];
     [self bm_test_setViewControllers:viewControllers];
@@ -74,6 +75,7 @@
         }
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 设置为将要释放
         [obj bm_test_shouldDealloc];
     }];
     [self bm_test_setViewControllers:viewControllers animated:animated];

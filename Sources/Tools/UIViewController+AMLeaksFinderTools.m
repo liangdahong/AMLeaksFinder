@@ -47,11 +47,6 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     dispatch_once(&onceToken, ^{
         arr = @[].mutableCopy;
     });
-    [arr enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!obj.memoryLeakDeallocModel.controller) {
-            [arr removeObjectAtIndex:idx];
-        }
-    }];
     return arr;
 }
 
@@ -72,10 +67,8 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
             }
         }];
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // update ui
-        [UIViewController udpateUI];
-    });
+    // update ui
+    [UIViewController udpateUI];
 }
 
 @end
