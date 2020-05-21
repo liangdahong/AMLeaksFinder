@@ -51,8 +51,8 @@
 - (void)initUI {
     self.numberOfLines = 0;
     self.userInteractionEnabled = YES;
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.6];
-    self.font = [UIFont boldSystemFontOfSize:15];
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.3];
+    self.font = [UIFont boldSystemFontOfSize:20];
     self.adjustsFontSizeToFitWidth = YES;
     [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
 }
