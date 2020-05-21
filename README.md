@@ -15,7 +15,7 @@ A small tool for automatically detecting the [controller memory leak] in the pro
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', :configurations => ['Debug']
+pod 'AMLeaksFinder', '1.1.1',  :configurations => ['Debug']
 ```
 
 ## Renderings
