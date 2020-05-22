@@ -1,4 +1,6 @@
-# AMLeaksFinder 原理
+# AMLeaksFinder 实现原理分析
+
+## 原理介绍
 
 我们的控制器通常从创建到显示到释放要经过一系列的生命周期方法，如下：
 
@@ -44,7 +46,7 @@
 那么我们就可以从上面的分析出发，在 viewDidLoad 的时候记录控制器，然后在 dealloc 的时候清除记录，在需要释放的时候把相关控制器标记为将要释放，然后把相关的统计数据呈现出来即可。
 
 
-## AMLeaksFinder 从处理逻辑
+## AMLeaksFinder 的处理逻辑
 
 - hook 控制器的 viewDidLoad 方法，同时做相关的逻辑操作，注意不要强引用。
 ![image](https://user-images.githubusercontent.com/12118567/82640835-dcd36100-9c3d-11ea-8252-a1602aa46baf.png)
@@ -65,3 +67,9 @@
 - UI 实时统计出当前统计的控制器数据即可。
 
 - 其中用到了 2 个自定义类，其中 AMMemoryLeakDeallocModel 主要是为了监控控制器的释放，AMMemoryLeakModel 是为了统计数据。
+
+
+## 参考
+
+- https://github.com/Tencent/MLeaksFinder
+
