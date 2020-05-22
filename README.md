@@ -10,7 +10,7 @@
 <a href="https://github.com/liangdahong/AMLeaksFinder/blob/master/LICENSE"><img src="https://img.shields.io/badge/licenses-MIT-red.svg"></a>
 </p>
 
-[English 📔](README.md)
+[English 📔](README_EN.md)
 
 ## 原理分析 
 - https://github.com/liangdahong/AMLeaksFinder/blob/master/principle.md
