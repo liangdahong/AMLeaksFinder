@@ -16,7 +16,6 @@
 		04F26BE5247434B200EAE0C0 /* AMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F26BBD247434B100EAE0C0 /* AMHomeVC.m */; };
 		04F26BE6247434B200EAE0C0 /* AMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBE247434B100EAE0C0 /* AMHomeVC.xib */; };
 		04F26BE7247434B200EAE0C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F26BBF247434B100EAE0C0 /* Info.plist */; };
-		053E99EB24738F6100806B8E /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E824738F6100806B8E /* README_CN.md */; };
 		053E99EC24738F6100806B8E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 053E99E924738F6100806B8E /* LICENSE */; };
 		053E99ED24738F6100806B8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 053E99EA24738F6100806B8E /* README.md */; };
 		054A1B7D2474F9150067A9CF /* AMPushNoLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B7B2474F9150067A9CF /* AMPushNoLeakVC.m */; };
@@ -24,6 +23,8 @@
 		054A1B8C2474F9390067A9CF /* AMPresentHasLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B8A2474F9390067A9CF /* AMPresentHasLeakVC.m */; };
 		054A1B912474F97D0067A9CF /* AMPresentNoLeakVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B8F2474F97D0067A9CF /* AMPresentNoLeakVC.m */; };
 		054A1B962474F9E50067A9CF /* AMBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A1B942474F9E50067A9CF /* AMBaseVC.m */; };
+		057D311D2477BA770002D0E5 /* principle.md in Resources */ = {isa = PBXBuildFile; fileRef = 057D311B2477BA770002D0E5 /* principle.md */; };
+		057D311E2477BA770002D0E5 /* README_EN.md in Resources */ = {isa = PBXBuildFile; fileRef = 057D311C2477BA770002D0E5 /* README_EN.md */; };
 		0588D0F5246B8E5A00960BFC /* AMLeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* AMLeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */; };
 		05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */; };
@@ -61,7 +62,6 @@
 		04F26BBD247434B100EAE0C0 /* AMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMHomeVC.m; sourceTree = "<group>"; };
 		04F26BBE247434B100EAE0C0 /* AMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMHomeVC.xib; sourceTree = "<group>"; };
 		04F26BBF247434B100EAE0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		053E99E824738F6100806B8E /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = "<group>"; };
 		053E99E924738F6100806B8E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		053E99EA24738F6100806B8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		054A1B7A2474F9150067A9CF /* AMPushNoLeakVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMPushNoLeakVC.h; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		054A1B8F2474F97D0067A9CF /* AMPresentNoLeakVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMPresentNoLeakVC.m; sourceTree = "<group>"; };
 		054A1B932474F9E50067A9CF /* AMBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMBaseVC.h; sourceTree = "<group>"; };
 		054A1B942474F9E50067A9CF /* AMBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMBaseVC.m; sourceTree = "<group>"; };
+		057D311B2477BA770002D0E5 /* principle.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = principle.md; sourceTree = "<group>"; };
+		057D311C2477BA770002D0E5 /* README_EN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_EN.md; sourceTree = "<group>"; };
 		0588D0D2246B8E5700960BFC /* AMLeaksFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMLeaksFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0F0246B8E5A00960BFC /* AMLeaksFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMLeaksFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMLeaksFinderTests.m; sourceTree = "<group>"; };
@@ -195,8 +197,9 @@
 			isa = PBXGroup;
 			children = (
 				053E99E924738F6100806B8E /* LICENSE */,
-				053E99E824738F6100806B8E /* README_CN.md */,
 				053E99EA24738F6100806B8E /* README.md */,
+				057D311C2477BA770002D0E5 /* README_EN.md */,
+				057D311B2477BA770002D0E5 /* principle.md */,
 				05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */,
 				05A496302473C49700B3FACD /* pod.sh */,
 				04F26BA7247434B100EAE0C0 /* AMLeaksFinder */,
@@ -358,13 +361,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				053E99EB24738F6100806B8E /* README_CN.md in Resources */,
 				053E99EC24738F6100806B8E /* LICENSE in Resources */,
 				05A496312473C49700B3FACD /* pod.sh in Resources */,
 				04F26BE4247434B200EAE0C0 /* AMTopView.xib in Resources */,
+				057D311D2477BA770002D0E5 /* principle.md in Resources */,
 				05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */,
 				04F26BDD247434B200EAE0C0 /* Assets.xcassets in Resources */,
 				04F26BE7247434B200EAE0C0 /* Info.plist in Resources */,
+				057D311E2477BA770002D0E5 /* README_EN.md in Resources */,
 				04F26BE6247434B200EAE0C0 /* AMHomeVC.xib in Resources */,
 				053E99ED24738F6100806B8E /* README.md in Resources */,
 			);
