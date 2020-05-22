@@ -1,6 +1,6 @@
-## 介绍
+## Introduction
 
-本项目是一款用于自动检测项目中【控制器内存泄漏】的工具，只需要把 `Sources` 路径下的文件拖入项目即可，效果如下，在上线时请务必移除框架，目前处于开发尝试阶段，功能比较单一，代码未整理，如果你感兴趣可以一起聊聊。
+A small tool for automatically detecting the [controller memory leak] in the project, Just drag the files under the path of `Sources` into the project, the effect is as follows, please be sure to remove the framework when going online, it is currently in development attempt At this stage, the function is relatively simple, and the code is not organized. If you are interested, you can talk together.
 
 <p align="center">
 <a href="https://en.wikipedia.org/wiki/IOS"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
@@ -10,15 +10,18 @@
 <a href="https://github.com/liangdahong/AMLeaksFinder/blob/master/LICENSE"><img src="https://img.shields.io/badge/licenses-MIT-red.svg"></a>
 </p>
 
-[English 📔](README.md)
+[中文版🇨🇳](README.md)
+
+## Principle analysis 
+- [Principle analysis ](principle.md)
 
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '1.1.1',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '1.1.2',  :configurations => ['Debug']
 ```
 
-## 效果演示
+## Renderings
 
 <p align="center">
     <img  width="33%" src="Images/003.gif"/>
