@@ -13,7 +13,7 @@ A small tool for automatically detecting the [controller memory leak] in the pro
 [中文版🇨🇳](README.md)
 
 ## Principle analysis 
-- https://github.com/liangdahong/AMLeaksFinder/blob/master/principle.md
+- [Principle analysis ](principle.md)
 
 ## Cocoapods
 
