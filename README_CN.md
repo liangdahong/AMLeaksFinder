@@ -12,6 +12,9 @@
 
 [English 📔](README.md)
 
+## 原理分析
+- https://github.com/liangdahong/AMLeaksFinder/blob/master/principle.md
+
 ## Cocoapods
 
 ```
