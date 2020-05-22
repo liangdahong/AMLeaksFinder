@@ -13,8 +13,7 @@
 [English 📔](README_EN.md)
 
 ## 原理分析 
-- https://github.com/liangdahong/AMLeaksFinder/blob/master/principle.md
-
+- [原理分析](principle.md)
 
 ## Cocoapods
 
