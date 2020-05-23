@@ -28,3 +28,6 @@ pod 'AMLeaksFinder', '1.1.5',  :configurations => ['Debug']
     <img  width="33%" src="Images/001.gif"/>
     <img  width="33%" src="Images/002.gif"/>
 <p/>
+
+## 联系
+- 欢迎 [issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [PR](https://github.com/liangdahong/AMLeaksFinder/pulls)
