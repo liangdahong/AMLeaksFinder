@@ -45,11 +45,21 @@ static AMDragViewLabel *dragViewLabel;
             dragViewLabel.textAlignment = NSTextAlignmentCenter;
             dragViewLabel.textColor = UIColor.redColor;
             dragViewLabel.font = [UIFont systemFontOfSize:12];
-
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
-                UIViewController *rootVC = UIApplication.sharedApplication.keyWindow.rootViewController;
-                [rootVC.view addSubview:memoryLeakView];
-                [rootVC.view addSubview:dragViewLabel];
+                __block UIWindow *window = nil;
+                [UIApplication.sharedApplication.windows enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if (!obj.hidden
+                        && obj.alpha > 0.1
+                        && obj.screen == UIScreen.mainScreen
+                        && obj.windowLevel >= UIWindowLevelNormal
+                        ) {
+                        window = obj;
+                        *stop = YES;
+                    }
+                }];
+                [window addSubview:memoryLeakView];
+                [window addSubview:dragViewLabel];
                 [dragViewLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDragClick)]];
             });
         });
@@ -61,12 +71,23 @@ static AMDragViewLabel *dragViewLabel;
 }
 
 + (void)udpateUI {
-    UIViewController *rootVC = UIApplication.sharedApplication.keyWindow.rootViewController;
-    if (memoryLeakView.superview != rootVC.view) {
-        [rootVC.view addSubview:memoryLeakView];
-        [rootVC.view addSubview:dragViewLabel];
+    __block UIWindow *window = nil;
+    [UIApplication.sharedApplication.windows enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.hidden
+            && obj.alpha > 0.1
+            && obj.screen == UIScreen.mainScreen
+            && obj.windowLevel >= UIWindowLevelNormal
+            ) {
+            window = obj;
+            *stop = YES;
+        }
+    }];
+
+    if (memoryLeakView.superview != window) {
+        [window addSubview:memoryLeakView];
+        [window addSubview:dragViewLabel];
     }
-    
+
     [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!obj.memoryLeakDeallocModel.controller) {
             [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
