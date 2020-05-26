@@ -53,6 +53,7 @@ static AMDragViewLabel *dragViewLabel;
                         && obj.alpha > 0.1
                         && obj.screen == UIScreen.mainScreen
                         && obj.windowLevel >= UIWindowLevelNormal
+                        && obj.userInteractionEnabled
                         ) {
                         window = obj;
                         *stop = YES;
@@ -77,17 +78,18 @@ static AMDragViewLabel *dragViewLabel;
             && obj.alpha > 0.1
             && obj.screen == UIScreen.mainScreen
             && obj.windowLevel >= UIWindowLevelNormal
+            && obj.userInteractionEnabled
             ) {
             window = obj;
             *stop = YES;
         }
     }];
-
+    
     if (memoryLeakView.superview != window) {
         [window addSubview:memoryLeakView];
         [window addSubview:dragViewLabel];
     }
-
+    
     [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!obj.memoryLeakDeallocModel.controller) {
             [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
