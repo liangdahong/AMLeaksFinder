@@ -21,6 +21,12 @@ A small tool for automatically detecting the [controller memory leak] in the pro
 pod 'AMLeaksFinder', '1.1.6',  :configurations => ['Debug']
 ```
 
+- If you want to view the reference chain of the controller, import: facebook's [FBRetainCycleDetector] (https://github.com/facebook/FBRetainCycleDetector) framework.
+
+```
+pod 'FBRetainCycleDetector',  :configurations => ['Debug']
+```
+
 ## Renderings
 
 <p align="center">
