@@ -71,4 +71,12 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     [UIViewController udpateUI];
 }
 
++ (void)bm_test_shouldAllDealloc {
+    [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.memoryLeakDeallocModel.shouldDealloc = YES;
+    }];
+    // update ui
+    [UIViewController udpateUI];
+}
+
 @end
