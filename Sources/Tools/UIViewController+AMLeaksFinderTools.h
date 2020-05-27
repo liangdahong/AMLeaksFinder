@@ -34,4 +34,7 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
 /// 所有控制器标记为准备释放
 + (void)bm_test_shouldAllDealloc;
 
+@property (class, nonatomic, strong, readonly) __kindof UIViewController *bm_test_TopViewController;
+@property (class, nonatomic, strong, readonly) __kindof UIWindow *bm_test_TopWindow;
+
 @end

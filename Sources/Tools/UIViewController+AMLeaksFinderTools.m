@@ -79,4 +79,29 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     [UIViewController udpateUI];
 }
 
++ (__kindof UIViewController *)bm_test_TopViewController {
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
+    UIViewController *topvc = window.rootViewController;
+    while (topvc.presentedViewController) {
+        topvc = topvc.presentedViewController;
+    }
+    return topvc;
+}
+
++ (__kindof UIWindow *)bm_test_TopWindow {
+    __block UIWindow *window = nil;
+    [UIApplication.sharedApplication.windows enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.hidden
+            && obj.alpha > 0.1
+            && obj.screen == UIScreen.mainScreen
+            && obj.windowLevel >= UIWindowLevelNormal
+            && obj.userInteractionEnabled
+            ) {
+            window = obj;
+            *stop = YES;
+        }
+    }];
+    return window;
+}
+
 @end
