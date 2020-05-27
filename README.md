@@ -30,6 +30,7 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ## 效果演示
 
 <p align="center">
+    <img  width="33%" src="Images/101.png"/>
     <img  width="33%" src="Images/003.gif"/>
     <img  width="33%" src="Images/001.gif"/>
     <img  width="33%" src="Images/002.gif"/>
