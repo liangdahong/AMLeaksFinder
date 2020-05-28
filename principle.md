@@ -43,6 +43,8 @@
 
 - `UISplitViewController` 触发了 `setViewControllers:` 
 
+- `UIWindow` 触发了切换 `rootViewController`
+
 - ...等。
 
 我们可以从上面的分析出发，在 `viewDidLoad` 的时候记录控制器，然后在控制器  `dealloc` 的时候清除，在需要释放的时候把相关控制器标记为将要释放，然后把相关的统计数据呈现出来即可。
