@@ -25,13 +25,9 @@
 #import "UIViewController+AMLeaksFinderTools.h"
 
 #if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
-
     #import <FBRetainCycleDetector/FBRetainCycleDetector.h>
-
 #elif __has_include("FBRetainCycleDetector")
-
     #import "FBRetainCycleDetector.h"
-
 #endif
 
 @interface AMMemoryLeakView () <UITableViewDelegate, UITableViewDataSource>
