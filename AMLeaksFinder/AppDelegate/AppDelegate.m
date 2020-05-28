@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AMHomeVC.h"
+#import "BMNavigationController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[AMHomeVC new]];
+    UINavigationController *nav = [[BMNavigationController alloc] initWithRootViewController:[AMHomeVC new]];
     nav.navigationBar.translucent = NO;
     nav.navigationBar.hidden = NO;
     self.window.rootViewController = nav;

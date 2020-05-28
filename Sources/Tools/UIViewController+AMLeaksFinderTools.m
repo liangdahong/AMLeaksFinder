@@ -71,9 +71,22 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     [UIViewController udpateUI];
 }
 
-+ (void)bm_test_shouldAllDealloc {
++ (void)bm_test_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window {
+    NSMutableArray <UIViewController *> *arr = controller.bm_test_selfAndAllChildController.mutableCopy;
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.memoryLeakDeallocModel.shouldDealloc = YES;
+        if (obj.memoryLeakDeallocModel.controller.view.window == window) {
+            __block BOOL flag = NO;
+            [arr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+                if (obj1 == obj.memoryLeakDeallocModel.controller) {
+                    flag = YES;
+                    *stop = YES;
+                    [arr removeObjectAtIndex:idx1];
+                }
+            }];
+            if (!flag) {
+                [obj.memoryLeakDeallocModel.controller bm_test_shouldDealloc];
+            }
+        }
     }];
     // update ui
     [UIViewController udpateUI];

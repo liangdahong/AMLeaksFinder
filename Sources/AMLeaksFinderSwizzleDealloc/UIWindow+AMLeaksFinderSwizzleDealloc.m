@@ -20,38 +20,27 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//#import "UIWindow+AMLeaksFinderSwizzleDealloc.h"
-//#import "AMMemoryLeakModel.h"
-//#import "UIViewController+AMLeaksFinderTools.h"
-//
-//@implementation UIWindow (AMLeaksFinderSwizzleDealloc)
-//
-//+ (void)load {
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        swizzleInstanceMethod(self.class,
-//                              @selector(setRootViewController:),
-//                              @selector(bm_test_setRootViewController:)
-//                              );
-//    });
-//}
-//
-//- (void)bm_test_setRootViewController:(UIViewController *)rootViewController {
-//    if (UIApplication.sharedApplication.delegate.window == self
-//        && self.isKeyWindow
-//        && !self.hidden
-//        && self.alpha > 0.1
-//        && self.screen == UIScreen.mainScreen
-//        && self.windowLevel >= UIWindowLevelNormal
-//        && self.userInteractionEnabled
-//        && self.rootViewController
-//        ) {
-//        // 所有的控制器都应该释放
-//        //  [UIViewController bm_test_shouldAllDealloc];
-//        // [self.rootViewController bm_test_shouldDealloc];
-//    }
-//          
-//    [self bm_test_setRootViewController:rootViewController];
-//}
-//
-//@end
+#import "UIWindow+AMLeaksFinderSwizzleDealloc.h"
+#import "AMMemoryLeakModel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
+
+@implementation UIWindow (AMLeaksFinderSwizzleDealloc)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        swizzleInstanceMethod(self.class,
+                              @selector(setRootViewController:),
+                              @selector(bm_test_setRootViewController:)
+                              );
+    });
+}
+
+- (void)bm_test_setRootViewController:(UIViewController *)rootViewController {
+    if (self.rootViewController) {
+        [UIViewController bm_test_shouldAllDeallocBesidesController:rootViewController window:self];
+    }
+    [self bm_test_setRootViewController:rootViewController];
+}
+
+@end

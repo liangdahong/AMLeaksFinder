@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -58,6 +58,13 @@
                         <action selector="presentHasLeakButtonClick" destination="-1" eventType="touchUpInside" id="EwC-RA-63x"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFL-4D-deu">
+                    <rect key="frame" x="20" y="404" width="374" height="30"/>
+                    <state key="normal" title="换 root VC"/>
+                    <connections>
+                        <action selector="chanedRootVCClick" destination="-1" eventType="touchUpInside" id="k0k-Xd-i2p"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -67,15 +74,18 @@
                 <constraint firstItem="F7z-If-cvv" firstAttribute="leading" secondItem="as2-0a-T0G" secondAttribute="leading" id="IBK-vB-Lho"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="trailing" secondItem="as2-0a-T0G" secondAttribute="trailing" id="NYj-gJ-mlU"/>
                 <constraint firstItem="Obv-kk-oGO" firstAttribute="top" secondItem="UjT-m3-NQe" secondAttribute="bottom" constant="20" id="Nm8-id-8Lo"/>
+                <constraint firstItem="BFL-4D-deu" firstAttribute="top" secondItem="Obv-kk-oGO" secondAttribute="bottom" constant="30" id="NpH-qa-448"/>
+                <constraint firstItem="BFL-4D-deu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="QDk-gP-8bI"/>
                 <constraint firstItem="as2-0a-T0G" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="RDL-Sj-UeD"/>
                 <constraint firstItem="UjT-m3-NQe" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dP1-Md-y8t"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BFL-4D-deu" secondAttribute="trailing" constant="20" id="jkT-G1-Exh"/>
                 <constraint firstItem="as2-0a-T0G" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="l2y-pa-LjK"/>
                 <constraint firstItem="Obv-kk-oGO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="oQQ-g9-Dho"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Obv-kk-oGO" secondAttribute="trailing" constant="20" id="rQz-pI-cnc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="UjT-m3-NQe" secondAttribute="trailing" constant="20" id="w1R-Aa-wEv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-486" y="165"/>
+            <point key="canvasLocation" x="-1099" y="125"/>
         </view>
     </objects>
 </document>

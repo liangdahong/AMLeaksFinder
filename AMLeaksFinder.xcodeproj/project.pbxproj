@@ -29,6 +29,7 @@
 		0588D100246B8E5A00960BFC /* AMLeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */; };
 		05A4962F2473C27700B3FACD /* AMLeaksFinder.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */; };
 		05A496312473C49700B3FACD /* pod.sh in Resources */ = {isa = PBXBuildFile; fileRef = 05A496302473C49700B3FACD /* pod.sh */; };
+		05BCDD9B247F67DF001E3D32 /* BMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BCDD9A247F67DF001E3D32 /* BMNavigationController.m */; };
 		BA7F1C08CAAC812AC980A431 /* libPods-AMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		0588D101246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05A4962E2473C27700B3FACD /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AMLeaksFinder.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		05A496302473C49700B3FACD /* pod.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod.sh; sourceTree = "<group>"; };
+		05BCDD99247F67DF001E3D32 /* BMNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMNavigationController.h; sourceTree = "<group>"; };
+		05BCDD9A247F67DF001E3D32 /* BMNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMNavigationController.m; sourceTree = "<group>"; };
 		6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3423B6F635C7E53054B88FE /* Pods-AMLeaksFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder.release.xcconfig"; sourceTree = "<group>"; };
 		EF28320575D35D75656AB5CC /* Pods-AMLeaksFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				04F26BBC247434B100EAE0C0 /* AMHomeVC.h */,
 				04F26BBD247434B100EAE0C0 /* AMHomeVC.m */,
 				04F26BBE247434B100EAE0C0 /* AMHomeVC.xib */,
+				05BCDD99247F67DF001E3D32 /* BMNavigationController.h */,
+				05BCDD9A247F67DF001E3D32 /* BMNavigationController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				054A1B822474F9240067A9CF /* AMPushHasLeakVC.m in Sources */,
 				054A1B7D2474F9150067A9CF /* AMPushNoLeakVC.m in Sources */,
 				04F26BDB247434B200EAE0C0 /* AppDelegate.m in Sources */,
+				05BCDD9B247F67DF001E3D32 /* BMNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

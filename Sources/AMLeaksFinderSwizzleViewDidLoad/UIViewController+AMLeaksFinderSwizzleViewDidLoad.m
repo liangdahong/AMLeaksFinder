@@ -57,6 +57,8 @@ static void *associatedKey = &associatedKey;
 
     // update ui
     [UIViewController udpateUI];
+    
+    NSLog(@"hook  : %@ %@", self, NSStringFromSelector(_cmd));
 }
 
 @end

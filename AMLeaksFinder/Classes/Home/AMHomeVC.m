@@ -11,12 +11,22 @@
 #import "AMPushHasLeakVC.h"
 #import "AMPresentNoLeakVC.h"
 #import "AMPresentHasLeakVC.h"
+#import "BMNavigationController.h"
 
 @implementation AMHomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    NSLog(@"AMHomeVC viewDidLoad");
+}
+
+- (void)dealloc {
+    NSLog(@"AMHomeVC dealloc");
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UIApplication.sharedApplication.delegate.window.rootViewController =  [[BMNavigationController alloc] initWithRootViewController:[AMHomeVC new]];
 }
 
 - (IBAction)pushNoLeakButtonClick {
@@ -33,6 +43,10 @@
 
 - (IBAction)presentHasLeakButtonClick {
     [self presentViewController:AMPresentHasLeakVC.new animated:YES completion:nil];
+}
+
+- (IBAction)chanedRootVCClick {
+    UIApplication.sharedApplication.delegate.window.rootViewController = [[BMNavigationController alloc] initWithRootViewController:[AMHomeVC new]];
 }
 
 @end
