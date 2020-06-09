@@ -30,15 +30,15 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(dismissViewControllerAnimated:completion:),
-                              @selector(bm_test_dismissViewControllerAnimated:completion:));
+                              @selector(amleaks_finder_dismissViewControllerAnimated:completion:));
         
     });
 }
 
-- (void)bm_test_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    [self bm_test_dismissViewControllerAnimated:flag completion:completion];
+- (void)amleaks_finder_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+    [self amleaks_finder_dismissViewControllerAnimated:flag completion:completion];
     UIViewController *dismissedViewController = self.presentedViewController;
     if (!dismissedViewController && self.presentingViewController) {
         dismissedViewController = self;
@@ -48,7 +48,7 @@
     }
     // 真实 dismissed 的控制器
     // 设置为将要释放
-    [dismissedViewController bm_test_shouldDealloc];
+    [dismissedViewController amleaks_finder_shouldDealloc];
 }
 
 @end

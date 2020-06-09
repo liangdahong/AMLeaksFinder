@@ -25,12 +25,9 @@
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakModel.h"
 
-void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
-    // 1.获取旧 Method
+void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    // 2.获取新 Method
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-    // 3.交换方法
     if (class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
         class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     } else {
@@ -50,16 +47,16 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
 }
 
 /// 返回 【自己】+【自己所有的子子孙孙控制器】组成的数组
-- (NSArray<UIViewController *> *)bm_test_selfAndAllChildController {
+- (NSArray<UIViewController *> *)amleaks_finder_selfAndAllChildController {
     NSMutableArray *arr = @[self].mutableCopy;
     [self.childViewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [arr addObjectsFromArray:obj.bm_test_selfAndAllChildController.copy];
+        [arr addObjectsFromArray:obj.amleaks_finder_selfAndAllChildController.copy];
     }];
     return arr.copy;
 }
 
-- (void)bm_test_shouldDealloc {
-    [self.bm_test_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+- (void)amleaks_finder_shouldDealloc {
+    [self.amleaks_finder_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj1.memoryLeakDeallocModel.controller == obj) {
                 obj1.memoryLeakDeallocModel.shouldDealloc = YES;
@@ -70,8 +67,8 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     [UIViewController udpateUI];
 }
 
-+ (void)bm_test_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window {
-    NSMutableArray <UIViewController *> *arr = controller.bm_test_selfAndAllChildController.mutableCopy;
++ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window {
+    NSMutableArray <UIViewController *> *arr = controller.amleaks_finder_selfAndAllChildController.mutableCopy;
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel.controller.view.window == window) {
             __block BOOL flag = NO;
@@ -83,7 +80,7 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
                 }
             }];
             if (!flag) {
-                [obj.memoryLeakDeallocModel.controller bm_test_shouldDealloc];
+                [obj.memoryLeakDeallocModel.controller amleaks_finder_shouldDealloc];
             }
         }
     }];
@@ -91,7 +88,7 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     [UIViewController udpateUI];
 }
 
-+ (__kindof UIViewController *)bm_test_TopViewController {
++ (__kindof UIViewController *)amleaks_finder_TopViewController {
     UIWindow *window = UIApplication.sharedApplication.keyWindow;
     UIViewController *topvc = window.rootViewController;
     while (topvc.presentedViewController) {
@@ -100,7 +97,7 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     return topvc;
 }
 
-+ (__kindof UIWindow *)bm_test_TopWindow {
++ (__kindof UIWindow *)amleaks_finder_TopWindow {
     __block UIWindow *window = nil;
     [UIApplication.sharedApplication.windows enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!obj.hidden

@@ -158,7 +158,7 @@
                 [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
             }]];
             NSLog(@"%@", retainCycles.debugDescription);
-            [UIViewController.bm_test_TopViewController presentViewController:alertVC animated:YES completion:nil];
+            [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
         }]];
 
 #elif __has_include("FBRetainCycleDetector")
@@ -173,7 +173,7 @@
                 [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
             }]];
             NSLog(@"%@", retainCycles.debugDescription);
-            [UIViewController.bm_test_TopViewController presentViewController:alertVC animated:YES completion:nil];
+            [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
         }]];
 
 #else
@@ -183,7 +183,7 @@
 #endif
 
         [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
-        [UIViewController.bm_test_TopViewController presentViewController:alertVC animated:YES completion:nil];
+        [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
     }
 }
 

@@ -29,17 +29,17 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:),
-                              @selector(bm_test_setViewControllers:));
+                              @selector(amleaks_finder_setViewControllers:));
         
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:animated:),
-                              @selector(bm_test_setViewControllers:animated:));
+                              @selector(amleaks_finder_setViewControllers:animated:));
     });
 }
 
-- (void)bm_test_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
+- (void)amleaks_finder_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
     NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
@@ -55,12 +55,12 @@
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
-    [self bm_test_setViewControllers:viewControllers];
+    [self amleaks_finder_setViewControllers:viewControllers];
 }
 
-- (void)bm_test_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers animated:(BOOL)animated {
+- (void)amleaks_finder_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers animated:(BOOL)animated {
     NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
@@ -76,9 +76,9 @@
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
-    [self bm_test_setViewControllers:viewControllers animated:animated];
+    [self amleaks_finder_setViewControllers:viewControllers animated:animated];
 }
 
 @end

@@ -23,18 +23,18 @@
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
 
-void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
+void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
 
 @interface UIViewController (AMLeaksFinderTools)
 
 /// 全局管理控制器的 Array
-@property (class, nonatomic, strong, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-/// 控制器标记准备释放
-- (void)bm_test_shouldDealloc;
-/// 所有控制器标记为准备释放
-+ (void)bm_test_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window;
+@property (class, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
+@property (class, readonly) __kindof UIViewController *amleaks_finder_TopViewController;
+@property (class, readonly) __kindof UIWindow *amleaks_finder_TopWindow;
 
-@property (class, nonatomic, strong, readonly) __kindof UIViewController *bm_test_TopViewController;
-@property (class, nonatomic, strong, readonly) __kindof UIWindow *bm_test_TopWindow;
+/// 控制器标记准备释放
+- (void)amleaks_finder_shouldDealloc;
+/// UIWindow 所有控制器标记为准备释放
++ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window;
 
 @end

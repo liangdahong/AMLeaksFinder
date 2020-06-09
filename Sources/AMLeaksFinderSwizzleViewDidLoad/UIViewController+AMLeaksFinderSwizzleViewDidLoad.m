@@ -26,22 +26,22 @@
 #import "AMMemoryLeakModel.h"
 #import <objc/runtime.h>
 
-static void *associatedKey = &associatedKey;
+static const void *associatedKey = &associatedKey;
 
 @implementation UIViewController (AMLeaksFinderSwizzleViewDidLoad)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(viewDidLoad),
-                              @selector(bm_test_viewDidLoad));
+                              @selector(amleaks_finder_viewDidLoad));
         
     });
 }
 
-- (void)bm_test_viewDidLoad {
-    [self bm_test_viewDidLoad];
+- (void)amleaks_finder_viewDidLoad {
+    [self amleaks_finder_viewDidLoad];
     AMMemoryLeakDeallocModel *deallocModel = objc_getAssociatedObject(self, associatedKey);
     if (deallocModel) {
         return;
@@ -57,7 +57,6 @@ static void *associatedKey = &associatedKey;
 
     // update ui
     [UIViewController udpateUI];
-    
     NSLog(@"hook  : %@ %@", self, NSStringFromSelector(_cmd));
 }
 

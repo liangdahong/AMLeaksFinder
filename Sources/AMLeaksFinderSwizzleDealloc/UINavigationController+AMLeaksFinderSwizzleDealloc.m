@@ -27,31 +27,31 @@
 @implementation UINavigationController (AMLeaksFinderSwizzleDealloc)
 
 + (void)load {
-    static dispatch_once_t onceToken;
+    static dispatch_once_t onceToken; 
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(popViewControllerAnimated:),
-                              @selector(bm_test_popViewControllerAnimated:));
+                              @selector(amleaks_finder_popViewControllerAnimated:));
 
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(popToViewController:animated:),
-                              @selector(bm_test_popToViewController:animated:));
+                              @selector(amleaks_finder_popToViewController:animated:));
 
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(popToRootViewControllerAnimated:),
-                              @selector(bm_test_popToRootViewControllerAnimated:));
+                              @selector(amleaks_finder_popToRootViewControllerAnimated:));
 
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:),
-                              @selector(bm_test_setViewControllers:));
+                              @selector(amleaks_finder_setViewControllers:));
         
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:animated:),
-                              @selector(bm_test_setViewControllers:animated:));
+                              @selector(amleaks_finder_setViewControllers:animated:));
     });
 }
 
-- (void)bm_test_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
+- (void)amleaks_finder_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
     NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
@@ -67,12 +67,12 @@
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
-    [self bm_test_setViewControllers:viewControllers animated:animated];
+    [self amleaks_finder_setViewControllers:viewControllers animated:animated];
 }
 
-- (void)bm_test_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
+- (void)amleaks_finder_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
     NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
@@ -88,33 +88,33 @@
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
     
-    [self bm_test_setViewControllers:viewControllers];
+    [self amleaks_finder_setViewControllers:viewControllers];
 }
 
-- (UIViewController *)bm_test_popViewControllerAnimated:(BOOL)animated {
-    UIViewController *vc = [self bm_test_popViewControllerAnimated:YES];
+- (UIViewController *)amleaks_finder_popViewControllerAnimated:(BOOL)animated {
+    UIViewController *vc = [self amleaks_finder_popViewControllerAnimated:YES];
     // 设置为将要释放
-    [vc bm_test_shouldDealloc];
+    [vc amleaks_finder_shouldDealloc];
     return vc;
 }
 
-- (NSArray<UIViewController *> *)bm_test_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSArray *vcs = [self bm_test_popToViewController:viewController animated:animated];
+- (NSArray<UIViewController *> *)amleaks_finder_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSArray *vcs = [self amleaks_finder_popToViewController:viewController animated:animated];
     [vcs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
     return vcs;
 }
 
-- (NSArray<UIViewController *> *)bm_test_popToRootViewControllerAnimated:(BOOL)animated {
-    NSArray <UIViewController *> *vcs = [self bm_test_popToRootViewControllerAnimated:animated];
+- (NSArray<UIViewController *> *)amleaks_finder_popToRootViewControllerAnimated:(BOOL)animated {
+    NSArray <UIViewController *> *vcs = [self amleaks_finder_popToRootViewControllerAnimated:animated];
     [vcs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
     return vcs;
 }

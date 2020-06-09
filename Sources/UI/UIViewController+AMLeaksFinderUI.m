@@ -45,7 +45,7 @@ static AMDragViewLabel *dragViewLabel;
             dragViewLabel.font = [UIFont systemFontOfSize:12];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
-                UIWindow *window = UIViewController.bm_test_TopWindow;
+                UIWindow *window = UIViewController.amleaks_finder_TopWindow;
                 [window addSubview:memoryLeakView];
                 [window addSubview:dragViewLabel];
                 [dragViewLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDragClick)]];
@@ -60,7 +60,7 @@ static AMDragViewLabel *dragViewLabel;
 
 + (void)udpateUI {
 
-    UIWindow *window = UIViewController.bm_test_TopWindow;
+    UIWindow *window = UIViewController.amleaks_finder_TopWindow;
     if (memoryLeakView.superview != window) {
         [window addSubview:memoryLeakView];
         [window addSubview:dragViewLabel];

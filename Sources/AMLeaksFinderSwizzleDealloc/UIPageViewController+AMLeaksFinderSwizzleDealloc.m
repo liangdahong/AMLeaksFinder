@@ -14,13 +14,13 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(setViewControllers:direction:animated:completion:),
-                              @selector(bm_test_setViewControllers:direction:animated:completion:));
+                              @selector(amleaks_finder_setViewControllers:direction:animated:completion:));
     });
 }
 
-- (void)bm_test_setViewControllers:(NSArray<UIViewController *> *)viewControllers direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+- (void)amleaks_finder_setViewControllers:(NSArray<UIViewController *> *)viewControllers direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL))completion {
     NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
@@ -36,9 +36,9 @@
     }];
     [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
-        [obj bm_test_shouldDealloc];
+        [obj amleaks_finder_shouldDealloc];
     }];
-    [self bm_test_setViewControllers:viewControllers direction:direction animated:animated completion:completion];
+    [self amleaks_finder_setViewControllers:viewControllers direction:direction animated:animated completion:completion];
 }
 
 @end

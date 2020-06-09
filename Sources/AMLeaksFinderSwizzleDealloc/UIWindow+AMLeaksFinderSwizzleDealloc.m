@@ -29,18 +29,18 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzleInstanceMethod(self.class,
+        amleaks_finder_swizzleInstanceMethod(self.class,
                               @selector(setRootViewController:),
-                              @selector(bm_test_setRootViewController:)
+                              @selector(amleaks_finder_setRootViewController:)
                               );
     });
 }
 
-- (void)bm_test_setRootViewController:(UIViewController *)rootViewController {
+- (void)amleaks_finder_setRootViewController:(UIViewController *)rootViewController {
     if (self.rootViewController) {
-        [UIViewController bm_test_shouldAllDeallocBesidesController:rootViewController window:self];
+        [UIViewController amleaks_finder_shouldAllDeallocBesidesController:rootViewController window:self];
     }
-    [self bm_test_setRootViewController:rootViewController];
+    [self amleaks_finder_setRootViewController:rootViewController];
 }
 
 @end
