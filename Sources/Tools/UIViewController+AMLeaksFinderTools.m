@@ -38,7 +38,6 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     }
 }
 
-
 @implementation UIViewController (AMLeaksFinderTools)
 
 + (NSMutableArray<AMMemoryLeakModel *> *)memoryLeakModelArray {

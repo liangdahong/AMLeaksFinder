@@ -1,5 +1,5 @@
 PODS:
-  - AMLeaksFinder (1.1.9)
+  - AMLeaksFinder (1.2.1)
   - FBRetainCycleDetector (0.1.4)
 
 DEPENDENCIES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../AMLeaksFinder/"
 
 SPEC CHECKSUMS:
-  AMLeaksFinder: 136d096c38ba134c917cfc1df8ef8ad7f5f33852
+  AMLeaksFinder: b85fe077884f16110fe07c0752970bbc7b759ffa
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
 
-PODFILE CHECKSUM: 4a9860c04ec4a38a9b99eecde59b6265089daffd
+PODFILE CHECKSUM: a20b928e966dd4990ac7263f067c24c58146b524
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4
