@@ -6,7 +6,7 @@
 
 控制器通常从 **创建** 到 **显示** 到 **释放**  要经过一系列的 **生命周期** 方法，大概如下：
 
-```
+```objective-c
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil;
 - (nullable instancetype)initWithCoder:(NSCoder *)coder;
 - (void)loadView;
@@ -25,31 +25,40 @@
 
 一般情况，如果控制器没有内存泄漏，一般会经过 `viewDidLoad`  和 `dealloc` 方法。
 
-那么我们就可以从上面的 `2` 个方法入手，如果一个控制器经过了 `viewDidLoad`, 同时在应该释放的时候一直没有  `dealloc`，那么基本可以确定控制器泄漏了【是基本确定，当然有特殊情况，如：在一些特殊场景下开发者特意不让其释放】，问题来了，什么时候是控制器应该释放的时候呢 ？
+我们可以从上面的 `2` 个方法入手，如果一个控制器经过了 `viewDidLoad`,  同时在 **应该释放** 的时候一直没有  **dealloc**，那么基本可以确定控制器泄漏了【当然有特殊情况，如：在一些特殊场景下开发者特意不让其释放】，问题来了，什么时候是控制器应该释放的时候呢 ？
 
-触发了如下方法的时候可以基本确定相关控制器需要释放：
+触发了如下方法的时候可以基本确定相关控制器需要释放【欢迎补充】：
 
-- `UIViewController` 有 `dismissViewControllerAnimated:completion:` 操作
+- `UIViewController` 触发了 `dismissViewControllerAnimated:completion:` 
+
+  
 
 - `UINavigationController` 触发了 `popViewControllerAnimated: `
+
 - `UINavigationController` 触发了 `popToViewController:animated: `
+
 - `UINavigationController` 触发了 `popToRootViewControllerAnimated: `
+
 - `UINavigationController` 触发了 `popViewControllerAnimated:`
+
 - `UINavigationController` 触发了 `setViewControllers:`
+
 - `UINavigationController` 触发了 `setViewControllers:animated:`
 
+  
+
 - `UITabBarController` 触发了 `setViewControllers:`
+
 - `UITabBarController` 触发了 `setViewControllers:animated:` 
 
+
+
 - `UIPageViewController` 触发了 `setViewControllers:direction:animated:completion:`
-
 - `UISplitViewController` 触发了 `setViewControllers:` 
-
-- `UIWindow` 触发了切换 `rootViewController`
-
+- `UIWindow` 触发了 `rootViewController`
 - ...等。
 
-我们可以从上面的分析出发，在 `viewDidLoad` 的时候记录控制器，然后在控制器  `dealloc` 的时候清除，在需要释放的时候把相关控制器标记为将要释放，然后把相关的统计数据呈现出来即可。
+我们可以从上面的分析出发，在 `viewDidLoad` 的时候记录控制器，然后在控制器  `dealloc` 的时候清除记录，在需要释放的时候把相关控制器标记为将要释放，然后把相关的统计数据呈现出来即可。
 
 
 ## AMLeaksFinder 的处理逻辑
@@ -72,6 +81,10 @@
 
 - `UI` 实时统计出当前统计的控制器数据即可。
 - 其中用到了 `2` 个自定义类，其中 `AMMemoryLeakDeallocModel` 主要是为了监控控制器的释放，`AMMemoryLeakModel` 是为了统计数据。
+
+## 更多
+
+- 更多详细内容请查询源码 https://github.com/liangdahong/AMLeaksFinder
 
 ## 参考
 
