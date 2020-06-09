@@ -1,6 +1,6 @@
 ## 介绍
 
-本项目是一款用于自动检测项目中【控制器内存泄漏】的工具，只需要把 `Sources` 路径下的文件拖入项目即可，效果如下，在上线时请务必移除框架，如果你感兴趣可以一起聊聊。
+本项目是一款用于自动检测项目中【控制器内存泄漏】的工具，只需要把 `Sources` 路径下的文件拖入项目即可，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊。
 
 <p align="center">
 <a href="https://en.wikipedia.org/wiki/IOS"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
