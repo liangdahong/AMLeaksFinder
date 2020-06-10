@@ -8,6 +8,6 @@ s.authors      = {'梁大红' => 'ios@liangdahong.com'}
 s.platform     = :ios, '8.0'
 s.source       = {:git => 'https://github.com/liangdahong/AMLeaksFinder.git', :tag => s.version}
 s.source_files = 'Sources/**/*.{h,m}'
-s.resource = 'Sources/**/*.{bundle,xib}'
+s.resource     = 'Sources/**/*.{bundle,xib}'
 s.requires_arc = true
 end
