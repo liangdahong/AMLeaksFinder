@@ -34,8 +34,12 @@ static AMDragViewLabel *dragViewLabel;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            memoryLeakView = [[AMMemoryLeakView alloc] initWithFrame:CGRectMake(30, 60, 200, 300)];
+            
+            NSBundle *bundle = [NSBundle bundleForClass:AMMemoryLeakView.class];
+            memoryLeakView = [bundle loadNibNamed:NSStringFromClass(AMMemoryLeakView.class) owner:nil options:nil].firstObject;
+            memoryLeakView.frame = CGRectMake(30, 60, 200, 300);
             memoryLeakView.hidden = YES;
+            
             dragViewLabel = AMDragViewLabel.new;
             dragViewLabel.frame = CGRectMake(0, 100, 88, 88);
             dragViewLabel.layer.cornerRadius = 30;

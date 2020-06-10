@@ -32,7 +32,9 @@
 
 @interface AMMemoryLeakView () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *allButton;
+@property (weak, nonatomic) IBOutlet UIButton *leaksButton;
 @property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *dataSourceArray;
 @property (nonatomic, assign, getter=isShowAll) BOOL showAll; ///< 是否选中全部控制器
 @property (nonatomic, assign) CGPoint oldPoint; ///< oldPoint
@@ -41,12 +43,12 @@
 
 @implementation AMMemoryLeakView
 
-#pragma mark - init
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self initUI];
 }
+
+#pragma mark - init
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -55,18 +57,12 @@
     return self;
 }
 
-#pragma mark - Life Cycle
-
-#pragma mark - Public Method
-
-#pragma mark - Action
-
-- (void)showAllButtonClick {
+- (IBAction)showAllButtonClick {
     self.showAll = YES;
     self.dataSourceArray = self.memoryLeakModelArray;
 }
 
-- (void)showLeakButtonClick {
+- (IBAction)showLeakButtonClick {
     self.showAll = NO;
     NSMutableArray <AMMemoryLeakModel *> *arr = @[].mutableCopy;
     [self.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -76,32 +72,6 @@
     }];
     self.dataSourceArray = arr;
 }
-
-- (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint point = [panGestureRecognizer locationInView:self.superview];
-    switch (panGestureRecognizer.state) {
-        case UIGestureRecognizerStateBegan:
-            self.oldPoint = point;
-            break;
-        case UIGestureRecognizerStateChanged:
-        {
-            CGRect frame = self.frame;
-            frame.origin.y = (self.frame.origin.y + (point.y - self.oldPoint.y));
-            frame.origin.x = (self.frame.origin.x + (point.x - self.oldPoint.x));
-            self.oldPoint = point;
-            self.frame = frame;
-        }
-            break;
-        case UIGestureRecognizerStateEnded:
-            break;
-        default:
-            break;
-    }
-}
-
-#pragma mark - Custom Delegate
-
-#pragma mark - System Delegate
 
 #pragma mark - UITableViewDataSource
 
@@ -134,7 +104,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
     if (model.shouldDealloc) {
-
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否忽略此控制器" message:[NSString stringWithFormat:@"如果控制器是特意长驻内存的，可以点击忽略 \n\n[%@]", model.controller] preferredStyle:UIAlertControllerStyleAlert];
         [alertVC addAction:[UIAlertAction actionWithTitle:@"忽略此控制器" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -145,9 +114,9 @@
                 }
             }];
         }]];
-
+        
 #if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
-
+        
         [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器的【所有强引用的对象】" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
             [detector addCandidate:model.controller];
@@ -160,9 +129,9 @@
             NSLog(@"%@", retainCycles.debugDescription);
             [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
         }]];
-
+        
 #elif __has_include("FBRetainCycleDetector")
-
+        
         [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器的【所有强引用的对象】" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
             [detector addCandidate:model.controller];
@@ -175,19 +144,16 @@
             NSLog(@"%@", retainCycles.debugDescription);
             [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
         }]];
-
+        
 #else
-
+        
         [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引用的对象【需导入 FBRetainCycleDetector】" style:UIAlertActionStyleDefault handler:nil]];
-
+        
 #endif
-
         [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
         [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
     }
 }
-
-#pragma mark - Getters Setters
 
 - (void)setMemoryLeakModelArray:(NSArray<AMMemoryLeakView *> *)memoryLeakModelArray {
     _memoryLeakModelArray = memoryLeakModelArray.copy;
@@ -210,35 +176,53 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Private Method
+#pragma mark - 私有方法
 
 - (void)initUI {
-
-    // add buttons
-    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self addSubview:button1];
-    button1.frame = CGRectMake(0, 0, 100, 40);
-    [button1 addTarget:self action:@selector(showAllButtonClick) forControlEvents:(UIControlEventTouchUpInside)];
-    [button1 setTitle:@"显示全部" forState:(UIControlStateNormal)];
-
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self addSubview:button2];
-    button2.frame = CGRectMake(100, 0, 100, 40);
-    [button2 addTarget:self action:@selector(showLeakButtonClick) forControlEvents:(UIControlEventTouchUpInside)];
-    [button2 setTitle:@"已泄漏" forState:(UIControlStateNormal)];
-
-    // add tableView
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 40, 180, 250) style:(UITableViewStylePlain)];
-    [self addSubview:_tableView];
-    _tableView.layer.cornerRadius = 30;
-    _tableView.layer.masksToBounds = YES;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
     
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    NSURL *url = [bundle URLForResource:@"AMLeaksFinder" withExtension:@"bundle"];
+    NSBundle *targetBundle = [NSBundle bundleWithURL:url];
+    UIImage *allImage = [UIImage imageNamed:@"all"
+                                inBundle:targetBundle
+           compatibleWithTraitCollection:nil];
+    [self.allButton setImage:allImage forState:(UIControlStateNormal)];
+    
+    UIImage *leaksImage = [UIImage imageNamed:@"leaks"
+                                     inBundle:targetBundle
+                compatibleWithTraitCollection:nil];
+    [self.leaksButton setImage:leaksImage forState:(UIControlStateNormal)];
+
     self.layer.cornerRadius = 30;
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.layer.masksToBounds = YES;
+    self.tableView.layer.cornerRadius = 30;
+    self.tableView.layer.masksToBounds = YES;
     [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
+}
+
+#pragma mark - 事件响应
+
+- (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    CGPoint point = [panGestureRecognizer locationInView:self.superview];
+    switch (panGestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            self.oldPoint = point;
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            CGRect frame = self.frame;
+            frame.origin.y = (self.frame.origin.y + (point.y - self.oldPoint.y));
+            frame.origin.x = (self.frame.origin.x + (point.x - self.oldPoint.x));
+            self.oldPoint = point;
+            self.frame = frame;
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+            break;
+        default:
+            break;
+    }
 }
 
 @end

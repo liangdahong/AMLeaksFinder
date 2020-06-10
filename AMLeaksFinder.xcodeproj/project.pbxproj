@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,7 @@
 		0588D0F5246B8E5A00960BFC /* AMLeaksFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0F4246B8E5A00960BFC /* AMLeaksFinderTests.m */; };
 		0588D100246B8E5A00960BFC /* AMLeaksFinderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588D0FF246B8E5A00960BFC /* AMLeaksFinderUITests.m */; };
 		05BCDD9B247F67DF001E3D32 /* BMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BCDD9A247F67DF001E3D32 /* BMNavigationController.m */; };
-		BA7F1C08CAAC812AC980A431 /* libPods-AMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */; };
+		E3619E8DD22EF6AC6DF26C95 /* libPods-AMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C2C708C21AA07C4FB05333 /* libPods-AMLeaksFinder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +81,7 @@
 		0588D101246B8E5A00960BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05BCDD99247F67DF001E3D32 /* BMNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMNavigationController.h; sourceTree = "<group>"; };
 		05BCDD9A247F67DF001E3D32 /* BMNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMNavigationController.m; sourceTree = "<group>"; };
-		6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06C2C708C21AA07C4FB05333 /* libPods-AMLeaksFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3423B6F635C7E53054B88FE /* Pods-AMLeaksFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder.release.xcconfig"; sourceTree = "<group>"; };
 		EF28320575D35D75656AB5CC /* Pods-AMLeaksFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA7F1C08CAAC812AC980A431 /* libPods-AMLeaksFinder.a in Frameworks */,
+				E3619E8DD22EF6AC6DF26C95 /* libPods-AMLeaksFinder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +239,7 @@
 		A6A33BE6F41CC35608821A9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6AA90D535DB4406CA34582AA /* libPods-AMLeaksFinder.a */,
+				06C2C708C21AA07C4FB05333 /* libPods-AMLeaksFinder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,6 +264,7 @@
 				0588D0CE246B8E5700960BFC /* Sources */,
 				0588D0CF246B8E5700960BFC /* Frameworks */,
 				0588D0D0246B8E5700960BFC /* Resources */,
+				EA415B3230129EE26C36A4BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,6 +402,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA415B3230129EE26C36A4BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder/Pods-AMLeaksFinder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
