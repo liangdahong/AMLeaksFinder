@@ -179,10 +179,12 @@
 #pragma mark - 私有方法
 
 - (void)initUI {
-    
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    // 获取存放图片资源的 bundle URL
     NSURL *url = [bundle URLForResource:@"AMLeaksFinder" withExtension:@"bundle"];
+    // 加载 存放图片资源的 bundle
     NSBundle *targetBundle = [NSBundle bundleWithURL:url];
+    // load image
     UIImage *allImage = [UIImage imageNamed:@"all"
                                 inBundle:targetBundle
            compatibleWithTraitCollection:nil];
