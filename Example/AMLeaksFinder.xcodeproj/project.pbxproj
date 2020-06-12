@@ -345,6 +345,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "ios@liangdahong.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = JURK72AKL4;
+						ProvisioningStyle = Manual;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -602,6 +606,8 @@
 			baseConfigurationReference = CDC704CC86FA486C632F7007 /* Pods-AMLeaksFinder_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = JURK72AKL4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMLeaksFinder/AMLeaksFinder-Prefix.pch";
 				INFOPLIST_FILE = "AMLeaksFinder/AMLeaksFinder-Info.plist";
@@ -609,6 +615,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.AMLeaksFinder;
 				PRODUCT_NAME = AMLeaksFinder;
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -619,6 +626,8 @@
 			baseConfigurationReference = 80ADD1B893A972A85C2F935F /* Pods-AMLeaksFinder_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = JURK72AKL4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMLeaksFinder/AMLeaksFinder-Prefix.pch";
 				INFOPLIST_FILE = "AMLeaksFinder/AMLeaksFinder-Info.plist";
@@ -626,6 +635,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.AMLeaksFinder;
 				PRODUCT_NAME = AMLeaksFinder;
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
