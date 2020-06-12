@@ -4,10 +4,9 @@ platform :ios, '8.0'
 
 target 'AMLeaksFinder_Example' do
   pod 'AMLeaksFinder', :path => '../'
-
+  pod 'FBRetainCycleDetector'
+  
   target 'AMLeaksFinder_Tests' do
     inherit! :search_paths
-
-    
   end
 end
