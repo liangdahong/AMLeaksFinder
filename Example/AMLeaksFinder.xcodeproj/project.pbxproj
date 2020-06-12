@@ -19,7 +19,6 @@
 		054732D3249375640082B534 /* AMBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054732C4249375640082B534 /* AMBaseVC.m */; };
 		054732D4249375640082B534 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 054732C8249375640082B534 /* main.m */; };
 		054732D5249375640082B534 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 054732C9249375640082B534 /* AppDelegate.m */; };
-		5497C1FCEA78E54FAF24A6B6 /* Pods_AMLeaksFinder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CE47A9C730CDFFF5D316E5 /* Pods_AMLeaksFinder_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -31,7 +30,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		CF806646C9F86A8ABE838454 /* Pods_AMLeaksFinder_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CAC48904C1EFB441CD41EB /* Pods_AMLeaksFinder_Example.framework */; };
+		9F2D0ED141E3EAFF9A50AE9B /* libPods-AMLeaksFinder_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */; };
+		BA487C12368F99528077E8C4 /* libPods-AMLeaksFinder_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,14 +84,14 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80ADD1B893A972A85C2F935F /* Pods-AMLeaksFinder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Example.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example.release.xcconfig"; sourceTree = "<group>"; };
-		99CE47A9C730CDFFF5D316E5 /* Pods_AMLeaksFinder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMLeaksFinder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B3B44275A9330A12F09C63 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C41B0AA72CB44C577B30FD3B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CB1FACB9D87E8DB5D556EC3C /* Pods-AMLeaksFinder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Tests.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Tests/Pods-AMLeaksFinder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CDC704CC86FA486C632F7007 /* Pods-AMLeaksFinder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Example.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DD7AD534E9F61CEE3A1B2EC8 /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AMLeaksFinder.podspec; path = ../AMLeaksFinder.podspec; sourceTree = "<group>"; };
-		E2CAC48904C1EFB441CD41EB /* Pods_AMLeaksFinder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMLeaksFinder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				CF806646C9F86A8ABE838454 /* Pods_AMLeaksFinder_Example.framework in Frameworks */,
+				BA487C12368F99528077E8C4 /* libPods-AMLeaksFinder_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				5497C1FCEA78E54FAF24A6B6 /* Pods_AMLeaksFinder_Tests.framework in Frameworks */,
+				9F2D0ED141E3EAFF9A50AE9B /* libPods-AMLeaksFinder_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,8 +234,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				E2CAC48904C1EFB441CD41EB /* Pods_AMLeaksFinder_Example.framework */,
-				99CE47A9C730CDFFF5D316E5 /* Pods_AMLeaksFinder_Tests.framework */,
+				76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */,
+				F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				ABC288DD20AA6B674D002C9E /* [CP] Embed Pods Frameworks */,
+				2C9D9DABBAD8576BB6326B4D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,24 +398,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		ABC288DD20AA6B674D002C9E /* [CP] Embed Pods Frameworks */ = {
+		2C9D9DABBAD8576BB6326B4D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AMLeaksFinder/AMLeaksFinder.framework",
-				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example-resources.sh",
+				"${PODS_ROOT}/../../AMLeaksFinder/UI/AMMemoryLeakView.xib",
+				"${PODS_ROOT}/../../AMLeaksFinder/AMLeaksFinder.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMLeaksFinder.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMMemoryLeakView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMLeaksFinder.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CEAE95D4222C772B85368FE4 /* [CP] Check Pods Manifest.lock */ = {
