@@ -34,8 +34,12 @@ static const void *associatedKey = &associatedKey;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(viewDidLoad),
-                              @selector(amleaks_finder_viewDidLoad));
+                                             @selector(viewDidLoad),
+                                             @selector(amleaks_finder_viewDidLoad));
+        
+        amleaks_finder_swizzleInstanceMethod(self.class,
+                                             @selector(viewDidAppear:),
+                                             @selector(amleaks_finder_viewDidAppear:));
         
     });
 }
@@ -49,15 +53,20 @@ static const void *associatedKey = &associatedKey;
     deallocModel = AMMemoryLeakDeallocModel.new;
     objc_setAssociatedObject(self, associatedKey, deallocModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     deallocModel.controller = self;
-
+    
     // memoryLeakModel
     AMMemoryLeakModel *memoryLeakModel = AMMemoryLeakModel.new;
     memoryLeakModel.memoryLeakDeallocModel = deallocModel;
     [UIViewController.memoryLeakModelArray insertObject:memoryLeakModel atIndex:0];
-
+    
     // update ui
     [UIViewController udpateUI];
     NSLog(@"hook  : %@ %@", self, NSStringFromSelector(_cmd));
+}
+
+- (void)amleaks_finder_viewDidAppear:(BOOL)animated {
+    [self amleaks_finder_viewDidAppear:animated];
+    [self amleaks_finder_normal];
 }
 
 @end

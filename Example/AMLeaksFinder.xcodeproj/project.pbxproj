@@ -90,7 +90,7 @@
 		C41B0AA72CB44C577B30FD3B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CB1FACB9D87E8DB5D556EC3C /* Pods-AMLeaksFinder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Tests.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Tests/Pods-AMLeaksFinder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CDC704CC86FA486C632F7007 /* Pods-AMLeaksFinder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Example.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DD7AD534E9F61CEE3A1B2EC8 /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AMLeaksFinder.podspec; path = ../AMLeaksFinder.podspec; sourceTree = "<group>"; };
+		DD7AD534E9F61CEE3A1B2EC8 /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AMLeaksFinder.podspec; path = ../AMLeaksFinder.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 

@@ -37,4 +37,7 @@ void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL
 /// UIWindow 所有控制器标记为准备释放
 + (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window;
 
+/// 控制器标记为正常
+- (void)amleaks_finder_normal;
+
 @end
