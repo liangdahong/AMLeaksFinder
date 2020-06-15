@@ -13,7 +13,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // self -> topView -> block -> self
+//    __weak typeof(self) weakSelf = self;
     self.topView.didClickBlock = ^{
+//        __strong typeof(self) self = weakSelf;
         [self.navigationController popViewControllerAnimated:YES];
     };
 }
