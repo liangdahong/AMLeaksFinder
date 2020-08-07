@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AMHomeVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as2-0a-T0G">
+                    <rect key="frame" x="20" y="144" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Mhh-bY-JAI"/>
+                    </constraints>
+                    <state key="normal" title="Push 【无泄漏】"/>
+                    <connections>
+                        <action selector="pushNoLeakButtonClick" destination="-1" eventType="touchUpInside" id="Ujq-Ua-1wu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7z-If-cvv">
+                    <rect key="frame" x="20" y="214" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="U3q-UU-iTH"/>
+                    </constraints>
+                    <state key="normal" title="Push【有泄漏】"/>
+                    <connections>
+                        <action selector="pushHasLeakButtonClick" destination="-1" eventType="touchUpInside" id="0up-St-aW8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjT-m3-NQe">
+                    <rect key="frame" x="20" y="274" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="lAb-5W-Jio"/>
+                    </constraints>
+                    <state key="normal" title="present 【无泄漏】"/>
+                    <connections>
+                        <action selector="presentNoLeakButtonClick" destination="-1" eventType="touchUpInside" id="0AG-dR-OhZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-kk-oGO">
+                    <rect key="frame" x="20" y="334" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="kg1-Yd-b1A"/>
+                    </constraints>
+                    <state key="normal" title="present 【有泄漏】"/>
+                    <connections>
+                        <action selector="presentHasLeakButtonClick" destination="-1" eventType="touchUpInside" id="EwC-RA-63x"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFL-4D-deu">
+                    <rect key="frame" x="20" y="404" width="374" height="30"/>
+                    <state key="normal" title="换 root VC"/>
+                    <connections>
+                        <action selector="chanedRootVCClick" destination="-1" eventType="touchUpInside" id="k0k-Xd-i2p"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="as2-0a-T0G" secondAttribute="trailing" constant="20" id="3Nb-hg-bdL"/>
+                <constraint firstItem="F7z-If-cvv" firstAttribute="top" secondItem="as2-0a-T0G" secondAttribute="bottom" constant="30" id="95z-4n-lu9"/>
+                <constraint firstItem="UjT-m3-NQe" firstAttribute="top" secondItem="F7z-If-cvv" secondAttribute="bottom" constant="20" id="F92-DE-bXa"/>
+                <constraint firstItem="F7z-If-cvv" firstAttribute="leading" secondItem="as2-0a-T0G" secondAttribute="leading" id="IBK-vB-Lho"/>
+                <constraint firstItem="F7z-If-cvv" firstAttribute="trailing" secondItem="as2-0a-T0G" secondAttribute="trailing" id="NYj-gJ-mlU"/>
+                <constraint firstItem="Obv-kk-oGO" firstAttribute="top" secondItem="UjT-m3-NQe" secondAttribute="bottom" constant="20" id="Nm8-id-8Lo"/>
+                <constraint firstItem="BFL-4D-deu" firstAttribute="top" secondItem="Obv-kk-oGO" secondAttribute="bottom" constant="30" id="NpH-qa-448"/>
+                <constraint firstItem="BFL-4D-deu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="QDk-gP-8bI"/>
+                <constraint firstItem="as2-0a-T0G" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="RDL-Sj-UeD"/>
+                <constraint firstItem="UjT-m3-NQe" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dP1-Md-y8t"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BFL-4D-deu" secondAttribute="trailing" constant="20" id="jkT-G1-Exh"/>
+                <constraint firstItem="as2-0a-T0G" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="l2y-pa-LjK"/>
+                <constraint firstItem="Obv-kk-oGO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="oQQ-g9-Dho"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Obv-kk-oGO" secondAttribute="trailing" constant="20" id="rQz-pI-cnc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="UjT-m3-NQe" secondAttribute="trailing" constant="20" id="w1R-Aa-wEv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-1564" y="115"/>
+        </view>
+    </objects>
+</document>
