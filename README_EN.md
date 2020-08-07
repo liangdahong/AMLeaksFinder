@@ -30,13 +30,3 @@ pod 'AMLeaksFinder', '1.2.6',  :configurations => ['Debug']
 ```
 pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ```
-
-## Renderings
-
-<p align="center">
-    <img  width="25%" src="Images/003.gif"/>
-    <img  width="25%" src="Images/001.gif"/>
-    <img  width="25%" src="Images/002.gif"/>
-    <img  width="99%" src="Images/101.png"/>
-<p/>
-
