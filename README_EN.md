@@ -1,6 +1,7 @@
 <p align="center">
-    <img  width="24%" src="Images/gif-1.gif"/>
-    <img  width="73.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
+    <img  width="24%" src="https://user-images.githubusercontent.com/12118567/89614777-be354b80-d8b7-11ea-8af5-8400157f8fd4.gif
+"/>
+    <img  width="72.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
 <p/>
 <p align="center">
 <a href="https://en.wikipedia.org/wiki/IOS"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
