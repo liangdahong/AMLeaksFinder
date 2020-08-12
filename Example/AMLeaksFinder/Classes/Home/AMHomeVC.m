@@ -12,28 +12,30 @@
 #import "AMPresentNoLeakVC.h"
 #import "AMPresentHasLeakVC.h"
 #import "BMNavigationController.h"
+#import "AMLeaksFinder-Swift.h"
 
 @implementation AMHomeVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)dealloc {
-    NSLog(@"AMHomeVC dealloc");
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UIApplication.sharedApplication.delegate.window.rootViewController =  [[BMNavigationController alloc] initWithRootViewController:[AMHomeVC new]];
-}
-
 - (IBAction)pushNoLeakButtonClick {
-    [self.navigationController pushViewController:AMPushNoLeakVC.new animated:YES];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController pushViewController:AMPushNoLeakVC.new animated:YES];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.navigationController pushViewController:PushNoLeakVC.new animated:YES];
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (IBAction)pushHasLeakButtonClick {
-    [self.navigationController pushViewController:AMPushHasLeakVC.new animated:YES];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController pushViewController:AMPushHasLeakVC.new animated:YES];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self.navigationController pushViewController:PushHasLeakVC.new animated:YES];
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (IBAction)presentNoLeakButtonClick {

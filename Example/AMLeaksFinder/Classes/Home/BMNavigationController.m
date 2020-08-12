@@ -8,20 +8,6 @@
 
 #import "BMNavigationController.h"
 
-@interface BMNavigationController ()
-
-@end
-
 @implementation BMNavigationController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSLog(@"BMNavigationController viewDidLoad");
-}
-
-- (void)dealloc {
-    NSLog(@"BMNavigationController dealloc");
-}
-
 
 @end
