@@ -29,9 +29,11 @@
 
 触发了如下方法的时候可以基本确定相关控制器需要释放【欢迎补充】：
 
+---
+
 - `UIViewController` 触发了 `dismissViewControllerAnimated:completion:` 
 
-  
+---
 
 - `UINavigationController` 触发了 `popViewControllerAnimated: `
 
@@ -39,23 +41,30 @@
 
 - `UINavigationController` 触发了 `popToRootViewControllerAnimated: `
 
-- `UINavigationController` 触发了 `popViewControllerAnimated:`
-
 - `UINavigationController` 触发了 `setViewControllers:`
 
 - `UINavigationController` 触发了 `setViewControllers:animated:`
 
-  
+---
 
 - `UITabBarController` 触发了 `setViewControllers:`
 
 - `UITabBarController` 触发了 `setViewControllers:animated:` 
 
-
+---
 
 - `UIPageViewController` 触发了 `setViewControllers:direction:animated:completion:`
+
+---
+
 - `UISplitViewController` 触发了 `setViewControllers:` 
+
+---
+
 - `UIWindow` 触发了 `rootViewController`
+
+---
+
 - ...等。
 
 我们可以从上面的分析出发，在 `viewDidLoad` 的时候记录控制器，然后在控制器  `dealloc` 的时候清除记录，在需要释放的时候把相关控制器标记为将要释放，然后把相关的统计数据呈现出来即可。
