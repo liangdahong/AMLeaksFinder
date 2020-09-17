@@ -32,5 +32,5 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ```
 
 ## 联系
-- 欢迎 [issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [PR](https://github.com/liangdahong/AMLeaksFinder/pulls)
+- 欢迎 [issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [Pull Requests](https://github.com/liangdahong/AMLeaksFinder/pulls)
 - 也可以添加微信<img width="20%" src="https://user-images.githubusercontent.com/12118567/86319172-72fb9d80-bc66-11ea-8c6e-8127f9e5535f.jpg"/> 进微信群交流群。
