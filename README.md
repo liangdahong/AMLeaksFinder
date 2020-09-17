@@ -12,11 +12,12 @@
 
 ## 介绍
 
-本项目是一款用于自动检测项目中【控制器内存泄漏】的工具，只需要把 `AMLeaksFinder` 路径下的文件拖入项目即可，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊。
+本项目是一款用于自动检测 iOS 项目中【控制器内存泄漏】的工具，只需导入 `AMLeaksFinder` 即可实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊。
 
 [English 📔](README_EN.md)
 
 ## 原理分析 
+
 - [原理分析](principle.md)
 
 ## Cocoapods
@@ -32,5 +33,6 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ```
 
 ## 联系
-- 欢迎 [issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [Pull Requests](https://github.com/liangdahong/AMLeaksFinder/pulls)
+
+- 欢迎 [Issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [Pull Requests](https://github.com/liangdahong/AMLeaksFinder/pulls)
 - 也可以添加微信<img width="20%" src="https://user-images.githubusercontent.com/12118567/86319172-72fb9d80-bc66-11ea-8c6e-8127f9e5535f.jpg"/> 进微信群交流群。
