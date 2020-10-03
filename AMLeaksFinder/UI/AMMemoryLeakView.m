@@ -25,9 +25,9 @@
 #import "UIViewController+AMLeaksFinderTools.h"
 
 #if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
-    #import <FBRetainCycleDetector/FBRetainCycleDetector.h>
+#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 #elif __has_include("FBRetainCycleDetector")
-    #import "FBRetainCycleDetector.h"
+#import "FBRetainCycleDetector.h"
 #endif
 
 @interface AMMemoryLeakView () <UITableViewDelegate, UITableViewDataSource>
@@ -80,7 +80,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [UITableViewCell new];
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
+        cell.textLabel.font = [UIFont systemFontOfSize:10];
+    }
     cell.textLabel.text = NSStringFromClass(self.dataSourceArray[indexPath.row].memoryLeakDeallocModel.controller.class);
     AMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
     if (model.shouldDealloc) {
@@ -90,7 +95,6 @@
         cell.textLabel.textColor = [UIColor blackColor];
         [cell setAccessoryType:(UITableViewCellAccessoryNone)];
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:10];
     return cell;
 }
 
@@ -154,11 +158,11 @@
                 if ([detector respondsToSelector:NSSelectorFromString(@"addCandidate:")]
                     && [detector respondsToSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:")]) {
 
-                    #pragma clang diagnostic push
-                    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                     [detector performSelector:NSSelectorFromString(@"addCandidate:") withObject:model.controller];
                     NSSet *retainCycles = [detector performSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:") withObject:@100];
-                    #pragma clang diagnostic pop
+#pragma clang diagnostic pop
                     
                     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
                     [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
@@ -172,7 +176,6 @@
             [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引用的对象【需导入 FBRetainCycleDetector】" style:UIAlertActionStyleDefault handler:nil]];
         }
 #endif
-        
         [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
         [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
     }
@@ -209,8 +212,9 @@
     NSBundle *targetBundle = [NSBundle bundleWithURL:url];
     // load image
     UIImage *allImage = [UIImage imageNamed:@"all"
-                                inBundle:targetBundle
-           compatibleWithTraitCollection:nil];
+                                   inBundle:targetBundle
+              compatibleWithTraitCollection:nil];
+
     [self.allButton setImage:allImage forState:(UIControlStateNormal)];
     
     UIImage *leaksImage = [UIImage imageNamed:@"leaks"
