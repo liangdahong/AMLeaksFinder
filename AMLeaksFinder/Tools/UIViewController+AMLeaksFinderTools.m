@@ -67,7 +67,7 @@ void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL
     // 延时刷新 UI
     // 因为控制器在 pop diss 的时候需要时间才回收
     // 但是要保证数据的准确性，只是延迟刷新 UI
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // update ui
         [UIViewController udpateUI];
     });
@@ -93,6 +93,7 @@ void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL
 }
 
 - (void)amleaks_finder_normal {
+    __block BOOL flag = NO;
     [self.amleaks_finder_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj1.memoryLeakDeallocModel.controller == obj
@@ -100,11 +101,14 @@ void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL
                 // 如果控制器已经设置为将要释放
                 // 就改为正常
                 obj1.memoryLeakDeallocModel.shouldDealloc = NO;
+                flag = YES;
             }
         }];
     }];
-    // update ui
-    [UIViewController udpateUI];
+    if (flag) {
+        // update ui
+        [UIViewController udpateUI];
+    }
 }
 
 + (__kindof UIViewController *)amleaks_finder_TopViewController {

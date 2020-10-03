@@ -53,6 +53,7 @@ static AMDragViewLabel *dragViewLabel;
                 [window addSubview:memoryLeakView];
                 [window addSubview:dragViewLabel];
                 [dragViewLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDragClick)]];
+                [self udpateUI];
             });
         });
     });
@@ -63,7 +64,7 @@ static AMDragViewLabel *dragViewLabel;
 }
 
 + (void)udpateUI {
-
+    
     UIWindow *window = UIViewController.amleaks_finder_TopWindow;
     if (memoryLeakView.superview != window) {
         [window addSubview:memoryLeakView];
@@ -82,29 +83,27 @@ static AMDragViewLabel *dragViewLabel;
             leakCount++;
         }
     }];
-    NSString *str = [NSString stringWithFormat:@"泄漏:%d\n全部:%lu\n点击可切换\n(供参考)" ,
-                     leakCount,
+    NSString *str = [NSString stringWithFormat:@"%@\n全部:%lu\n点击可切换\n【供参考】" ,
+                     leakCount == 0 ? @"无泄漏" : [NSString stringWithFormat:@"已泄漏:%d", leakCount],
                      (unsigned long)UIViewController.memoryLeakModelArray.count];
 
     NSArray <NSString *> *strs = [str componentsSeparatedByString:@"\n"];
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:str];
 
     [att setAttributes:@{
-        NSForegroundColorAttributeName : UIColor.redColor,
+        NSForegroundColorAttributeName : leakCount == 0 ? UIColor.greenColor : UIColor.redColor,
         NSFontAttributeName : [UIFont boldSystemFontOfSize:17],
     } range:NSMakeRange(0, strs.firstObject.length)];
-
+    
     [att setAttributes:@{
-        NSForegroundColorAttributeName : UIColor.blackColor,
+        NSForegroundColorAttributeName : UIColor.whiteColor,
     } range:NSMakeRange(strs.firstObject.length+1, strs[1].length)];
 
     [att setAttributes:@{
-        NSForegroundColorAttributeName : [UIColor colorWithRed:(31)/255.0
-        green:(90)/255.0
-         blue:(222)/255.0
-        alpha:1],
+        NSForegroundColorAttributeName : [UIColor blueColor],
     } range:NSMakeRange(strs.firstObject.length+1+strs[1].length+1, strs.lastObject.length)];
-    
+
+    dragViewLabel.font = [UIFont boldSystemFontOfSize:15];
     dragViewLabel.attributedText = att;
     [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
 }
