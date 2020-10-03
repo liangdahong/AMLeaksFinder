@@ -23,7 +23,9 @@
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
 
-void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
+void amleaks_finder_swizzleInstanceMethod(Class clas,
+                                          SEL originalSelector,
+                                          SEL swizzledSelector);
 
 @interface UIViewController (AMLeaksFinderTools)
 
@@ -32,7 +34,7 @@ void amleaks_finder_swizzleInstanceMethod(Class class, SEL originalSelector, SEL
 @property (class, readonly) __kindof UIViewController *amleaks_finder_TopViewController;
 @property (class, readonly) __kindof UIWindow *amleaks_finder_TopWindow;
 
-/// 控制器标记准备释放
+/// 控制器标记为准备释放
 - (void)amleaks_finder_shouldDealloc;
 /// UIWindow 所有控制器标记为准备释放
 + (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window;

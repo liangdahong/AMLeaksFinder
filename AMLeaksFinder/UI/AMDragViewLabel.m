@@ -30,7 +30,7 @@
 
 @implementation AMDragViewLabel
 
-#pragma mark -
+#pragma mark - awakeFromNib
 
 - (void)awakeFromNib {
     [super awakeFromNib];
