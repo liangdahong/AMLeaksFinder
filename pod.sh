@@ -6,6 +6,6 @@ echo "请确保已打 Tag"
 #pod lib lint
 echo "start pod trunk push"
 #pod trunk push AMLeaksFinder.podspec --allow-warnings --verbose
-pod trunk push AMLeaksFinder.podspec --allow-warnings
+pod trunk push *.podspec --allow-warnings
 echo "end"
 
