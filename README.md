@@ -12,7 +12,7 @@
 
 ## 介绍
 
-本项目是一款用于自动检测 iOS 项目中【控制器内存泄漏】的工具，只需导入 `AMLeaksFinder` 即可实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊。
+本项目是一款用于自动检测 iOS 项目中【控制器内存泄漏】的工具，只需导入 `AMLeaksFinder` 即可实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可以参考 [对比MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4)
 
 [English 📔](README_EN.md)
 
