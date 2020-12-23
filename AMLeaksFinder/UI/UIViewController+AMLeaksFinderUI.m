@@ -22,11 +22,11 @@
 
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakView.h"
-#import "AMDragViewLabel.h"
 #import "UIViewController+AMLeaksFinderTools.h"
+#import "AMLeakOverviewView.h"
 
 static AMMemoryLeakView *memoryLeakView;
-static AMDragViewLabel *dragViewLabel;
+static AMLeakOverviewView *leakOverviewView;
 
 @implementation UIViewController (AMLeaksFinderUI)
 
@@ -40,35 +40,27 @@ static AMDragViewLabel *dragViewLabel;
             memoryLeakView.frame = CGRectMake(30, 60, 200, 300);
             memoryLeakView.hidden = YES;
             
-            dragViewLabel = AMDragViewLabel.new;
-            dragViewLabel.frame = CGRectMake(0, 100, 88, 88);
-            dragViewLabel.layer.cornerRadius = 30;
-            dragViewLabel.layer.masksToBounds = YES;
-            dragViewLabel.textAlignment = NSTextAlignmentCenter;
-            dragViewLabel.textColor = UIColor.redColor;
-            dragViewLabel.font = [UIFont systemFontOfSize:12];
-            
+            leakOverviewView = AMLeakOverviewView.new;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
                 UIWindow *window = UIViewController.amleaks_finder_TopWindow;
                 [window addSubview:memoryLeakView];
-                [window addSubview:dragViewLabel];
-                [dragViewLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDragClick)]];
+                [window addSubview:leakOverviewView];
+                leakOverviewView.showDetailsBlock = ^{
+                    memoryLeakView.hidden = !memoryLeakView.isHidden;
+                };
                 [self udpateUI];
             });
         });
     });
 }
 
-+ (void)tapDragClick {
-    memoryLeakView.hidden = !memoryLeakView.isHidden;
-}
 
 + (void)udpateUI {
     
     UIWindow *window = UIViewController.amleaks_finder_TopWindow;
     if (memoryLeakView.superview != window) {
         [window addSubview:memoryLeakView];
-        [window addSubview:dragViewLabel];
+        [window addSubview:leakOverviewView];
     }
     
     [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -83,28 +75,12 @@ static AMDragViewLabel *dragViewLabel;
             leakCount++;
         }
     }];
-    NSString *str = [NSString stringWithFormat:@"%@\n全部:%lu\n点击可切换\n【供参考】" ,
-                     leakCount == 0 ? @"无泄漏" : [NSString stringWithFormat:@"已泄漏:%d", leakCount],
-                     (unsigned long)UIViewController.memoryLeakModelArray.count];
-
-    NSArray <NSString *> *strs = [str componentsSeparatedByString:@"\n"];
-    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:str];
-
-    [att setAttributes:@{
-        NSForegroundColorAttributeName : leakCount == 0 ? UIColor.greenColor : UIColor.redColor,
-        NSFontAttributeName : [UIFont boldSystemFontOfSize:17],
-    } range:NSMakeRange(0, strs.firstObject.length)];
     
-    [att setAttributes:@{
-        NSForegroundColorAttributeName : UIColor.whiteColor,
-    } range:NSMakeRange(strs.firstObject.length+1, strs[1].length)];
-
-    [att setAttributes:@{
-        NSForegroundColorAttributeName : [UIColor blueColor],
-    } range:NSMakeRange(strs.firstObject.length+1+strs[1].length+1, strs.lastObject.length)];
-
-    dragViewLabel.font = [UIFont boldSystemFontOfSize:15];
-    dragViewLabel.attributedText = att;
+    AMLeakDataModel *model = [AMLeakDataModel new];
+    model.allCount = (int)UIViewController.memoryLeakModelArray.count;
+    model.leakCount = leakCount;
+    leakOverviewView.leakDataModel = model;
+    
     [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
 }
 

@@ -22,6 +22,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AMDragViewLabel : UILabel
+@interface AMLeakDataModel : NSObject
+
+@property (nonatomic, assign) int leakCount;
+@property (nonatomic, assign) int allCount;
+
+@end
+
+@interface AMLeakOverviewView : UIView
+
+@property (nonatomic, copy) dispatch_block_t showDetailsBlock;
+@property (nonatomic, strong) AMLeakDataModel *leakDataModel;
 
 @end
