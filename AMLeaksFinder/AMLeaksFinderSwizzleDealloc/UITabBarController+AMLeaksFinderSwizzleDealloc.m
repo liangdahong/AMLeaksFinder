@@ -29,13 +29,13 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(setViewControllers:),
-                              @selector(amleaks_finder_setViewControllers:));
+        am_fi_sw_in_me(self.class,
+                       @selector(setViewControllers:),
+                       @selector(amleaks_finder_setViewControllers:));
         
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(setViewControllers:animated:),
-                              @selector(amleaks_finder_setViewControllers:animated:));
+        am_fi_sw_in_me(self.class,
+                       @selector(setViewControllers:animated:),
+                       @selector(amleaks_finder_setViewControllers:animated:));
     });
 }
 

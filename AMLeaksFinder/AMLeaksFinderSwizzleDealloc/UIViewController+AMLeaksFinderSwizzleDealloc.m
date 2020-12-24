@@ -30,9 +30,9 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(dismissViewControllerAnimated:completion:),
-                              @selector(amleaks_finder_dismissViewControllerAnimated:completion:));
+        am_fi_sw_in_me(self.class,
+                       @selector(dismissViewControllerAnimated:completion:),
+                       @selector(amleaks_finder_dismissViewControllerAnimated:completion:));
         
     });
 }

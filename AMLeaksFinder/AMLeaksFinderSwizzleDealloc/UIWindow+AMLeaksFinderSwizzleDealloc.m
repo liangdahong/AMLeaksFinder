@@ -29,10 +29,10 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(setRootViewController:),
-                              @selector(amleaks_finder_setRootViewController:)
-                              );
+        am_fi_sw_in_me(self.class,
+                       @selector(setRootViewController:),
+                       @selector(amleaks_finder_setRootViewController:)
+                       );
     });
 }
 

@@ -32,7 +32,7 @@
         if (obj.memoryLeakDeallocModel == self) {
             [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
             *stop = YES;
-         }
+        }
     }];
     [UIViewController udpateUI];
 }
