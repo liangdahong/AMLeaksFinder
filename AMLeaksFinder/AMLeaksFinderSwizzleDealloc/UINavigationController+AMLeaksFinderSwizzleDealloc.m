@@ -27,27 +27,27 @@
 @implementation UINavigationController (AMLeaksFinderSwizzleDealloc)
 
 + (void)load {
-    static dispatch_once_t onceToken; 
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(popViewControllerAnimated:),
-                              @selector(amleaks_finder_popViewControllerAnimated:));
-
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(popToViewController:animated:),
-                              @selector(amleaks_finder_popToViewController:animated:));
-
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(popToRootViewControllerAnimated:),
-                              @selector(amleaks_finder_popToRootViewControllerAnimated:));
-
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(setViewControllers:),
-                              @selector(amleaks_finder_setViewControllers:));
+        am_fi_sw_in_me(self.class,
+                       @selector(popViewControllerAnimated:),
+                       @selector(amleaks_finder_popViewControllerAnimated:));
         
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                              @selector(setViewControllers:animated:),
-                              @selector(amleaks_finder_setViewControllers:animated:));
+        am_fi_sw_in_me(self.class,
+                       @selector(popToViewController:animated:),
+                       @selector(amleaks_finder_popToViewController:animated:));
+        
+        am_fi_sw_in_me(self.class,
+                       @selector(popToRootViewControllerAnimated:),
+                       @selector(amleaks_finder_popToRootViewControllerAnimated:));
+        
+        am_fi_sw_in_me(self.class,
+                       @selector(setViewControllers:),
+                       @selector(amleaks_finder_setViewControllers:));
+        
+        am_fi_sw_in_me(self.class,
+                       @selector(setViewControllers:animated:),
+                       @selector(amleaks_finder_setViewControllers:animated:));
     });
 }
 

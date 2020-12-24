@@ -25,9 +25,9 @@
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakModel.h"
 
-void amleaks_finder_swizzleInstanceMethod(Class clas,
-                                          SEL originalSelector,
-                                          SEL swizzledSelector) {
+void am_fi_sw_in_me(Class clas,
+                    SEL originalSelector,
+                    SEL swizzledSelector) {
     Method originalMethod = class_getInstanceMethod(clas, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(clas, swizzledSelector);
     if (class_addMethod(clas, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
@@ -65,7 +65,7 @@ void amleaks_finder_swizzleInstanceMethod(Class clas,
             }
         }];
     }];
-
+    
     // 延时刷新 UI
     // 因为控制器在 pop diss 的时候需要时间才回收
     // 但是要保证数据的准确性，只是延迟刷新 UI

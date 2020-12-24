@@ -33,13 +33,13 @@ static const void * const associatedKey = &associatedKey;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                                             @selector(viewDidLoad),
-                                             @selector(amleaks_finder_viewDidLoad));
+        am_fi_sw_in_me(self.class,
+                       @selector(viewDidLoad),
+                       @selector(amleaks_finder_viewDidLoad));
         
-        amleaks_finder_swizzleInstanceMethod(self.class,
-                                             @selector(viewDidAppear:),
-                                             @selector(amleaks_finder_viewDidAppear:));
+        am_fi_sw_in_me(self.class,
+                       @selector(viewDidAppear:),
+                       @selector(amleaks_finder_viewDidAppear:));
         
     });
 }
@@ -50,7 +50,7 @@ static const void * const associatedKey = &associatedKey;
     if (deallocModel) {
         return;
     }
-
+    
     // 绑定 deallocModel, 监控 dealloc 方法
     deallocModel = AMMemoryLeakDeallocModel.new;
     objc_setAssociatedObject(self, associatedKey, deallocModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -60,7 +60,7 @@ static const void * const associatedKey = &associatedKey;
     AMMemoryLeakModel *memoryLeakModel = AMMemoryLeakModel.new;
     memoryLeakModel.memoryLeakDeallocModel = deallocModel;
     [UIViewController.memoryLeakModelArray insertObject:memoryLeakModel atIndex:0];
-
+    
     // 刷新 UI
     [UIViewController udpateUI];
 }

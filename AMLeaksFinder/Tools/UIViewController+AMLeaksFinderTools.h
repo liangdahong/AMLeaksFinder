@@ -23,9 +23,9 @@
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
 
-void amleaks_finder_swizzleInstanceMethod(Class clas,
-                                          SEL originalSelector,
-                                          SEL swizzledSelector);
+void am_fi_sw_in_me(Class clas,
+                    SEL originalSelector,
+                    SEL swizzledSelector);
 
 @interface UIViewController (AMLeaksFinderTools)
 
