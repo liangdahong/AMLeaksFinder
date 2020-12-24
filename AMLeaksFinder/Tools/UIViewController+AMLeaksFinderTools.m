@@ -123,8 +123,11 @@ void amleaks_finder_swizzleInstanceMethod(Class clas,
 }
 
 + (__kindof UIWindow *)amleaks_finder_TopWindow {
-    __block UIWindow *window = nil;
-    [UIApplication.sharedApplication.windows enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    __block UIWindow *window = UIApplication.sharedApplication.keyWindow;
+    if (window) {
+        return window;
+    }
+    [UIApplication.sharedApplication.windows enumerateObjectsUsingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!obj.hidden
             && obj.alpha > 0.1
             && obj.screen == UIScreen.mainScreen
