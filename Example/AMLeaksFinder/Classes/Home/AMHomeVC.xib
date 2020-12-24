@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as2-0a-T0G">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as2-0a-T0G">
                     <rect key="frame" x="20" y="144" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Mhh-bY-JAI"/>
@@ -28,7 +29,7 @@
                         <action selector="pushNoLeakButtonClick" destination="-1" eventType="touchUpInside" id="Ujq-Ua-1wu"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7z-If-cvv">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7z-If-cvv">
                     <rect key="frame" x="20" y="214" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="U3q-UU-iTH"/>
@@ -38,7 +39,7 @@
                         <action selector="pushHasLeakButtonClick" destination="-1" eventType="touchUpInside" id="0up-St-aW8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjT-m3-NQe">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjT-m3-NQe">
                     <rect key="frame" x="20" y="274" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="lAb-5W-Jio"/>
@@ -48,7 +49,7 @@
                         <action selector="presentNoLeakButtonClick" destination="-1" eventType="touchUpInside" id="0AG-dR-OhZ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-kk-oGO">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-kk-oGO">
                     <rect key="frame" x="20" y="334" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="kg1-Yd-b1A"/>
@@ -58,15 +59,22 @@
                         <action selector="presentHasLeakButtonClick" destination="-1" eventType="touchUpInside" id="EwC-RA-63x"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFL-4D-deu">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFL-4D-deu">
                     <rect key="frame" x="20" y="404" width="374" height="30"/>
                     <state key="normal" title="换 root VC"/>
                     <connections>
                         <action selector="chanedRootVCClick" destination="-1" eventType="touchUpInside" id="k0k-Xd-i2p"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7t-ll-eIo">
+                    <rect key="frame" x="40" y="587" width="320" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="as2-0a-T0G" secondAttribute="trailing" constant="20" id="3Nb-hg-bdL"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="top" secondItem="as2-0a-T0G" secondAttribute="bottom" constant="30" id="95z-4n-lu9"/>
@@ -84,8 +92,12 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Obv-kk-oGO" secondAttribute="trailing" constant="20" id="rQz-pI-cnc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="UjT-m3-NQe" secondAttribute="trailing" constant="20" id="w1R-Aa-wEv"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-1564" y="115"/>
+            <point key="canvasLocation" x="-1565.217391304348" y="114.50892857142857"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

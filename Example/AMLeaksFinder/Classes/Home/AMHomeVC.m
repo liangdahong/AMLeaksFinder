@@ -17,9 +17,10 @@
 @implementation AMHomeVC
 
 - (IBAction)pushNoLeakButtonClick {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController pushViewController:AMPushNoLeakVC.new animated:YES];
+        AMPushNoLeakVC *vc = AMPushNoLeakVC.new;
+        [self.navigationController pushViewController:vc animated:YES];
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [self.navigationController pushViewController:PushNoLeakVC.new animated:YES];
@@ -39,11 +40,15 @@
 }
 
 - (IBAction)presentNoLeakButtonClick {
-    [self presentViewController:AMPresentNoLeakVC.new animated:YES completion:nil];
+    AMPresentNoLeakVC *vc = AMPresentNoLeakVC.new;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)presentHasLeakButtonClick {
-    [self presentViewController:AMPresentHasLeakVC.new animated:YES completion:nil];
+    AMPresentHasLeakVC *vc = AMPresentHasLeakVC.new;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)chanedRootVCClick {
