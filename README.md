@@ -1,5 +1,5 @@
 <p align="center">
-    <img  width="24%" src="https://user-images.githubusercontent.com/12118567/89614777-be354b80-d8b7-11ea-8af5-8400157f8fd4.gif"/>
+    <img  width="22.5%" src="https://user-images.githubusercontent.com/12118567/103100340-0f6a8f80-464d-11eb-9cb5-87c8f63e29f1.gif"/>
     <img  width="72.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
 <p/>
 <p align="center">
@@ -12,7 +12,7 @@
 
 ## 介绍
 
-本项目是一款用于自动检测 iOS 项目中【控制器内存泄漏】的工具，只需导入 `AMLeaksFinder` 即可实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可以参考 [对比MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4)
+本项目是一款用于自动检测 iOS 项目中【控制器内存泄漏】的工具，只需导入 `AMLeaksFinder` 即可实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可以参考 [对比MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
 
 [English 📔](README_EN.md)
 
@@ -26,7 +26,7 @@
 pod 'AMLeaksFinder', '1.3.2',  :configurations => ['Debug']
 ```
 
-- 如果想查看控制器的强引用链，导入：Facebook 的 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) 框架即可。
+- 如果想查看控制器的强引用链，可导入：Facebook 的 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) 框架即可。
 
 ```
 pod 'FBRetainCycleDetector',  :configurations => ['Debug']
