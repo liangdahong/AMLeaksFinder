@@ -1,1 +1,1 @@
-../../../../../AMLeaksFinder/Model/AMMemoryLeakDeallocModel.h
+../../../../../AMLeaksFinder/Model/Controller/AMMemoryLeakDeallocModel.h
