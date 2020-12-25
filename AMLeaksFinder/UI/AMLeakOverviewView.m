@@ -44,7 +44,7 @@
         self.backgroundColor = [UIColor grayColor];
         self.layer.cornerRadius = 5.0;
         self.layer.masksToBounds = YES;
-        self.frame = CGRectMake(0, 100, 60, 30);
+        self.frame = CGRectMake(0, 100, 88, 30);
         
         UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [self addSubview:button];
@@ -64,6 +64,7 @@
         leakCountLabel.font = [UIFont boldSystemFontOfSize:17];
         leakCountLabel.backgroundColor = UIColor.clearColor;
         leakCountLabel.numberOfLines = 0;
+        leakCountLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:leakCountLabel];
         leakCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [[leakCountLabel.topAnchor  constraintEqualToAnchor:button.topAnchor constant:0] setActive:YES];
@@ -103,12 +104,12 @@
     self.hiddenButton.selected = !self.hiddenButton.isSelected;
     if (self.hiddenButton.isSelected) {
         self.layer.cornerRadius = 5;
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 60, 30);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 88, 30);
         self.leakCountLabel.hidden = false;
         self.descLabel.hidden = true;
     } else {
         self.layer.cornerRadius = 10;
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 88, 99);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 88, 120);
         self.leakCountLabel.hidden = true;
         self.descLabel.hidden = false;
     }
@@ -146,30 +147,47 @@
     
     _leakDataModel = leakDataModel;
     
-    self.leakCountLabel.text = (self.leakDataModel.leakCount == 0 ) ? @"" : [NSString stringWithFormat:@"%ld", (unsigned long)self.leakDataModel.leakCount];
+    int total = leakDataModel.vcLeakCount + leakDataModel.viewLeakCount;
+
+    self.leakCountLabel.text = (total == 0 ) ? @"" : [NSString stringWithFormat:@"%ld", (unsigned long)total];
     
-    int leakCount = leakDataModel.leakCount;
-    int count = leakDataModel.allCount;
-    
-    if (leakCount == 0) {
+    if (total == 0) {
         [self.hiddenButton setTitleColor:[UIColor greenColor] forState:(UIControlStateNormal)];
     } else {
         [self.hiddenButton setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
     }
-    NSString *str = [NSString stringWithFormat:@"%@\n全部:%lu" ,
-                     leakCount == 0 ? @"无泄漏" : [NSString stringWithFormat:@"已泄漏:%d", leakCount],
-                     (unsigned long)count];
-    
-    NSArray <NSString *> *strs = [str componentsSeparatedByString:@"\n"];
-    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:str];
-
-    [att setAttributes:@{
-        NSForegroundColorAttributeName : leakCount == 0 ? UIColor.greenColor : UIColor.redColor,
-        NSFontAttributeName : [UIFont boldSystemFontOfSize:17],
-    } range:NSMakeRange(0, strs.firstObject.length)];
-    
-    self.descLabel.font = [UIFont boldSystemFontOfSize:15];
-    self.descLabel.attributedText = att;
+    if (total == 0) {
+        NSString *str1 = [NSString stringWithFormat:@"无泄露\n"];
+        NSString *str2 = [NSString stringWithFormat:@"vc共: %d\n", leakDataModel.vcAllCount];
+        NSString *str3 = [NSString stringWithFormat:@""];
+        
+        NSString *str = [[str1 stringByAppendingString:str2]
+                         stringByAppendingString:str3];
+        NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:str];
+        [att setAttributes:@{
+            NSForegroundColorAttributeName : UIColor.greenColor,
+            NSFontAttributeName : [UIFont boldSystemFontOfSize:13],
+        } range:NSMakeRange(0, str.length)];
+        self.descLabel.attributedText = att;
+    } else {
+        NSString *str1 = [NSString stringWithFormat:@"vc泄: %d\n",  leakDataModel.vcLeakCount];
+        NSString *str2 = [NSString stringWithFormat:@"vc共: %d\n", leakDataModel.vcAllCount];
+        NSString *str3 = [NSString stringWithFormat:@"view泄: %d",  leakDataModel.viewLeakCount];
+        NSString *str = [[str1 stringByAppendingString:str2]
+                         stringByAppendingString:str3];
+        NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:str];
+        
+        [att setAttributes:@{
+            NSForegroundColorAttributeName : UIColor.redColor,
+            NSFontAttributeName : [UIFont boldSystemFontOfSize:13],
+        } range:NSMakeRange(0, str1.length)];
+        
+        [att setAttributes:@{
+            NSForegroundColorAttributeName : UIColor.redColor,
+            NSFontAttributeName : [UIFont boldSystemFontOfSize:13],
+        } range:NSMakeRange(str1.length + str2.length, str3.length)];
+        self.descLabel.attributedText = att;
+    }
 }
 
 @end
