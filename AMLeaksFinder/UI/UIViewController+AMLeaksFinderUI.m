@@ -76,12 +76,20 @@ static AMLeakOverviewView *leakOverviewView;
         }
     }];
     
-    AMLeakDataModel *model = [AMLeakDataModel new];
-    model.allCount = (int)UIViewController.memoryLeakModelArray.count;
-    model.leakCount = leakCount;
-    leakOverviewView.leakDataModel = model;
-    
+    // views
+    [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.viewMemoryLeakDeallocModel.view) {
+            [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
+        }
+    }];
+    memoryLeakView.viewMemoryLeakModelArray = UIViewController.viewMemoryLeakModelArray;
     [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
+    
+    AMLeakDataModel *model = [AMLeakDataModel new];
+    model.vcLeakCount = leakCount;
+    model.vcAllCount = (int)UIViewController.memoryLeakModelArray.count;
+    model.viewLeakCount = UIViewController.viewMemoryLeakModelArray.count;
+    leakOverviewView.leakDataModel = model;
 }
 
 @end

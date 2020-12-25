@@ -22,12 +22,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
+#import "AMViewMemoryLeakModel.h"
 
 void am_fi_sw_in_me(Class clas,
                     SEL originalSelector,
                     SEL swizzledSelector);
 
 @interface UIViewController (AMLeaksFinderTools)
+
+@property (class, readonly) NSMutableArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
+
 
 /// 全局管理控制器的 Array
 @property (class, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
@@ -36,10 +40,13 @@ void am_fi_sw_in_me(Class clas,
 
 /// 控制器标记为准备释放
 - (void)amleaks_finder_shouldDealloc;
+
 /// UIWindow 所有控制器标记为准备释放
-+ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window;
++ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller
+                                                  window:(UIWindow *)window;
 
 /// 控制器标记为正常
 - (void)amleaks_finder_normal;
 
 @end
+

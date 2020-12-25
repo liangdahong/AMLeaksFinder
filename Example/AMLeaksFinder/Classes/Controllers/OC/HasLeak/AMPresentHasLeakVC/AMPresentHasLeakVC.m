@@ -18,6 +18,11 @@
 //        __strong typeof(self) self = weakSelf;
         [self dismissViewControllerAnimated:YES completion:nil];
     };
+    [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
+    [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
+    [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
+    [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
+    [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
 }
 
 @end

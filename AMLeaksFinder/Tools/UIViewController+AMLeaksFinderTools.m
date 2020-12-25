@@ -24,6 +24,9 @@
 #import <objc/runtime.h>
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakModel.h"
+#import "UIView+AMLeaksFinderTools.h"
+
+static const void * const associatedKey = &associatedKey;
 
 void am_fi_sw_in_me(Class clas,
                     SEL originalSelector,
@@ -38,6 +41,15 @@ void am_fi_sw_in_me(Class clas,
 }
 
 @implementation UIViewController (AMLeaksFinderTools)
+
++ (NSMutableArray<AMViewMemoryLeakModel *> *)viewMemoryLeakModelArray {
+    static NSMutableArray <AMViewMemoryLeakModel *> *arr = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        arr = @[].mutableCopy;
+    });
+    return arr;
+}
 
 + (NSMutableArray<AMMemoryLeakModel *> *)memoryLeakModelArray {
     static NSMutableArray <AMMemoryLeakModel *> *arr = nil;
@@ -62,6 +74,9 @@ void am_fi_sw_in_me(Class clas,
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj1.memoryLeakDeallocModel.controller == obj) {
                 obj1.memoryLeakDeallocModel.shouldDealloc = YES;
+                // 获取控制器的 view 以及所有 子子孙孙 view
+                UIViewController *vc = obj1.memoryLeakDeallocModel.controller;
+                [vc.view amleaks_finder_shouldDealloc];
             }
         }];
     }];
@@ -75,7 +90,8 @@ void am_fi_sw_in_me(Class clas,
     });
 }
 
-+ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller window:(UIWindow *)window {
++ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller
+                                                  window:(UIWindow *)window {
     NSMutableArray <UIViewController *> *arr = controller.amleaks_finder_selfAndAllChildController.mutableCopy;
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.memoryLeakDeallocModel.controller.view.window == window) {

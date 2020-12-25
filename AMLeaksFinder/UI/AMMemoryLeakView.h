@@ -22,9 +22,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
+#import "AMViewMemoryLeakModel.h"
 
 @interface AMMemoryLeakView : UIView
 
 @property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *memoryLeakModelArray;
+
+@property (nonatomic, copy) NSArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
 
 @end

@@ -23,6 +23,7 @@
 #import "AMMemoryLeakView.h"
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "UIViewController+AMLeaksFinderTools.h"
+#import "UIView+AMLeaksFinderTools.h"
 
 #if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
 #import <FBRetainCycleDetector/FBRetainCycleDetector.h>
@@ -33,6 +34,8 @@
 @interface AMMemoryLeakView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *viewTableView;
+
 @property (weak, nonatomic) IBOutlet UIButton *allButton;
 @property (weak, nonatomic) IBOutlet UIButton *leaksButton;
 @property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *dataSourceArray;
@@ -76,26 +79,40 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSourceArray.count;
+    if (tableView == self.tableView) {
+        return self.dataSourceArray.count;
+    } else {
+        return self.viewMemoryLeakModelArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"identifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:10];
-    }
-    cell.textLabel.text = NSStringFromClass(self.dataSourceArray[indexPath.row].memoryLeakDeallocModel.controller.class);
-    AMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
-    if (model.shouldDealloc) {
-        cell.textLabel.textColor = [UIColor redColor];
-        [cell setAccessoryType:(UITableViewCellAccessoryDisclosureIndicator)];
+    if (tableView == self.tableView) {
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
+            cell.textLabel.font = [UIFont systemFontOfSize:10];
+        }
+        cell.textLabel.text = NSStringFromClass(self.dataSourceArray[indexPath.row].memoryLeakDeallocModel.controller.class);
+        AMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
+        if (model.shouldDealloc) {
+            cell.textLabel.textColor = [UIColor redColor];
+        } else {
+            cell.textLabel.textColor = [UIColor blackColor];
+        }
+        return cell;
     } else {
-        cell.textLabel.textColor = [UIColor blackColor];
-        [cell setAccessoryType:(UITableViewCellAccessoryNone)];
+        static NSString *identifier = @"identifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
+            cell.textLabel.font = [UIFont systemFontOfSize:10];
+        }
+        cell.textLabel.text = NSStringFromClass(self.viewMemoryLeakModelArray[indexPath.row].viewMemoryLeakDeallocModel.view.class);
+        cell.textLabel.textColor = [UIColor redColor];
+        return cell;
     }
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,6 +123,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (tableView == self.viewTableView) {
+        AMViewMemoryLeakDeallocModel *model = self.viewMemoryLeakModelArray[indexPath.row].viewMemoryLeakDeallocModel;
+        UIView *view = model.view;
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"view" message:[NSString stringWithFormat:@"如果 view 是特意长驻内存的，可以点击忽略 \n\n[%@]", view] preferredStyle:UIAlertControllerStyleAlert];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"忽略此 view" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [UIViewController.viewMemoryLeakModelArray enumerateObjectsUsingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.viewMemoryLeakDeallocModel == model) {
+                    [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
+                    [UIViewController udpateUI];
+                    *stop = YES;
+                }
+            }];
+        }]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+        [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
+        return;
+    }
+    
     AMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
     if (model.shouldDealloc) {
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"是否忽略此控制器" message:[NSString stringWithFormat:@"如果控制器是特意长驻内存的，可以点击忽略 \n\n[%@]", model.controller] preferredStyle:UIAlertControllerStyleAlert];
@@ -113,6 +148,7 @@
             [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (obj.memoryLeakDeallocModel == model) {
                     [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
+                    [obj.memoryLeakDeallocModel.controller.view amleaks_finder_IgnoredMemoryLeak];
                     [UIViewController udpateUI];
                     *stop = YES;
                 }
@@ -202,6 +238,12 @@
     [self.tableView reloadData];
 }
 
+
+- (void)setViewMemoryLeakModelArray:(NSArray<AMViewMemoryLeakModel *> *)viewMemoryLeakModelArray {
+    _viewMemoryLeakModelArray = viewMemoryLeakModelArray.copy;
+    [self.viewTableView reloadData];
+}
+
 #pragma mark - 私有方法
 
 - (void)initUI {
@@ -225,8 +267,13 @@
     self.layer.cornerRadius = 30;
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.layer.masksToBounds = YES;
-    self.tableView.layer.cornerRadius = 30;
+    
+    self.tableView.layer.cornerRadius = 5;
     self.tableView.layer.masksToBounds = YES;
+    
+    self.viewTableView.layer.cornerRadius = 5;
+    self.viewTableView.layer.masksToBounds = YES;
+    
     [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
 }
 

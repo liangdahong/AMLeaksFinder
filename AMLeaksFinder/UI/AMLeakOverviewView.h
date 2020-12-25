@@ -24,8 +24,10 @@
 
 @interface AMLeakDataModel : NSObject
 
-@property (nonatomic, assign) int leakCount;
-@property (nonatomic, assign) int allCount;
+@property (nonatomic, assign) int vcLeakCount;
+@property (nonatomic, assign) int vcAllCount;
+
+@property (nonatomic, assign) int viewLeakCount;
 
 @end
 
