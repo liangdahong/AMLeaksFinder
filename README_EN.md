@@ -22,7 +22,7 @@ A small tool for automatically detecting the [controller memory leak] in the pro
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '1.3.2',  :configurations => ['Debug']
+pod 'AMLeaksFinder',  :configurations => ['Debug']
 ```
 
 - If you want to view the reference chain of the controller, import: Facebook's [FBRetainCycleDetector] (https://github.com/facebook/FBRetainCycleDetector) framework. 
