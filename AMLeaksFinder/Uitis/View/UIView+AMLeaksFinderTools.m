@@ -29,8 +29,7 @@
 
 @implementation UIView (AMLeaksFinderTools)
 
-
-/// 返回 【自己】+【自己所有的子子孙孙控制器】组成的数组
+/// 返回 【自己】+【自己所有的子子孙孙 view 】组成的数组
 - (NSArray<UIView *> *)amleaks_finder_selfAndAllChildViews {
     NSMutableArray <UIView *>*arr = @[self].mutableCopy;
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
