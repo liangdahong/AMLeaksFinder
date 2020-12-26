@@ -1,1 +1,1 @@
-../../../../../AMLeaksFinder/AMLeaksFinderSwizzleDealloc/UIWindow+AMLeaksFinderSwizzleDealloc.h
+../../../../../AMLeaksFinder/Objects/Controllers/NeedDealloc/UIWindow+AMLeaksFinderSwizzleDealloc.h

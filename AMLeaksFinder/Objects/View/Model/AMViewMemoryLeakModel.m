@@ -20,15 +20,8 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import <UIKit/UIKit.h>
-#import "AMMemoryLeakModel.h"
 #import "AMViewMemoryLeakModel.h"
-#import "AMSnapedViewViewController.h"
 
-@interface AMMemoryLeakView : UIView
-
-@property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-
-@property (nonatomic, copy) NSArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
+@implementation AMViewMemoryLeakModel
 
 @end
