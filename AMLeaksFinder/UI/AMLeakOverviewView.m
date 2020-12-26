@@ -111,11 +111,9 @@
     }
 }
 
-
 - (void)detailsButtonClick {
     !_showDetailsBlock ? : _showDetailsBlock();
 }
-
 
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint point = [panGestureRecognizer locationInView:self.superview];
