@@ -236,7 +236,7 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                [detector performSelector:NSSelectorFromString(@"addCandidate:") withObject:model.controller];
+                [detector performSelector:NSSelectorFromString(@"addCandidate:") withObject:candidate];
                 NSSet *retainCycles = [detector performSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:") withObject:@100];
 #pragma clang diagnostic pop
                 
