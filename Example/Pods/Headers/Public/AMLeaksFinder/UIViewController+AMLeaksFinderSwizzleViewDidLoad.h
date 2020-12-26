@@ -1,1 +1,1 @@
-../../../../../AMLeaksFinder/AMLeaksFinderSwizzleViewDidLoad/UIViewController+AMLeaksFinderSwizzleViewDidLoad.h
+../../../../../AMLeaksFinder/Objects/Controllers/ViewDidLoad/UIViewController+AMLeaksFinderSwizzleViewDidLoad.h
