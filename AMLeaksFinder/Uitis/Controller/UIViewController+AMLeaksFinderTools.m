@@ -120,6 +120,8 @@ void am_fi_sw_in_me(Class clas,
                 // 如果控制器已经设置为将要释放
                 // 就改为正常
                 obj1.memoryLeakDeallocModel.shouldDealloc = NO;
+                // views 设置为正常
+                [obj1.memoryLeakDeallocModel.controller.view amleaks_finder_normal];
                 flag = YES;
             }
         }];
