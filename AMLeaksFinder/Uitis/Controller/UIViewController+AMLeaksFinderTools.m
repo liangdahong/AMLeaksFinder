@@ -139,21 +139,20 @@ void am_fi_sw_in_me(Class clas,
     return topvc;
 }
 
+/// 参考自 SVP
 + (__kindof UIWindow *)amleaks_finder_TopWindow {
-    __block UIWindow *window = nil;
-    [UIApplication.sharedApplication.windows enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!obj.hidden
-            && obj.alpha > 0.1
-            && obj.screen == UIScreen.mainScreen
-            && obj.windowLevel >= UIWindowLevelNormal
-            && obj.userInteractionEnabled
-            && [NSStringFromClass(obj.class) rangeOfString:@"UIRemoteKeyboardWindow"].location == NSNotFound
-            ) {
-            window = obj;
-            *stop = YES;
+    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
+    for (UIWindow *window in frontToBackWindows) {
+        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
+        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
+        BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal
+                                     && window.windowLevel <= UIWindowLevelNormal);
+        BOOL windowKeyWindow = window.isKeyWindow;
+        if(windowOnMainScreen && windowIsVisible && windowLevelSupported && windowKeyWindow) {
+            return window;
         }
-    }];
-    return window;
+    }
+    return UIApplication.sharedApplication.keyWindow;
 }
 
 @end
