@@ -1,1 +1,1 @@
-../../../../../AMLeaksFinder/Tools/UIViewController+AMLeaksFinderTools.h
+../../../../../AMLeaksFinder/Uitis/Controller/UIViewController+AMLeaksFinderTools.h

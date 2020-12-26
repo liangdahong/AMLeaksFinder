@@ -21,15 +21,7 @@
 //    SOFTWARE.
 
 #import <UIKit/UIKit.h>
-
-@interface AMLeakDataModel : NSObject
-
-@property (nonatomic, assign) int vcLeakCount;
-@property (nonatomic, assign) int vcAllCount;
-
-@property (nonatomic, assign) int viewLeakCount;
-
-@end
+#import "AMLeakDataModel.h"
 
 @interface AMLeakOverviewView : UIView
 

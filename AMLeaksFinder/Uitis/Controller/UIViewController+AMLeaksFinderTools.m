@@ -74,6 +74,7 @@ void am_fi_sw_in_me(Class clas,
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj1.memoryLeakDeallocModel.controller == obj) {
                 obj1.memoryLeakDeallocModel.shouldDealloc = YES;
+                
                 // 获取控制器的 view 以及所有 子子孙孙 view
                 UIViewController *vc = obj1.memoryLeakDeallocModel.controller;
                 [vc.view amleaks_finder_shouldDealloc];
