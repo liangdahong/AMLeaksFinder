@@ -29,4 +29,6 @@
 // 标记为忽略的内存泄露
 - (void)amleaks_finder_IgnoredMemoryLeak;
 
+- (void)amleaks_finder_normal;
+
 @end

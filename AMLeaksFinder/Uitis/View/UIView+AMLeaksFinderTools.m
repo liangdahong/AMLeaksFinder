@@ -54,11 +54,9 @@
     [self.amleaks_finder_selfAndAllChildViews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         AMViewMemoryLeakDeallocModel *deallocModel = objc_getAssociatedObject(obj, _cmd);
         if (deallocModel) {
-            deallocModel.shouldDealloc = YES;
             return;
         }
         deallocModel = AMViewMemoryLeakDeallocModel.new;
-        deallocModel.shouldDealloc = YES;
         objc_setAssociatedObject(obj, _cmd, deallocModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         deallocModel.view = obj;
         
@@ -71,6 +69,27 @@
         // view 应该销毁完毕
         [UIViewController udpateUI];
     });
+}
+
+- (void)amleaks_finder_normal {
+    __block BOOL flag = NO;
+    [self.amleaks_finder_selfAndAllChildViews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+            if (obj1.viewMemoryLeakDeallocModel.view == obj ) {
+                // 清除需要 dealloc 记录
+                [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx1];
+                // 解除 dealloc 绑定
+                objc_setAssociatedObject(obj,
+                                         @selector(amleaks_finder_shouldDealloc),
+                                         nil,
+                                         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                flag = YES;
+            }
+        }];
+    }];
+    if (flag) {
+        [UIViewController udpateUI];
+    }
 }
 
 @end

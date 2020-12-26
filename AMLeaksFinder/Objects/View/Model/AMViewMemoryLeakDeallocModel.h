@@ -26,7 +26,6 @@
 @interface AMViewMemoryLeakDeallocModel : NSObject
 
 @property (nonatomic, weak) UIView *view;
-@property (nonatomic, assign) BOOL shouldDealloc; ///< 应该释放了
 
 @end
 
