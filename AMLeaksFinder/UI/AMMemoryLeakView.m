@@ -308,13 +308,6 @@
     self.layer.cornerRadius = 30;
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.layer.masksToBounds = YES;
-    
-    self.tableView.layer.cornerRadius = 5;
-    self.tableView.layer.masksToBounds = YES;
-    
-    self.viewTableView.layer.cornerRadius = 5;
-    self.viewTableView.layer.masksToBounds = YES;
-    
     [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
 }
 
