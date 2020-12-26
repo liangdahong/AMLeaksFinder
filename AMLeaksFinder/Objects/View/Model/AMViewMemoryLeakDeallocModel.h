@@ -20,15 +20,13 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "AMMemoryLeakModel.h"
-#import "AMViewMemoryLeakModel.h"
-#import "AMSnapedViewViewController.h"
 
-@interface AMMemoryLeakView : UIView
+@interface AMViewMemoryLeakDeallocModel : NSObject
 
-@property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-
-@property (nonatomic, copy) NSArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
+@property (nonatomic, weak) UIView *view;
+@property (nonatomic, assign) BOOL shouldDealloc; ///< 应该释放了
 
 @end
+

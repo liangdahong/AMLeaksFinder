@@ -136,6 +136,28 @@
                 }
             }];
         }]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看此 view 的 root view" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIView *rootView = model.view;
+            while (rootView.superview != nil) {
+                rootView = rootView.superview;
+            }
+            // 获取到了 root view，基本确认是由于 root view 导致的子子孙孙 view 泄漏
+            NSLog(@"%@", rootView);
+            UIView *snapedView = [rootView snapshotViewAfterScreenUpdates:YES];
+            AMSnapedViewViewController *vc = [AMSnapedViewViewController new];
+            vc.snapedView = snapedView;
+            [[UIViewController amleaks_finder_TopViewController] presentViewController:vc animated:YES completion:nil];
+        }]];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看此 view" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIView *rootView = model.view;
+            UIView *snapedView = [rootView snapshotViewAfterScreenUpdates:YES];
+            AMSnapedViewViewController *vc = [AMSnapedViewViewController new];
+            vc.snapedView = snapedView;
+            [[UIViewController amleaks_finder_TopViewController] presentViewController:vc animated:YES completion:nil];
+        }]];
+        
+        [self addRetainCycleDetector:alertVC candidate:model.view];
         [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
         [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
         return;
@@ -154,68 +176,85 @@
                 }
             }];
         }]];
-        
-#if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
-        
-        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器的【所有强引用的对象】" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
-            [detector addCandidate:model.controller];
-            NSSet *retainCycles = [detector findRetainCyclesWithMaxCycleLength:100];
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
-            [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-            [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
-            }]];
-            NSLog(@"%@", retainCycles.debugDescription);
-            [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器 view" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIView *rootView = model.controller.view;
+            UIView *snapedView = [rootView snapshotViewAfterScreenUpdates:YES];
+            AMSnapedViewViewController *vc = [AMSnapedViewViewController new];
+            vc.snapedView = snapedView;
+            [[UIViewController amleaks_finder_TopViewController] presentViewController:vc animated:YES completion:nil];
         }]];
-        
-#elif __has_include("FBRetainCycleDetector")
-        
-        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器的【所有强引用的对象】" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
-            [detector addCandidate:model.controller];
-            NSSet *retainCycles = [detector findRetainCyclesWithMaxCycleLength:100];
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
-            [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-            [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
-            }]];
-            NSLog(@"%@", retainCycles.debugDescription);
-            [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
-        }]];
-        
-#else
-        // 动态判断是否有 FBRetainCycleDetector
-        if (NSClassFromString(@"FBRetainCycleDetector")) {
-            [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器的【所有强引用的对象】" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                id detector = [NSClassFromString(@"FBRetainCycleDetector") new];
-                
-                if ([detector respondsToSelector:NSSelectorFromString(@"addCandidate:")]
-                    && [detector respondsToSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:")]) {
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                    [detector performSelector:NSSelectorFromString(@"addCandidate:") withObject:model.controller];
-                    NSSet *retainCycles = [detector performSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:") withObject:@100];
-#pragma clang diagnostic pop
-                    
-                    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
-                    [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-                    [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
-                    }]];
-                    [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
-                }
-            }]];
-        } else {
-            [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引用的对象【需导入 FBRetainCycleDetector】" style:UIAlertActionStyleDefault handler:nil]];
-        }
-#endif
+        [self addRetainCycleDetector:alertVC candidate:model.controller];
         [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
         [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
     }
 }
+
+#if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
+
+- (void)addRetainCycleDetector:(UIAlertController *)alertVC candidate:(id)candidate {
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引链" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
+        [detector addCandidate:candidate];
+        NSSet *retainCycles = [detector findRetainCyclesWithMaxCycleLength:100];
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
+        }]];
+        NSLog(@"%@", retainCycles.debugDescription);
+        [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
+    }]];
+}
+
+#elif __has_include("FBRetainCycleDetector")
+
+- (void)addRetainCycleDetector:(UIAlertController *)alertVC candidate:(id)candidate {
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引链" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
+        [detector addCandidate:candidate];
+        NSSet *retainCycles = [detector findRetainCyclesWithMaxCycleLength:100];
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
+        }]];
+        NSLog(@"%@", retainCycles.debugDescription);
+        [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
+    }]];
+}
+
+#else
+
+- (void)addRetainCycleDetector:(UIAlertController *)alertVC candidate:(id)candidate {
+    // 动态判断是否有 FBRetainCycleDetector
+    if (NSClassFromString(@"FBRetainCycleDetector")) {
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引链" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            id detector = [NSClassFromString(@"FBRetainCycleDetector") new];
+            
+            if ([detector respondsToSelector:NSSelectorFromString(@"addCandidate:")]
+                && [detector respondsToSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:")]) {
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [detector performSelector:NSSelectorFromString(@"addCandidate:") withObject:model.controller];
+                NSSet *retainCycles = [detector performSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:") withObject:@100];
+#pragma clang diagnostic pop
+                
+                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
+                [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+                [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [[UIPasteboard generalPasteboard] setString:retainCycles.debugDescription];
+                }]];
+                [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
+            }
+        }]];
+    } else {
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"提示：想查看强引用链，【需导入 FBRetainCycleDetector 】" style:UIAlertActionStyleDefault handler:nil]];
+    }
+}
+
+#endif
+
 
 - (void)setMemoryLeakModelArray:(NSArray<AMMemoryLeakView *> *)memoryLeakModelArray {
     _memoryLeakModelArray = memoryLeakModelArray.copy;

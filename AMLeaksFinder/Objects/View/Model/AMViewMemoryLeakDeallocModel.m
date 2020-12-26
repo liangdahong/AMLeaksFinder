@@ -20,15 +20,22 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "AMViewMemoryLeakDeallocModel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
+#import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakModel.h"
-#import "AMViewMemoryLeakModel.h"
-#import "AMSnapedViewViewController.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
-@interface AMMemoryLeakView : UIView
+@implementation AMViewMemoryLeakDeallocModel
 
-@property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-
-@property (nonatomic, copy) NSArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
+- (void)dealloc {
+    [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.viewMemoryLeakDeallocModel == self) {
+            [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
+            *stop = YES;
+        }
+    }];
+    [UIViewController udpateUI];
+}
 
 @end

@@ -21,14 +21,12 @@
 //    SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "AMMemoryLeakModel.h"
-#import "AMViewMemoryLeakModel.h"
-#import "AMSnapedViewViewController.h"
 
-@interface AMMemoryLeakView : UIView
+@interface UIView (AMLeaksFinderTools)
 
-@property (nonatomic, copy) NSArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-
-@property (nonatomic, copy) NSArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
+/// 标记需要销毁
+- (void)amleaks_finder_shouldDealloc;
+// 标记为忽略的内存泄露
+- (void)amleaks_finder_IgnoredMemoryLeak;
 
 @end

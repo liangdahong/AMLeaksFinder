@@ -22,10 +22,6 @@
 
 #import "AMLeakOverviewView.h"
 
-@implementation AMLeakDataModel
-
-@end
-
 @interface AMLeakOverviewView ()
 
 @property (nonatomic, strong) UIButton *hiddenButton;
