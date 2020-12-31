@@ -12,16 +12,17 @@
 
 ## 介绍
 
-本项目是一款用于自动检测 iOS 项目中【 **`控制器内存泄漏`**，  **`UIView 内存泄漏`** 】的工具，只需 `pod` 导入 `AMLeaksFinder` 即可 0 行代码实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可以参考 [对比MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
+本项目是一款用于自动检测 iOS 项目中【 **`控制器内存泄漏`**，  **`UIView 内存泄漏`** 】的工具，只需 `pod` 导入 `AMLeaksFinder` 即可 0 行代码实现自动监控，效果如下，推荐使用 `Cocoapods` 导入，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可参考 [对比 MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
 
 [English 📔](README_EN.md)
+
 
 ## 功能介绍
 
 1. ✅ 自动监控 `Controller` 的泄漏；
 2. ✅ 自动监控 `View` 的泄漏；
 3. ✅ 借助 `FBRetainCycleDetector` 快速排查泄漏原因 【 目前只在 OC 有效】；
-4. ✅ 排查到泄漏时支持快速查看泄漏的视图【`View`，`Controller View`，`View 的 root View` 等】；
+4. ✅ 排查到泄漏时支持快速查看泄漏的视图【 **`View`**，**`Controller View`**，**`View 的 root View`** 等】；
 5. 更多功能欢迎补充。
 
 
