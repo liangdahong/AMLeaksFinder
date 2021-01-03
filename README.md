@@ -4,7 +4,6 @@
 <p/>
 <p align="center">
 <a href="#"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
-<a href="#"><img src="https://img.shields.io/badge/platform-iPad-red.svg"></a>
 <a href="#"><img src="https://img.shields.io/badge/support-iOS%209%2B%20-blue.svg?style=flat"></a>
 <a href="https://github.com/liangdahong/AMLeaksFinder/releases"><img src="https://img.shields.io/cocoapods/v/AMLeaksFinder.svg"></a>
 <a href="#"><img src="https://img.shields.io/badge/language-Objective--C-orange.svg"></a>
