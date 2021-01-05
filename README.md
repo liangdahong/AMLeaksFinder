@@ -33,7 +33,8 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '2.0.5',  :configurations => ['Debug']
+
 ```
 
 - 如果想查看控制器的强引用链，可导入：Facebook 的 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) 框架即可。

@@ -151,7 +151,7 @@
         [self.hiddenButton setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
     }
     if (total == 0) {
-        NSString *str1 = [NSString stringWithFormat:@"无泄露\n"];
+        NSString *str1 = [NSString stringWithFormat:@"无泄漏\n"];
         NSString *str2 = [NSString stringWithFormat:@"vc共: %d\n", leakDataModel.vcAllCount];
         NSString *str3 = [NSString stringWithFormat:@""];
         
