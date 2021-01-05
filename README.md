@@ -3,25 +3,26 @@
     <img  width="72.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
 <p/>
 <p align="center">
-<a href="https://en.wikipedia.org/wiki/IOS"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
-<a href="https://en.wikipedia.org/wiki/IOS_8"><img src="https://img.shields.io/badge/support-iOS%209%2B%20-blue.svg?style=flat"></a>
+<a href="#"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
+<a href="#"><img src="https://img.shields.io/badge/support-iOS%209%2B%20-blue.svg?style=flat"></a>
 <a href="https://github.com/liangdahong/AMLeaksFinder/releases"><img src="https://img.shields.io/cocoapods/v/AMLeaksFinder.svg"></a>
-<a href="https://en.wikipedia.org/wiki/Objective-C"><img src="https://img.shields.io/badge/language-Objective--C-orange.svg"></a>
+<a href="#"><img src="https://img.shields.io/badge/language-Objective--C-orange.svg"></a>
 <a href="https://github.com/liangdahong/AMLeaksFinder/blob/master/LICENSE"><img src="https://img.shields.io/badge/licenses-MIT-red.svg"></a>
 </p>
 
 ## 介绍
 
-本项目是一款用于自动检测 iOS 项目中【控制器内存泄漏，UIView 内存泄漏】的工具，只需导入 `AMLeaksFinder` 即可实现自动监控，效果如下，在上线时请务必移除，推荐使用 Cocoapods 导入 ，如果你感兴趣可以一起聊聊，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可以参考 [对比MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
+本项目是一款用于自动检测 iOS 项目中【 **`控制器内存泄漏`**，  **`UIView 内存泄漏`** 】的工具，只需 `pod` 导入 `AMLeaksFinder` 即可 0 行代码实现自动监控，效果如下，推荐使用 `Cocoapods` 导入，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可参考 [对比 MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
 
 [English 📔](README_EN.md)
 
+
 ## 功能介绍
 
-1. ✅ 自动监控 `Controller` 的泄漏；
-2. ✅ 自动监控 `View` 的泄漏；
-3. ✅ 借助 `FBRetainCycleDetector` 快速排查泄漏原因 【 目前只在 OC 有效】；
-4. ✅ 排查到泄漏时支持快速查看泄漏的视图【`View`，`Controller View`，`View 的 root View` 等】；
+1. ✅ 自动监控 **`Controller`** 的泄漏；
+2. ✅ 自动监控 **`View`** 的泄漏；
+3. ✅ 借助 `FBRetainCycleDetector` 快速排查泄漏原因 【 `FBRetainCycleDetector`是乎只在 `Objective-C` 上有效😂 】；
+4. ✅ 监控到泄漏时支持快速查看泄漏的视图【 **`View`**，**`Controller View`**，**`View 的 root View`** 等】；
 5. 更多功能欢迎补充。
 
 
