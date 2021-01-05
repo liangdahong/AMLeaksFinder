@@ -19,7 +19,10 @@
     UINavigationController *nav = [[BMNavigationController alloc] initWithRootViewController:[AMHomeVC new]];
     nav.navigationBar.translucent = NO;
     nav.navigationBar.hidden = NO;
-    self.window.rootViewController = nav;
+    
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    tab.viewControllers = @[nav];
+    self.window.rootViewController = tab;
     return YES;
 }
 
