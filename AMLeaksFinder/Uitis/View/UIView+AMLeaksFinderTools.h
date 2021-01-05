@@ -26,7 +26,7 @@
 
 /// 标记需要销毁
 - (void)amleaks_finder_shouldDealloc;
-// 标记为忽略的内存泄露
+// 标记为忽略的内存泄漏
 - (void)amleaks_finder_IgnoredMemoryLeak;
 
 - (void)amleaks_finder_normal;

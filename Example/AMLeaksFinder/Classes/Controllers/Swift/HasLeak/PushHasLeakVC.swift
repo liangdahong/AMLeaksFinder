@@ -27,7 +27,7 @@ class PushHasLeakVC: AMBaseVC {
 //        let button = UIButton.init(type: .contactAdd)
 //        button.frame = .init(x: 100, y: 100, width: 20, height: 20)
 //        view.addSubview(button)
-//        // 按钮泄露
+//        // 按钮泄漏
 //        objc_setAssociatedObject(button, &key, button, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 }
