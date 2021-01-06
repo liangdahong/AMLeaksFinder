@@ -69,6 +69,22 @@ void am_fi_sw_in_me(Class clas,
     return arr.copy;
 }
 
+- (void)amleaks_finder_self_shouldDealloc {
+        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+            if (obj1.memoryLeakDeallocModel.controller == self) {
+                obj1.memoryLeakDeallocModel.shouldDealloc = YES;
+                // 获取控制器的 view 以及所有 子子孙孙 view
+                UIViewController *vc = obj1.memoryLeakDeallocModel.controller;
+                [vc.view amleaks_finder_shouldDealloc];
+            }
+        }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // update ui
+        [UIViewController udpateUI];
+    });
+}
+
 - (void)amleaks_finder_shouldDealloc {
     [self.amleaks_finder_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
@@ -91,22 +107,29 @@ void am_fi_sw_in_me(Class clas,
     });
 }
 
+
 + (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller
-                                                  window:(UIWindow *)window {
+                                                  window:(UIWindow *)window
+                                                   newVC:(UIViewController *)newVC {
+    
     NSMutableArray <UIViewController *> *arr = controller.amleaks_finder_selfAndAllChildController.mutableCopy;
+    
+    NSMutableSet *oldSet = [NSMutableSet setWithArray:controller.amleaks_finder_selfAndAllChildController];
+    NSMutableSet *newSet = [NSMutableSet setWithArray:newVC.amleaks_finder_selfAndAllChildController];
+    
+    NSMutableSet *notDeallocSet = [NSMutableSet set];
+    [oldSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([newSet containsObject:obj]) {
+            [notDeallocSet addObject:obj];
+        }
+    }];
+
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.memoryLeakDeallocModel.controller.view.window == window) {
-            __block BOOL flag = NO;
-            [arr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-                if (obj1 == obj.memoryLeakDeallocModel.controller) {
-                    flag = YES;
-                    *stop = YES;
-                    [arr removeObjectAtIndex:idx1];
-                }
-            }];
-            if (!flag) {
-                [obj.memoryLeakDeallocModel.controller amleaks_finder_shouldDealloc];
-            }
+        // 控制器的窗口是当前的窗口 或者 当前的控制器没有窗口
+        // && 这个控制器没有在准备重新设置 root vc 中
+        if ((obj.memoryLeakDeallocModel.controller.view.window == window || obj.memoryLeakDeallocModel.controller.view.window == nil)
+            && ![notDeallocSet containsObject:obj.memoryLeakDeallocModel.controller]) {
+            [obj.memoryLeakDeallocModel.controller amleaks_finder_self_shouldDealloc];
         }
     }];
 }
