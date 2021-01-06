@@ -33,6 +33,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F974C625A4BECA0025BF58 /* AMTabBarController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		9F2D0ED141E3EAFF9A50AE9B /* libPods-AMLeaksFinder_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */; };
 		BA487C12368F99528077E8C4 /* libPods-AMLeaksFinder_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */; };
@@ -92,6 +93,8 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		65F974C525A4BECA0025BF58 /* AMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMTabBarController.h; sourceTree = "<group>"; };
+		65F974C625A4BECA0025BF58 /* AMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMTabBarController.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80ADD1B893A972A85C2F935F /* Pods-AMLeaksFinder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Example.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				054732B0249375640082B534 /* AMHomeVC.xib */,
 				054732B1249375640082B534 /* BMNavigationController.h */,
 				054732B4249375640082B534 /* BMNavigationController.m */,
+				65F974C525A4BECA0025BF58 /* AMTabBarController.h */,
+				65F974C625A4BECA0025BF58 /* AMTabBarController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -561,6 +566,7 @@
 				054732CD249375640082B534 /* AMTopView.m in Sources */,
 				054732D5249375640082B534 /* AppDelegate.m in Sources */,
 				05E1536A24E394000047DF42 /* AMPresentHasLeakVC.m in Sources */,
+				65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */,
 				05E1537524E3944D0047DF42 /* PushNoLeakVC.swift in Sources */,
 				054732CC249375640082B534 /* BMNavigationController.m in Sources */,
 				05E1536D24E394000047DF42 /* AMPushNoLeakVC.m in Sources */,

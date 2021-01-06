@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AMHomeVC.h"
 #import "BMNavigationController.h"
+#import "AMTabBarController.h"
 
 @implementation AppDelegate
 
@@ -16,13 +17,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     UINavigationController *nav = [[BMNavigationController alloc] initWithRootViewController:[AMHomeVC new]];
     nav.navigationBar.translucent = NO;
     nav.navigationBar.hidden = NO;
     
-    UITabBarController *tab = [[UITabBarController alloc] init];
-    tab.viewControllers = @[nav];
-    self.window.rootViewController = tab;
+    AMTabBarController *tabVC = [[AMTabBarController alloc] init];
+    tabVC.viewControllers = @[nav];
+    self.window.rootViewController = tabVC;
+    
     return YES;
 }
 
