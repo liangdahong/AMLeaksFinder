@@ -38,12 +38,15 @@ void am_fi_sw_in_me(Class clas,
 @property (class, readonly) __kindof UIViewController *amleaks_finder_TopViewController;
 @property (class, readonly) __kindof UIWindow *amleaks_finder_TopWindow;
 
+- (void)amleaks_finder_self_shouldDealloc;
+
 /// 控制器标记为准备释放
 - (void)amleaks_finder_shouldDealloc;
 
 /// UIWindow 所有控制器标记为准备释放
 + (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller
-                                                  window:(UIWindow *)window;
+                                                  window:(UIWindow *)window
+                                                   newVC:(UIViewController *)newVC;
 
 /// 控制器标记为正常
 - (void)amleaks_finder_normal;

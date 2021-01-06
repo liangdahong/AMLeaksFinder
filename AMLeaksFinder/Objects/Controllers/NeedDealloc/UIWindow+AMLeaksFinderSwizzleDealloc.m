@@ -38,7 +38,9 @@
 
 - (void)amleaks_finder_setRootViewController:(UIViewController *)rootViewController {
     if (self.rootViewController) {
-        [UIViewController amleaks_finder_shouldAllDeallocBesidesController:rootViewController window:self];
+        [UIViewController amleaks_finder_shouldAllDeallocBesidesController:self.rootViewController
+                                                                    window:self
+                                                                     newVC:rootViewController];
     }
     [self amleaks_finder_setRootViewController:rootViewController];
 }
