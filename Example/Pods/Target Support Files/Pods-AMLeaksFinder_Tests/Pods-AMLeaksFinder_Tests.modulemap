@@ -1,6 +1,0 @@
-framework module Pods_AMLeaksFinder_Tests {
-  umbrella header "Pods-AMLeaksFinder_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

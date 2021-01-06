@@ -98,8 +98,10 @@
         AMMemoryLeakDeallocModel *model = self.dataSourceArray[indexPath.row].memoryLeakDeallocModel;
         if (model.shouldDealloc) {
             cell.textLabel.textColor = [UIColor redColor];
+            [cell setAccessoryType:(UITableViewCellAccessoryDisclosureIndicator)];
         } else {
             cell.textLabel.textColor = [UIColor blackColor];
+            [cell setAccessoryType:(UITableViewCellAccessoryNone)];
         }
         return cell;
     } else {
@@ -108,6 +110,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
             cell.textLabel.font = [UIFont systemFontOfSize:10];
+            [cell setAccessoryType:(UITableViewCellAccessoryDisclosureIndicator)];
         }
         cell.textLabel.text = NSStringFromClass(self.viewMemoryLeakModelArray[indexPath.row].viewMemoryLeakDeallocModel.view.class);
         cell.textLabel.textColor = [UIColor redColor];
