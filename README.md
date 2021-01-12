@@ -21,7 +21,7 @@
 
 * [x] 自动监控 **`Controller`** 的泄漏；
 * [x] 自动监控 **`View`** 的泄漏；
-* [x] 借助 `FBRetainCycleDetector` 快速排查泄漏原因 【 `FBRetainCycleDetector`是乎只在 `Objective-C` 上有效😂 】；
+* [x] 借助 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) 快速排查泄漏原因 【 `FBRetainCycleDetector` 是乎只在 `ObjC` 上有效 】；
 * [x] 监控到泄漏时支持快速查看泄漏的视图【 **`View`**，**`Controller View`**，**`View 的 root View`** 等】；
 * [ ] 更多功能欢迎补充。
 
