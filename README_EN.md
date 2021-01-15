@@ -12,7 +12,7 @@
 
 ## Introduction
 
-A small tool for automatically detecting the [controller memory leak] in the project, Just drag the files under the path of `AMLeaksFinder` into the project, the effect is as follows, please be sure to remove the framework when going online, If you are interested, you can talk together.
+A small tool for automatically detecting the [controller memory leak, view memory leak] in the project, Just drag the files under the path of `AMLeaksFinder` into the project, the effect is as follows, please be sure to remove the framework when going online, If you are interested, you can talk together.
 
 [中文版🇨🇳](README.md)
 
