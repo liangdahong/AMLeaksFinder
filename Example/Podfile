@@ -6,7 +6,7 @@ inhibit_all_warnings!
 target 'AMLeaksFinder_Example' do
   
   pod 'AMLeaksFinder', :path => '../'
-  pod 'FBRetainCycleDetector'
+  pod 'FBRetainCycleDetector', "0.1.4"
   
   target 'AMLeaksFinder_Tests' do
     inherit! :search_paths
