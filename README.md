@@ -44,6 +44,64 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 
 - ![image](https://user-images.githubusercontent.com/12118567/105628096-dbfe6900-5e75-11eb-901c-58639c8a1a37.png)
 
+- 项目文件结构
+```SWIFT
+├── AMLeaksFinder
+│   ├── AMLeaksFinder.bundle
+│   │   ├── all@2x.png
+│   │   ├── all@3x.png
+│   │   ├── leaks@2x.png
+│   │   └── leaks@3x.png
+│   ├── Objects
+│   │   ├── Controllers
+│   │   │   ├── Model
+│   │   │   │   ├── AMMemoryLeakDeallocModel.h
+│   │   │   │   ├── AMMemoryLeakDeallocModel.m
+│   │   │   │   ├── AMMemoryLeakModel.h
+│   │   │   │   └── AMMemoryLeakModel.m
+│   │   │   ├── NeedDealloc
+│   │   │   │   ├── UINavigationController+AMLeaksFinderSwizzleDealloc.h
+│   │   │   │   ├── UINavigationController+AMLeaksFinderSwizzleDealloc.m
+│   │   │   │   ├── UIPageViewController+AMLeaksFinderSwizzleDealloc.h
+│   │   │   │   ├── UIPageViewController+AMLeaksFinderSwizzleDealloc.m
+│   │   │   │   ├── UISplitViewController+AMLeaksFinderSwizzleDealloc.h
+│   │   │   │   ├── UISplitViewController+AMLeaksFinderSwizzleDealloc.m
+│   │   │   │   ├── UITabBarController+AMLeaksFinderSwizzleDealloc.h
+│   │   │   │   ├── UITabBarController+AMLeaksFinderSwizzleDealloc.m
+│   │   │   │   ├── UIViewController+AMLeaksFinderSwizzleDealloc.h
+│   │   │   │   ├── UIViewController+AMLeaksFinderSwizzleDealloc.m
+│   │   │   │   ├── UIWindow+AMLeaksFinderSwizzleDealloc.h
+│   │   │   │   └── UIWindow+AMLeaksFinderSwizzleDealloc.m
+│   │   │   └── ViewDidLoad
+│   │   │       ├── UIViewController+AMLeaksFinderSwizzleViewDidLoad.h
+│   │   │       └── UIViewController+AMLeaksFinderSwizzleViewDidLoad.m
+│   │   └── View
+│   │       └── Model
+│   │           ├── AMViewMemoryLeakDeallocModel.h
+│   │           ├── AMViewMemoryLeakDeallocModel.m
+│   │           ├── AMViewMemoryLeakModel.h
+│   │           └── AMViewMemoryLeakModel.m
+│   ├── UI
+│   │   ├── AMLeakDataModel.h
+│   │   ├── AMLeakDataModel.m
+│   │   ├── AMLeakOverviewView.h
+│   │   ├── AMLeakOverviewView.m
+│   │   ├── AMMemoryLeakView.h
+│   │   ├── AMMemoryLeakView.m
+│   │   ├── AMMemoryLeakView.xib
+│   │   ├── AMSnapedViewViewController.h
+│   │   ├── AMSnapedViewViewController.m
+│   │   ├── UIViewController+AMLeaksFinderUI.h
+│   │   └── UIViewController+AMLeaksFinderUI.m
+│   └── Uitis
+│       ├── Controller
+│       │   ├── UIViewController+AMLeaksFinderTools.h
+│       │   └── UIViewController+AMLeaksFinderTools.m
+│       └── View
+│           ├── UIView+AMLeaksFinderTools.h
+│           └── UIView+AMLeaksFinderTools.m
+```
+
 ## 联系
 
 - 欢迎 [Issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [Pull Requests](https://github.com/liangdahong/AMLeaksFinder/pulls)
