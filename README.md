@@ -25,10 +25,6 @@
 * [x] 监控到泄漏时支持快速查看泄漏的视图【 **`View`**，**`Controller View`**，**`View 的 root View`** 等】；
 * [ ] 更多功能欢迎补充。
 
-## 原理分析 
-
-- [原理分析](principle.md)
-
 ## Cocoapods
 
 ```
@@ -41,6 +37,12 @@ pod 'AMLeaksFinder', '2.0.6',  :configurations => ['Debug']
 ```
 pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ```
+
+## 原理分析 
+
+- [原理分析](principle.md)
+
+- ![image](https://user-images.githubusercontent.com/12118567/105628096-dbfe6900-5e75-11eb-901c-58639c8a1a37.png)
 
 ## 联系
 
