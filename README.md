@@ -12,7 +12,7 @@
 
 ## 介绍
 
-本项目是一款用于自动检测 iOS 项目中【 **`控制器内存泄漏`**，  **`UIView 内存泄漏`** 】的工具，只需 `pod` 导入 `AMLeaksFinder` 即可 0 行代码实现自动监控，效果如下，推荐使用 `Cocoapods` 导入，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可参考 [对比 MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
+本项目是一款用于自动检测 iOS 项目中【 **`UIView 和 UIViewController 内存泄漏`** 】的工具，只需 `pod 'AMLeaksFinder'` 即可 0 行代码实现自动监控，效果如下，推荐使用 `Cocoapods` 导入，和 [MLeakFinder](https://github.com/Tencent/MLeaksFinder) 的区别可参考 [对比 MLeakFinder](https://github.com/liangdahong/AMLeaksFinder/issues/4) 。
 
 [English 📔](README_EN.md)
 
