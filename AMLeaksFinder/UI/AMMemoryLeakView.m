@@ -291,6 +291,15 @@
 #pragma mark - 私有方法
 
 - (void)initUI {
+    
+    self.tableView.tableFooterView = UIView.new;
+    self.viewTableView.tableFooterView = UIView.new;
+    
+    self.tableView.layer.cornerRadius = 10;
+    self.tableView.clipsToBounds = YES;
+    self.viewTableView.superview.layer.cornerRadius = 10;
+    self.viewTableView.superview.clipsToBounds = YES;
+    
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     // 获取存放图片资源的 bundle URL
     NSURL *url = [bundle URLForResource:@"AMLeaksFinder" withExtension:@"bundle"];

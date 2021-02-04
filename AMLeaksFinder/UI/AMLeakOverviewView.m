@@ -152,7 +152,7 @@
     }
     if (total == 0) {
         NSString *str1 = [NSString stringWithFormat:@"无泄漏\n"];
-        NSString *str2 = [NSString stringWithFormat:@"vc共: %d\n", leakDataModel.vcAllCount];
+        NSString *str2 = [NSString stringWithFormat:@"vc 共: %d\n", leakDataModel.vcAllCount];
         NSString *str3 = [NSString stringWithFormat:@""];
         
         NSString *str = [[str1 stringByAppendingString:str2]
@@ -164,9 +164,9 @@
         } range:NSMakeRange(0, str.length)];
         self.descLabel.attributedText = att;
     } else {
-        NSString *str1 = [NSString stringWithFormat:@"vc泄: %d\n",  leakDataModel.vcLeakCount];
-        NSString *str2 = [NSString stringWithFormat:@"vc共: %d\n", leakDataModel.vcAllCount];
-        NSString *str3 = [NSString stringWithFormat:@"view泄: %d",  leakDataModel.viewLeakCount];
+        NSString *str1 = [NSString stringWithFormat:@"vc 泄: %d\n",  leakDataModel.vcLeakCount];
+        NSString *str2 = [NSString stringWithFormat:@"vc 共: %d\n", leakDataModel.vcAllCount];
+        NSString *str3 = [NSString stringWithFormat:@"view 泄: %d",  leakDataModel.viewLeakCount];
         NSString *str = [[str1 stringByAppendingString:str2]
                          stringByAppendingString:str3];
         NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:str];
