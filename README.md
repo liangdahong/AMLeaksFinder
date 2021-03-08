@@ -106,11 +106,3 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 
 - 欢迎 [Issues](https://github.com/liangdahong/AMLeaksFinder/issues) 和 [Pull Requests](https://github.com/liangdahong/AMLeaksFinder/pulls)
 - 也可以添加微信<img width="20%" src="https://user-images.githubusercontent.com/12118567/86319172-72fb9d80-bc66-11ea-8c6e-8127f9e5535f.jpg"/> 进群吹水。
-
-## 广告时间 😁，下面是我开发的几款小程序，感兴趣的可以看看，点点广告就更好了，哈哈哈~~~
-- 便捷的日历小程序，支持节假日，调休等
-- ![rl](https://user-images.githubusercontent.com/12118567/109082668-64a34a00-773f-11eb-93cd-bc83b55fd846.jpg)
----
-- 便捷的工资扣税计算器。
-- ![jsq](https://user-images.githubusercontent.com/12118567/109082681-6836d100-773f-11eb-9700-c8d217ccdbd5.jpg)
----
