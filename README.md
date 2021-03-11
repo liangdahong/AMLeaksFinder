@@ -28,7 +28,7 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '2.0.6',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '2.0.8',  :configurations => ['Debug']
 
 ```
 
@@ -60,21 +60,14 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 │   │   │   │   ├── AMMemoryLeakModel.h
 │   │   │   │   └── AMMemoryLeakModel.m
 │   │   │   ├── NeedDealloc
-│   │   │   │   ├── UINavigationController+AMLeaksFinderSwizzleDealloc.h
 │   │   │   │   ├── UINavigationController+AMLeaksFinderSwizzleDealloc.m
-│   │   │   │   ├── UIPageViewController+AMLeaksFinderSwizzleDealloc.h
 │   │   │   │   ├── UIPageViewController+AMLeaksFinderSwizzleDealloc.m
-│   │   │   │   ├── UISplitViewController+AMLeaksFinderSwizzleDealloc.h
 │   │   │   │   ├── UISplitViewController+AMLeaksFinderSwizzleDealloc.m
-│   │   │   │   ├── UITabBarController+AMLeaksFinderSwizzleDealloc.h
 │   │   │   │   ├── UITabBarController+AMLeaksFinderSwizzleDealloc.m
-│   │   │   │   ├── UIViewController+AMLeaksFinderSwizzleDealloc.h
 │   │   │   │   ├── UIViewController+AMLeaksFinderSwizzleDealloc.m
-│   │   │   │   ├── UIWindow+AMLeaksFinderSwizzleDealloc.h
-│   │   │   │   └── UIWindow+AMLeaksFinderSwizzleDealloc.m
+│   │   │   │   ├── UIWindow+AMLeaksFinderSwizzleDealloc.m
 │   │   │   └── ViewDidLoad
-│   │   │       ├── UIViewController+AMLeaksFinderSwizzleViewDidLoad.h
-│   │   │       └── UIViewController+AMLeaksFinderSwizzleViewDidLoad.m
+│   │   │       ├── UIViewController+AMLeaksFinderSwizzleViewDidLoad.m
 │   │   └── View
 │   │       └── Model
 │   │           ├── AMViewMemoryLeakDeallocModel.h
