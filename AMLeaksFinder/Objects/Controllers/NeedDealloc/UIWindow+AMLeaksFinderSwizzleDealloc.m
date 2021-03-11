@@ -20,7 +20,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import "UIWindow+AMLeaksFinderSwizzleDealloc.h"
+#import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
 #import "UIViewController+AMLeaksFinderTools.h"
 
