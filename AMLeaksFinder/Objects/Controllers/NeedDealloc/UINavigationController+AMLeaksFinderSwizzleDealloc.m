@@ -52,7 +52,7 @@
 }
 
 - (void)amleaks_finder_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
-    NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
+    NSMutableArray <UIViewController *> *shouldDeallocVCArr = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
         [viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
@@ -62,10 +62,10 @@
             }
         }];
         if (!flag) {
-            [muarray addObject:obj];
+            [shouldDeallocVCArr addObject:obj];
         }
     }];
-    [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [shouldDeallocVCArr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
         [obj amleaks_finder_shouldDealloc];
     }];
@@ -73,7 +73,7 @@
 }
 
 - (void)amleaks_finder_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
-    NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
+    NSMutableArray <UIViewController *> *shouldDeallocVCArr = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
         [viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
@@ -83,10 +83,10 @@
             }
         }];
         if (!flag) {
-            [muarray addObject:obj];
+            [shouldDeallocVCArr addObject:obj];
         }
     }];
-    [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [shouldDeallocVCArr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
         [obj amleaks_finder_shouldDealloc];
     }];
@@ -95,28 +95,28 @@
 }
 
 - (UIViewController *)amleaks_finder_popViewControllerAnimated:(BOOL)animated {
-    UIViewController *vc = [self amleaks_finder_popViewControllerAnimated:YES];
+    UIViewController *shouldDeallocVC = [self amleaks_finder_popViewControllerAnimated:YES];
     // 设置为将要释放
-    [vc amleaks_finder_shouldDealloc];
-    return vc;
+    [shouldDeallocVC amleaks_finder_shouldDealloc];
+    return shouldDeallocVC;
 }
 
 - (NSArray<UIViewController *> *)amleaks_finder_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSArray *vcs = [self amleaks_finder_popToViewController:viewController animated:animated];
-    [vcs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSArray *shouldDeallocVCArr = [self amleaks_finder_popToViewController:viewController animated:animated];
+    [shouldDeallocVCArr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
         [obj amleaks_finder_shouldDealloc];
     }];
-    return vcs;
+    return shouldDeallocVCArr;
 }
 
 - (NSArray<UIViewController *> *)amleaks_finder_popToRootViewControllerAnimated:(BOOL)animated {
-    NSArray <UIViewController *> *vcs = [self amleaks_finder_popToRootViewControllerAnimated:animated];
-    [vcs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSArray <UIViewController *> *shouldDeallocVCArr = [self amleaks_finder_popToRootViewControllerAnimated:animated];
+    [shouldDeallocVCArr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
         [obj amleaks_finder_shouldDealloc];
     }];
-    return vcs;
+    return shouldDeallocVCArr;
 }
 
 @end

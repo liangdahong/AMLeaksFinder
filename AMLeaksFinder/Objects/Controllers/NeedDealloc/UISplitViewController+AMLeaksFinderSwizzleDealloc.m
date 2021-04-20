@@ -36,7 +36,7 @@
 }
 
 - (void)amleaks_finder_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
-    NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
+    NSMutableArray <UIViewController *> *shouldDeallocVC = @[].mutableCopy;
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
         [viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
@@ -46,10 +46,10 @@
             }
         }];
         if (!flag) {
-            [muarray addObject:obj];
+            [shouldDeallocVC addObject:obj];
         }
     }];
-    [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [shouldDeallocVC enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         // 设置为将要释放
         [obj amleaks_finder_shouldDealloc];
     }];

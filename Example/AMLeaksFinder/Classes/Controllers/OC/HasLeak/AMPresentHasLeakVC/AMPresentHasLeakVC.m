@@ -23,6 +23,10 @@
     [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
     [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
     [self.view addSubview:[UIButton buttonWithType:(UIButtonTypeContactAdd)]];
+    
+    UITableView *tableView = [UITableView new];
+    tableView.frame = CGRectMake(0, 200, self.view.bounds.size.width, 400);
+    [self.view addSubview:tableView];
 }
 
 @end

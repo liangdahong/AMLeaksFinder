@@ -35,8 +35,12 @@
     });
 }
 
-- (void)amleaks_finder_setViewControllers:(NSArray<UIViewController *> *)viewControllers direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL))completion {
-    NSMutableArray <UIViewController *> *muarray = @[].mutableCopy;
+- (void)amleaks_finder_setViewControllers:(NSArray<UIViewController *> *)viewControllers
+                                direction:(UIPageViewControllerNavigationDirection)direction
+                                 animated:(BOOL)animated
+                               completion:(void (^)(BOOL))completion {
+    NSMutableArray <UIViewController *> *shouldDeallocVCArr = @[].mutableCopy;
+    // 获取应该释放的控制器
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __block BOOL flag = NO;
         [viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
@@ -46,10 +50,12 @@
             }
         }];
         if (!flag) {
-            [muarray addObject:obj];
+            [shouldDeallocVCArr addObject:obj];
         }
     }];
-    [muarray enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [shouldDeallocVCArr enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj,
+                                                     NSUInteger idx,
+                                                     BOOL * _Nonnull stop) {
         // 设置为将要释放
         [obj amleaks_finder_shouldDealloc];
     }];
