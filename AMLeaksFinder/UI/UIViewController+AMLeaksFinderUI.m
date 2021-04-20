@@ -24,6 +24,7 @@
 #import "AMMemoryLeakView.h"
 #import "UIViewController+AMLeaksFinderTools.h"
 #import "AMLeakOverviewView.h"
+#import "NSObject+RunLoop.h"
 
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
@@ -38,7 +39,7 @@ static AMLeakOverviewView *leakOverviewView;
             NSBundle *bundle = [NSBundle bundleForClass:AMMemoryLeakView.class];
             memoryLeakView = [bundle loadNibNamed:NSStringFromClass(AMMemoryLeakView.class) owner:nil options:nil].firstObject;
             memoryLeakView.frame = CGRectMake(30, 60, 320, 400);
-            memoryLeakView.hidden = YES;            
+            memoryLeakView.hidden = YES;
             leakOverviewView = AMLeakOverviewView.new;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
                 UIWindow *window = UIViewController.amleaks_finder_TopWindow;
@@ -55,38 +56,39 @@ static AMLeakOverviewView *leakOverviewView;
 
 
 + (void)udpateUI {
-    
-    UIWindow *window = UIViewController.amleaks_finder_TopWindow;
-    [window addSubview:memoryLeakView];
-    [window addSubview:leakOverviewView];
-    
-    [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!obj.memoryLeakDeallocModel.controller) {
-            [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
-        }
+    [NSObject performTaskOnDefaultRunLoopMode:^{
+        UIWindow *window = UIViewController.amleaks_finder_TopWindow;
+        [window addSubview:memoryLeakView];
+        [window addSubview:leakOverviewView];
+        
+        [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (!obj.memoryLeakDeallocModel.controller) {
+                [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
+            }
+        }];
+        
+        __block int leakCount = 0;
+        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.memoryLeakDeallocModel.shouldDealloc) {
+                leakCount++;
+            }
+        }];
+        
+        // views
+        [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (!obj.viewMemoryLeakDeallocModel.view) {
+                [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
+            }
+        }];
+        memoryLeakView.viewMemoryLeakModelArray = UIViewController.viewMemoryLeakModelArray;
+        [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
+        
+        AMLeakDataModel *model = [AMLeakDataModel new];
+        model.vcLeakCount = leakCount;
+        model.vcAllCount = (int)UIViewController.memoryLeakModelArray.count;
+        model.viewLeakCount = (int)UIViewController.viewMemoryLeakModelArray.count;
+        leakOverviewView.leakDataModel = model;
     }];
-    
-    __block int leakCount = 0;
-    [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.memoryLeakDeallocModel.shouldDealloc) {
-            leakCount++;
-        }
-    }];
-    
-    // views
-    [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!obj.viewMemoryLeakDeallocModel.view) {
-            [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
-        }
-    }];
-    memoryLeakView.viewMemoryLeakModelArray = UIViewController.viewMemoryLeakModelArray;
-    [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
-    
-    AMLeakDataModel *model = [AMLeakDataModel new];
-    model.vcLeakCount = leakCount;
-    model.vcAllCount = (int)UIViewController.memoryLeakModelArray.count;
-    model.viewLeakCount = UIViewController.viewMemoryLeakModelArray.count;
-    leakOverviewView.leakDataModel = model;
 }
 
 @end

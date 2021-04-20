@@ -57,8 +57,4 @@
     });
 }
 
-- (void)dealloc {
-    NSLog(@"AMHomeVC dealloc");
-}
-
 @end

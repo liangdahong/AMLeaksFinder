@@ -8,20 +8,6 @@
 
 #import "AMTabBarController.h"
 
-@interface AMTabBarController ()
-
-@end
-
 @implementation AMTabBarController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSLog(@"AMTabBarController viewDidLoad");
-}
-
-
-- (void)dealloc {
-    NSLog(@"AMTabBarController dealloc");
-}
 
 @end
