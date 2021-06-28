@@ -126,9 +126,9 @@ void am_fi_sw_in_me(Class clas,
     }];
     
     [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        // 控制器的窗口是当前的窗口 或者 当前的控制器没有窗口
+        // 控制器的窗口是当前的窗口 或者 [ 当前的控制器没有窗口 这个条件不应该需要 fix: https://github.com/liangdahong/AMLeaksFinder/issues/8  ]
         // && 这个控制器没有在准备重新设置 root vc 中
-        if ((obj.memoryLeakDeallocModel.controller.view.window == window || obj.memoryLeakDeallocModel.controller.view.window == nil)
+        if (obj.memoryLeakDeallocModel.controller.view.window == window
             && ![notDeallocSet containsObject:obj.memoryLeakDeallocModel.controller]) {
             [obj.memoryLeakDeallocModel.controller amleaks_finder_self_shouldDealloc];
         }
