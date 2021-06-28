@@ -28,7 +28,7 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '2.0.9',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '2.1.1',  :configurations => ['Debug']
 
 ```
 
@@ -41,8 +41,8 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ## 原理分析 
 
 - [原理分析](principle.md)
-
-- ![image](https://user-images.githubusercontent.com/12118567/105628096-dbfe6900-5e75-11eb-901c-58639c8a1a37.png)
+- 数据结构图
+- ![数据结构图](https://user-images.githubusercontent.com/12118567/120919021-0bf22e80-c6ea-11eb-8f5f-d3d8c14d4666.jpg)
 
 - 项目文件结构
 ```SWIFT

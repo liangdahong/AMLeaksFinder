@@ -45,9 +45,10 @@
         UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [self addSubview:button];
         [button setTitleColor:[UIColor blueColor] forState:(UIControlStateNormal)];
-        [button setTitle:@"隐藏" forState:(UIControlStateNormal)];
-        [button setTitle:@"显示" forState:(UIControlStateSelected)];
-        button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        [button setTitle:@"🤫hiden" forState:(UIControlStateNormal)];
+        [button setTitle:@"👁show" forState:(UIControlStateSelected)];
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:11];
+        button.titleLabel.adjustsFontSizeToFitWidth = YES;
         [button addTarget:self action:@selector(hidenButtonClick) forControlEvents:(UIControlEventTouchUpInside)];
         button.translatesAutoresizingMaskIntoConstraints = NO;
         [[button.topAnchor constraintEqualToAnchor:self.topAnchor constant:0] setActive:YES];
@@ -57,9 +58,10 @@
         
         UILabel *leakCountLabel = [UILabel new];
         leakCountLabel.textColor = UIColor.redColor;
-        leakCountLabel.font = [UIFont boldSystemFontOfSize:17];
+        leakCountLabel.font = [UIFont boldSystemFontOfSize:9];
         leakCountLabel.backgroundColor = UIColor.clearColor;
         leakCountLabel.numberOfLines = 0;
+        leakCountLabel.adjustsFontSizeToFitWidth = YES;
         leakCountLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:leakCountLabel];
         leakCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -84,7 +86,7 @@
         UIButton *button1 = [UIButton buttonWithType:(UIButtonTypeSystem)];
         [self addSubview:button1];
         [button1 setTitleColor:[UIColor blueColor] forState:(UIControlStateNormal)];
-        [button1 setTitle:@"显示详情" forState:(UIControlStateNormal)];
+        [button1 setTitle:@"显示😿详情" forState:(UIControlStateNormal)];
         button1.titleLabel.font = [UIFont systemFontOfSize:15];
         [button1 addTarget:self action:@selector(detailsButtonClick) forControlEvents:(UIControlEventTouchUpInside)];
         button1.translatesAutoresizingMaskIntoConstraints = NO;
