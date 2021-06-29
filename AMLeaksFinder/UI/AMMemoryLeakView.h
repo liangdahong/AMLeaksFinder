@@ -20,6 +20,10 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "AMLeaksFinder.h"
+
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
 #import "AMViewMemoryLeakModel.h"
@@ -32,3 +36,5 @@
 @property (nonatomic, copy) NSArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
 
 @end
+
+#endif

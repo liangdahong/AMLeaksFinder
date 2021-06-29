@@ -20,6 +20,10 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "AMLeaksFinder.h"
+
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+
 #import "UIView+AMLeaksFinderTools.h"
 #import <objc/runtime.h>
 #import "AMViewMemoryLeakDeallocModel.h"
@@ -93,3 +97,5 @@
 }
 
 @end
+
+#endif

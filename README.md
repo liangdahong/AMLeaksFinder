@@ -1,6 +1,6 @@
 <p align="center">
-    <img  width="22%" src="https://user-images.githubusercontent.com/12118567/103100340-0f6a8f80-464d-11eb-9cb5-87c8f63e29f1.gif"/>
-    <img  width="72.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
+<img  width="22%" src="https://user-images.githubusercontent.com/12118567/103100340-0f6a8f80-464d-11eb-9cb5-87c8f63e29f1.gif"/>
+<img  width="72.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
 <p/>
 <p align="center">
 <a href="#"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
@@ -37,6 +37,17 @@ pod 'AMLeaksFinder', '2.1.1',  :configurations => ['Debug']
 ```
 pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 ```
+
+## 直接使用
+
+- 请拖拽 `AMLeaksFinder/AMLeaksFinder` 文件夹的全部内容到项目
+
+- `启用`  和  `禁用`  ` AMLeaksFinder`  请参考  `AMLeaksFinder.h` 的使用说明
+
+  -  打开 `MEMORY_LEAKS_FINDER_ENABLED` 宏表示启用 `AMLeaksFinder`
+
+  -  打开 `MEMORY_LEAKS_FINDER_DISABLE` 宏表示关闭 `AMLeaksFinder`
+  -  默认在 `release` 下是强制关闭状态，如果希望 `release` 也打开请详看 `AMLeaksFinder.h` 文件的宏定义（建议不要打开 😄 ）
 
 ## 原理分析 
 
