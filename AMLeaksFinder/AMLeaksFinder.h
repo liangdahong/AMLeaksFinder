@@ -20,21 +20,27 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import "AMLeaksFinder.h"
+// 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+/// 如下宏只可选择其一打开
 
-#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+/// 启用内存泄漏监控
+#define MEMORY_LEAKS_FINDER_ENABLED
 
-#import <UIKit/UIKit.h>
+/// 禁止内存泄漏监控
+// #define MEMORY_LEAKS_FINDER_DISABLE
 
-@interface UIView (AMLeaksFinderTools)
+// 👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
 
-/// 标记需要销毁
-- (void)amleaks_finder_shouldDealloc;
-// 标记为忽略的内存泄漏
-- (void)amleaks_finder_IgnoredMemoryLeak;
-/// 标记为正常
-- (void)amleaks_finder_normal;
-
-@end
-
+/// =========================================================
+/// =========================================================
+/// =========================================================
+#if DEBUG
+    #ifdef MEMORY_LEAKS_FINDER_ENABLED
+        #ifndef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+            #define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+        #endif
+    #endif
 #endif
+/// =========================================================
+/// =========================================================
+/// =========================================================

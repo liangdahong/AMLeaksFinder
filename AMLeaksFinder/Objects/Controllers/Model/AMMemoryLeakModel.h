@@ -20,6 +20,10 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "AMLeaksFinder.h"
+
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+
 #import <Foundation/Foundation.h>
 #import "AMMemoryLeakDeallocModel.h"
 
@@ -28,3 +32,5 @@
 @property (nonatomic, weak) AMMemoryLeakDeallocModel *memoryLeakDeallocModel; ///< memoryLeakDeallocModel
 
 @end
+
+#endif

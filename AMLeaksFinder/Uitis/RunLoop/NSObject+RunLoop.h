@@ -20,6 +20,10 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+#import "AMLeaksFinder.h"
+
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+
 #import <Foundation/Foundation.h>
 
 @interface NSObject (RunLoop)
@@ -27,3 +31,5 @@
 + (void)performTaskOnDefaultRunLoopMode:(dispatch_block_t)block;
 
 @end
+
+#endif

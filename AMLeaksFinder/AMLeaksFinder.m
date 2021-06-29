@@ -22,19 +22,16 @@
 
 #import "AMLeaksFinder.h"
 
-#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+#ifdef MEMORY_LEAKS_FINDER_ENABLED
+    #ifdef MEMORY_LEAKS_FINDER_DISABLE
+        #error "开启 & 禁用 AMLeaksFinder 只可以打开一个"
+    #endif
+#endif
 
-#import <UIKit/UIKit.h>
-
-@interface UIView (AMLeaksFinderTools)
-
-/// 标记需要销毁
-- (void)amleaks_finder_shouldDealloc;
-// 标记为忽略的内存泄漏
-- (void)amleaks_finder_IgnoredMemoryLeak;
-/// 标记为正常
-- (void)amleaks_finder_normal;
-
-@end
-
+#ifdef MEMORY_LEAKS_FINDER_ENABLED
+#else
+    #ifdef MEMORY_LEAKS_FINDER_DISABLE
+    #else
+        #error "开启 和 禁用 AMLeaksFinder 必须打开一个"
+    #endif
 #endif
