@@ -20,16 +20,12 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+
 // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
-/// 如下宏只可选择其一打开
-
-/// 启用内存泄漏监控
+// 打开宏表示【 启用内存泄漏监控 】
 #define MEMORY_LEAKS_FINDER_ENABLED
-
-/// 禁止内存泄漏监控
-// #define MEMORY_LEAKS_FINDER_DISABLE
-
 // 👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
+
 
 
 /// =========================================================

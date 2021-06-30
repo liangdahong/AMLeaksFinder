@@ -28,7 +28,7 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '2.1.2',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '2.1.3',  :configurations => ['Debug']
 
 ```
 
@@ -46,7 +46,7 @@ pod 'FBRetainCycleDetector',  :configurations => ['Debug']
 
   -  打开 `MEMORY_LEAKS_FINDER_ENABLED` 宏表示启用 `AMLeaksFinder`
 
-  -  打开 `MEMORY_LEAKS_FINDER_DISABLE` 宏表示关闭 `AMLeaksFinder`
+  -  注释 `MEMORY_LEAKS_FINDER_ENABLED` 宏表示关闭 `AMLeaksFinder`
   -  如果希望 `release` 也打开请详看 `AMLeaksFinder.h` 文件的宏定义（建议不要打开 😄 ）
   
 ## 原理分析 
