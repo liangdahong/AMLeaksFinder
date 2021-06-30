@@ -31,16 +31,30 @@
 
 // 👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
 
+
 /// =========================================================
 /// =========================================================
 /// =========================================================
-#if DEBUG
+
+/// 打开此宏表示在 release 也启用 AMLeaksFinder ⚠️，可能造成其他问题，请自行评估必要性
+/// #define _MEMORY_LEAKS_FINDER_ENABLED_RELEASE
+
+#ifdef _MEMORY_LEAKS_FINDER_ENABLED_RELEASE
     #ifdef MEMORY_LEAKS_FINDER_ENABLED
         #ifndef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
             #define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
         #endif
     #endif
+#else
+    #if DEBUG
+        #ifdef MEMORY_LEAKS_FINDER_ENABLED
+            #ifndef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+                #define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+            #endif
+        #endif
+    #endif
 #endif
+
 /// =========================================================
 /// =========================================================
 /// =========================================================
