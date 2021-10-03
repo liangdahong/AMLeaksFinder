@@ -42,7 +42,7 @@ pod 'AMLeaksFinder', '2.1.4',  :configurations => ['Debug']
 - 如果想查看控制器的强引用链，可导入：Facebook 的 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) 框架即可。
 
 ```
-pod 'FBRetainCycleDetector',  :configurations => ['Debug']
+pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git', :branch => 'main', :configurations => ['Debug']
 ```
 
 ## 直接使用

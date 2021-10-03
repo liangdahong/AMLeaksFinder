@@ -28,5 +28,5 @@ pod 'AMLeaksFinder', '2.1.4',  :configurations => ['Debug']
 - If you want to view the reference chain of the controller, import: Facebook's [FBRetainCycleDetector] (https://github.com/facebook/FBRetainCycleDetector) framework. 
 
 ```
-pod 'FBRetainCycleDetector',  :configurations => ['Debug']
+pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git', :branch => 'main', :configurations => ['Debug']
 ```

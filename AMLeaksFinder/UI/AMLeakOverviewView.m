@@ -202,9 +202,9 @@
     
     CGFloat width = frame.size.width;
     CGFloat height = frame.size.height;
-    
-    CGFloat leftX = MIN(window_width - width, MAX(0, frame.origin.x));
-    CGFloat topY = MIN(window_height - height - 44, MAX(44, frame.origin.y));
+    CGFloat distance = 60;
+    CGFloat leftX = MIN(window_width - distance, MAX(frame.origin.x, -(width - distance)));
+    CGFloat topY = MIN(window_height - distance, MAX(frame.origin.y, -(height - distance)));
     super.frame = CGRectMake(leftX, topY, width, height);
 }
 
