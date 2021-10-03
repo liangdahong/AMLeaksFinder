@@ -107,6 +107,7 @@
             cell.textLabel.textColor = [UIColor blackColor];
             [cell setAccessoryType:(UITableViewCellAccessoryNone)];
         }
+        cell.textLabel.numberOfLines = 0;
         return cell;
     } else {
         static NSString *identifier = @"identifier";
@@ -114,16 +115,12 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
             cell.textLabel.font = [UIFont systemFontOfSize:10];
-            [cell setAccessoryType:(UITableViewCellAccessoryDisclosureIndicator)];
         }
         cell.textLabel.text = NSStringFromClass(self.viewMemoryLeakModelArray[indexPath.row].viewMemoryLeakDeallocModel.view.class);
         cell.textLabel.textColor = [UIColor redColor];
+        cell.textLabel.numberOfLines = 0;
         return cell;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 20;
 }
 
 #pragma mark - UITableViewDelegate
@@ -149,7 +146,6 @@
                 rootView = rootView.superview;
             }
             // 获取到了 root view，基本确认是由于 root view 导致的子子孙孙 view 泄漏
-            NSLog(@"%@", rootView);
             UIView *snapedView = [rootView snapshotViewAfterScreenUpdates:YES];
             AMSnapedViewViewController *vc = [AMSnapedViewViewController new];
             vc.snapedView = snapedView;
@@ -237,18 +233,18 @@
     if (NSClassFromString(@"FBRetainCycleDetector")) {
         [alertVC addAction:[UIAlertAction actionWithTitle:@"查看强引链" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             id detector = [NSClassFromString(@"FBRetainCycleDetector") new];
-
+            
             if ([detector respondsToSelector:NSSelectorFromString(@"addCandidate:")]
                 && [detector respondsToSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:")]) {
-
+                
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-
+                
                 [detector performSelector:NSSelectorFromString(@"addCandidate:") withObject:candidate];
-
+                
                 NSSet *retainCycles = [detector performSelector:NSSelectorFromString(@"findRetainCyclesWithMaxCycleLength:") withObject:@100];
 #pragma clang diagnostic pop
-
+                
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:retainCycles.debugDescription preferredStyle:UIAlertControllerStyleAlert];
                 [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
                 [alertVC addAction:[UIAlertAction actionWithTitle:@"拷贝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -313,14 +309,14 @@
     UIImage *allImage = [UIImage imageNamed:@"all"
                                    inBundle:targetBundle
               compatibleWithTraitCollection:nil];
-
+    
     [self.allButton setImage:allImage forState:(UIControlStateNormal)];
     
     UIImage *leaksImage = [UIImage imageNamed:@"leaks"
                                      inBundle:targetBundle
                 compatibleWithTraitCollection:nil];
     [self.leaksButton setImage:leaksImage forState:(UIControlStateNormal)];
-
+    
     self.layer.cornerRadius = 30;
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.layer.masksToBounds = YES;
@@ -349,6 +345,21 @@
         default:
             break;
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect frame = self.frame;
+    UIWindow *window = UIViewController.amleaks_finder_TopWindow;
+    CGFloat window_width = window.bounds.size.width;
+    CGFloat window_height = window.bounds.size.height;
+    
+    CGFloat width = window_width*0.5;
+    CGFloat height = window_height*0.5;
+    
+    CGFloat leftX = MIN(window_width - width, MAX(0, frame.origin.x));
+    CGFloat topY = MIN(window_height - height - 44, MAX(44, frame.origin.y));
+    super.frame = CGRectMake(leftX, topY, width, height);
 }
 
 @end

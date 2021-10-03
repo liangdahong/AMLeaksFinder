@@ -10,5 +10,4 @@ target 'AMLeaksFinder_Example' do
   target 'AMLeaksFinder_Tests' do
     inherit! :search_paths
   end
-  
 end

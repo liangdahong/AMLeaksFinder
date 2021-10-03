@@ -23,7 +23,10 @@
 #import "AMLeaksFinder.h"
 
 #ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
-
+#import "AMMemoryLeakView.h"
+#import "UIViewController+AMLeaksFinderUI.h"
+#import "UIViewController+AMLeaksFinderTools.h"
+#import "UIView+AMLeaksFinderTools.h"
 #import "AMLeakOverviewView.h"
 
 @interface AMLeakOverviewView ()
@@ -148,7 +151,7 @@
     _leakDataModel = leakDataModel;
     
     int total = leakDataModel.vcLeakCount + leakDataModel.viewLeakCount;
-
+    
     self.leakCountLabel.text = (total == 0 ) ? @"" : [NSString stringWithFormat:@"%ld", (unsigned long)total];
     
     if (total == 0) {
@@ -188,6 +191,21 @@
         } range:NSMakeRange(str1.length + str2.length, str3.length)];
         self.descLabel.attributedText = att;
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect frame = self.frame;
+    UIWindow *window = UIViewController.amleaks_finder_TopWindow;
+    CGFloat window_width = window.bounds.size.width;
+    CGFloat window_height = window.bounds.size.height;
+    
+    CGFloat width = frame.size.width;
+    CGFloat height = frame.size.height;
+    
+    CGFloat leftX = MIN(window_width - width, MAX(0, frame.origin.x));
+    CGFloat topY = MIN(window_height - height - 44, MAX(44, frame.origin.y));
+    super.frame = CGRectMake(leftX, topY, width, height);
 }
 
 @end

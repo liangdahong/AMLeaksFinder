@@ -42,9 +42,13 @@ static AMLeakOverviewView *leakOverviewView;
             
             NSBundle *bundle = [NSBundle bundleForClass:AMMemoryLeakView.class];
             memoryLeakView = [bundle loadNibNamed:NSStringFromClass(AMMemoryLeakView.class) owner:nil options:nil].firstObject;
+            memoryLeakView.autoresizingMask = UIViewAutoresizingNone;
             memoryLeakView.frame = CGRectMake(30, 60, 320, 400);
             memoryLeakView.hidden = YES;
+            
             leakOverviewView = AMLeakOverviewView.new;
+            leakOverviewView.autoresizingMask = UIViewAutoresizingNone;
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
                 UIWindow *window = UIViewController.amleaks_finder_TopWindow;
                 [window addSubview:memoryLeakView];
