@@ -6,7 +6,7 @@
  /_/   \_\_|  |_|_____\___|\__,_|_|\_\___/_|   |_|_| |_|\__,_|\___|_|
 ```
 <p align="center">
-<img  width="22%" src="https://user-images.githubusercontent.com/12118567/103100340-0f6a8f80-464d-11eb-9cb5-87c8f63e29f1.gif"/>
+<img  width="21.5%" src="https://user-images.githubusercontent.com/12118567/137609767-23755a78-be8e-4310-99c9-bbb037d44bef.gif"/>
 <img  width="72.5%" src="https://user-images.githubusercontent.com/12118567/89611994-4a904000-d8b1-11ea-8076-b3a754a9db49.png"/>
 <p/>
 <p align="center">
