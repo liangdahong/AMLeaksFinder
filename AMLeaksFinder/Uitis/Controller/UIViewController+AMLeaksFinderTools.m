@@ -185,8 +185,7 @@ void am_fi_sw_in_me(Class clas,
         BOOL windowIsVisible = !window.hidden && window.alpha > 0;
         BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal
                                      && window.windowLevel <= UIWindowLevelNormal);
-        BOOL windowKeyWindow = window.isKeyWindow;
-        if(windowOnMainScreen && windowIsVisible && windowLevelSupported && windowKeyWindow) {
+        if(windowOnMainScreen && windowIsVisible && windowLevelSupported) {
             return window;
         }
     }
