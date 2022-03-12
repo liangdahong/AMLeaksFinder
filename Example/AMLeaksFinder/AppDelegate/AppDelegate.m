@@ -24,6 +24,7 @@
 #import "AMHomeVC.h"
 #import "BMNavigationController.h"
 #import "AMTabBarController.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 @implementation AppDelegate
 
@@ -39,6 +40,10 @@
     AMTabBarController *tabVC = [[AMTabBarController alloc] init];
     tabVC.viewControllers = @[nav];
     self.window.rootViewController = tabVC;
+    
+    [AMLeaksFinder addLeakCallback:^(NSArray<AMMemoryLeakModel *> * _Nonnull controllerMemoryLeakModels, NSArray<AMViewMemoryLeakModel *> * _Nonnull viewMemoryLeakModels) {
+        NSLog(@"⚠️泄漏数据 vc:%@， view:%@", @(controllerMemoryLeakModels.count), @(viewMemoryLeakModels.count));
+    }];
     
     return YES;
 }

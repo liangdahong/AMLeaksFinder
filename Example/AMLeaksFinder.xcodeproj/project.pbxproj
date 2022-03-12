@@ -35,8 +35,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F974C625A4BECA0025BF58 /* AMTabBarController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		9F2D0ED141E3EAFF9A50AE9B /* libPods-AMLeaksFinder_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */; };
-		BA487C12368F99528077E8C4 /* libPods-AMLeaksFinder_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */; };
+		AD3FDC707D1800D6655044CE /* libPods-AMLeaksFinder_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A91C4A05F634B6CA390FD4 /* libPods-AMLeaksFinder_Tests.a */; };
+		BEA9ACFB9E614CAA7F63507F /* libPods-AMLeaksFinder_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A268AA450A5226DF0EE4796 /* libPods-AMLeaksFinder_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +79,7 @@
 		05E1537324E3944D0047DF42 /* PushNoLeakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNoLeakVC.swift; sourceTree = "<group>"; };
 		05E1537424E3944D0047DF42 /* PushNoLeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PushNoLeakVC.xib; sourceTree = "<group>"; };
 		0F8E3259D4CB83411AC2F2DD /* Pods-AMLeaksFinder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Tests/Pods-AMLeaksFinder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1A268AA450A5226DF0EE4796 /* libPods-AMLeaksFinder_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* AMLeaksFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMLeaksFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,14 +97,13 @@
 		65F974C525A4BECA0025BF58 /* AMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMTabBarController.h; sourceTree = "<group>"; };
 		65F974C625A4BECA0025BF58 /* AMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMTabBarController.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80ADD1B893A972A85C2F935F /* Pods-AMLeaksFinder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Example.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C0B3B44275A9330A12F09C63 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C3A91C4A05F634B6CA390FD4 /* libPods-AMLeaksFinder_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41B0AA72CB44C577B30FD3B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CB1FACB9D87E8DB5D556EC3C /* Pods-AMLeaksFinder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Tests.release.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Tests/Pods-AMLeaksFinder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CDC704CC86FA486C632F7007 /* Pods-AMLeaksFinder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMLeaksFinder_Example.debug.xcconfig"; path = "Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DD7AD534E9F61CEE3A1B2EC8 /* AMLeaksFinder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AMLeaksFinder.podspec; path = ../AMLeaksFinder.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMLeaksFinder_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				BA487C12368F99528077E8C4 /* libPods-AMLeaksFinder_Example.a in Frameworks */,
+				BEA9ACFB9E614CAA7F63507F /* libPods-AMLeaksFinder_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				9F2D0ED141E3EAFF9A50AE9B /* libPods-AMLeaksFinder_Tests.a in Frameworks */,
+				AD3FDC707D1800D6655044CE /* libPods-AMLeaksFinder_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,8 +324,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				76B037E1A1B7BEE3682D3952 /* libPods-AMLeaksFinder_Example.a */,
-				F1C6D721923931731FFC3BA8 /* libPods-AMLeaksFinder_Tests.a */,
+				1A268AA450A5226DF0EE4796 /* libPods-AMLeaksFinder_Example.a */,
+				C3A91C4A05F634B6CA390FD4 /* libPods-AMLeaksFinder_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				2C9D9DABBAD8576BB6326B4D /* [CP] Copy Pods Resources */,
+				881700D786CB4E8E9D9F5881 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -492,7 +492,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C9D9DABBAD8576BB6326B4D /* [CP] Copy Pods Resources */ = {
+		881700D786CB4E8E9D9F5881 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

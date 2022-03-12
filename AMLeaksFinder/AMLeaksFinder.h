@@ -23,34 +23,25 @@
 
 // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 // 打开宏表示【 启用内存泄漏监控 】
-#define MEMORY_LEAKS_FINDER_ENABLED
+#define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 // 👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
 
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
+#import "AMMemoryLeakModel.h"
+#import "AMViewMemoryLeakModel.h"
 
-/// =========================================================
-/// =========================================================
-/// =========================================================
+typedef void(^AMLeakCallback)(NSArray <AMMemoryLeakModel *> * _Nonnull controllerMemoryLeakModels,
+                              NSArray <AMViewMemoryLeakModel *> * _Nonnull viewMemoryLeakModels);
 
-/// 打开此宏表示在 release 也启用 AMLeaksFinder ⚠️，可能造成其他问题，请自行评估必要性
-/// #define _MEMORY_LEAKS_FINDER_ENABLED_RELEASE
+@interface AMLeaksFinder : NSObject
 
-#ifdef _MEMORY_LEAKS_FINDER_ENABLED_RELEASE
-    #ifdef MEMORY_LEAKS_FINDER_ENABLED
-        #ifndef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
-            #define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
-        #endif
-    #endif
-#else
-    #if DEBUG
-        #ifdef MEMORY_LEAKS_FINDER_ENABLED
-            #ifndef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
-                #define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
-            #endif
-        #endif
-    #endif
+/// 泄漏变化数据回调
+/// @param callback block
++ (void)addLeakCallback:(nonnull AMLeakCallback)callback;
+
++ (nonnull NSArray <AMLeakCallback> *)callbacks;
+
+@end
+
 #endif
-
-/// =========================================================
-/// =========================================================
-/// =========================================================

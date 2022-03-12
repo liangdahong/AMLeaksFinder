@@ -28,8 +28,9 @@
 
 @interface AMMemoryLeakDeallocModel : NSObject
 
-@property (nonatomic, weak) UIViewController *controller; ///< controller
+@property (nullable, nonatomic, weak) UIViewController *controller; ///< controller
 @property (nonatomic, assign) BOOL shouldDealloc; ///< 应该释放了
+@property (nullable, nonatomic, strong) NSDate *shouldDeallocDate; ///<  标记准备释放的时间
 
 @end
 

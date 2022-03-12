@@ -29,7 +29,7 @@
 
 @interface AMViewMemoryLeakModel : NSObject
 
-@property (nonatomic, weak) AMViewMemoryLeakDeallocModel *viewMemoryLeakDeallocModel;
+@property (nullable, nonatomic, weak) AMViewMemoryLeakDeallocModel *viewMemoryLeakDeallocModel;
 
 @end
 

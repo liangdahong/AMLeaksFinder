@@ -30,7 +30,6 @@
 
 @property (nonatomic, assign) int vcLeakCount;
 @property (nonatomic, assign) int vcAllCount;
-
 @property (nonatomic, assign) int viewLeakCount;
 
 @end

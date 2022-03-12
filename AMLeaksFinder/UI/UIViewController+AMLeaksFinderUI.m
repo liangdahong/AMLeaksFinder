@@ -62,41 +62,67 @@ static AMLeakOverviewView *leakOverviewView;
     });
 }
 
-
 + (void)udpateUI {
-    [NSObject performTaskOnDefaultRunLoopMode:^{
-        UIWindow *window = UIViewController.amleaks_finder_TopWindow;
-        [window addSubview:memoryLeakView];
-        [window addSubview:leakOverviewView];
-        
-        [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (!obj.memoryLeakDeallocModel.controller) {
-                [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
-            }
+    
+    static BOOL isCallbacking = false;
+    
+    // 控制回调频率
+    if (isCallbacking) { return; }
+    isCallbacking = true;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        isCallbacking = false;
+        [NSObject performTaskOnDefaultRunLoopMode:^{
+            UIWindow *window = UIViewController.amleaks_finder_TopWindow;
+            [window addSubview:memoryLeakView];
+            [window addSubview:leakOverviewView];
+            
+            // 对已经正常释放的 controller 进行删除处理
+            [UIViewController.memoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (!obj.memoryLeakDeallocModel.controller) {
+                    [UIViewController.memoryLeakModelArray removeObjectAtIndex:idx];
+                }
+            }];
+            
+            // 获取泄漏的 controller
+            __block NSMutableArray <AMMemoryLeakDeallocModel *> *vcMemoryLeakDeallocModels = @[].mutableCopy;
+            __block int leakCount = 0;
+            [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.memoryLeakDeallocModel != nil
+                    && obj.memoryLeakDeallocModel.shouldDealloc
+                    && (NSDate.new.timeIntervalSince1970 - obj.memoryLeakDeallocModel.shouldDeallocDate.timeIntervalSince1970) > 3) {
+                    [vcMemoryLeakDeallocModels addObject:obj];
+                }
+            }];
+            
+            // 对已经正常释放的 view 进行删除处理
+            [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (!obj.viewMemoryLeakDeallocModel.view) {
+                    [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
+                }
+            }];
+            
+            // 获取泄漏的 view 数量
+            __block NSMutableArray <AMViewMemoryLeakModel *> *viewMemoryLeakModels = @[].mutableCopy;
+            [UIViewController.viewMemoryLeakModelArray enumerateObjectsUsingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (obj.viewMemoryLeakDeallocModel.view != nil
+                    && (NSDate.new.timeIntervalSince1970 - obj.viewMemoryLeakDeallocModel.shouldDeallocDate.timeIntervalSince1970) > 3) {
+                    [viewMemoryLeakModels addObject:obj];
+                }
+            }];
+            memoryLeakView.viewMemoryLeakModelArray = viewMemoryLeakModels;
+            [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
+            
+            AMLeakDataModel *model = [AMLeakDataModel new];
+            model.vcLeakCount = (int)vcMemoryLeakDeallocModels.count;
+            model.vcAllCount = (int)UIViewController.memoryLeakModelArray.count;
+            model.viewLeakCount = (int)viewMemoryLeakModels.count;
+            leakOverviewView.leakDataModel = model;
+            
+            [AMLeaksFinder.callbacks enumerateObjectsUsingBlock:^(AMLeakCallback  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj(vcMemoryLeakDeallocModels, viewMemoryLeakModels);
+            }];
         }];
-        
-        __block int leakCount = 0;
-        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.memoryLeakDeallocModel.shouldDealloc) {
-                leakCount++;
-            }
-        }];
-        
-        // views
-        [UIViewController.viewMemoryLeakModelArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (!obj.viewMemoryLeakDeallocModel.view) {
-                [UIViewController.viewMemoryLeakModelArray removeObjectAtIndex:idx];
-            }
-        }];
-        memoryLeakView.viewMemoryLeakModelArray = UIViewController.viewMemoryLeakModelArray;
-        [memoryLeakView setMemoryLeakModelArray:UIViewController.memoryLeakModelArray];
-        
-        AMLeakDataModel *model = [AMLeakDataModel new];
-        model.vcLeakCount = leakCount;
-        model.vcAllCount = (int)UIViewController.memoryLeakModelArray.count;
-        model.viewLeakCount = (int)UIViewController.viewMemoryLeakModelArray.count;
-        leakOverviewView.leakDataModel = model;
-    }];
+    });
 }
 
 @end

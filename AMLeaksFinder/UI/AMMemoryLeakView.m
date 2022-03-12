@@ -73,7 +73,8 @@
     self.showAll = NO;
     NSMutableArray <AMMemoryLeakModel *> *arr = @[].mutableCopy;
     [self.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.memoryLeakDeallocModel.shouldDealloc) {
+        if (obj.memoryLeakDeallocModel.shouldDealloc
+            && (NSDate.new.timeIntervalSince1970 - obj.memoryLeakDeallocModel.shouldDeallocDate.timeIntervalSince1970) > 3) {
             [arr addObject:obj];
         }
     }];

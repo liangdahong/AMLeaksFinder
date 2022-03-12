@@ -24,13 +24,25 @@
 
 #ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+static NSMutableArray <AMLeakCallback> *blocks = nil;
 
-@interface AMViewMemoryLeakDeallocModel : NSObject
+@implementation AMLeaksFinder
 
-@property (nullable, nonatomic, weak) UIView *view;
-@property (nullable, nonatomic, strong) NSDate *shouldDeallocDate; ///<  标记准备释放时间
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        blocks = @[].mutableCopy;
+    });
+}
+
++ (void)addLeakCallback:(AMLeakCallback)callback {
+    if (blocks == nil) { blocks = @[].mutableCopy; }
+    [blocks addObject:callback];
+}
+
++ (NSArray <AMLeakCallback> *)callbacks {
+    return blocks;
+}
 
 @end
 
