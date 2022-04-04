@@ -29,11 +29,14 @@
 @interface UIView (AMLeaksFinderTools)
 
 /// 标记需要销毁
-- (void)amleaks_finder_shouldDealloc;
+- (void)amleaks_finder_shouldDeallocWithVC:(UIViewController *)vc;
 // 标记为忽略的内存泄漏
 - (void)amleaks_finder_IgnoredMemoryLeak;
 /// 标记为正常
 - (void)amleaks_finder_normal;
+
+@property (nonatomic, strong, readonly) UIView *rootView;
+- (nullable UIViewController *)aml_currentController;
 
 @end
 

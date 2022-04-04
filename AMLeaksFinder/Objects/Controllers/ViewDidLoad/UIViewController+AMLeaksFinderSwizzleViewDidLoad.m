@@ -37,6 +37,7 @@ static const void * const associatedKey = &associatedKey;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         am_fi_sw_in_me(self.class,
                        @selector(viewDidLoad),
                        @selector(amleaks_finder_viewDidLoad));
@@ -45,11 +46,21 @@ static const void * const associatedKey = &associatedKey;
                        @selector(viewDidAppear:),
                        @selector(amleaks_finder_viewDidAppear:));
         
+        am_fi_sw_in_me(self.class,
+                       @selector(viewDidDisappear:),
+                       @selector(amleaks_finder_viewDidDisappear:));
+        
     });
 }
 
 - (void)amleaks_finder_viewDidLoad {
     [self amleaks_finder_viewDidLoad];
+    
+    AMVCPathModel *pathModel = [AMVCPathModel vcPathModel:NSStringFromClass(self.class) sel:@selector(viewDidLoad:)];
+    [UIViewController.vcPathModels addObject:pathModel];
+    
+    [self amleaks_finder_callbackPath:pathModel];
+    
     AMMemoryLeakDeallocModel *deallocModel = objc_getAssociatedObject(self, associatedKey);
     if (deallocModel) {
         return;
@@ -64,14 +75,37 @@ static const void * const associatedKey = &associatedKey;
     AMMemoryLeakModel *memoryLeakModel = AMMemoryLeakModel.new;
     memoryLeakModel.memoryLeakDeallocModel = deallocModel;
     [UIViewController.memoryLeakModelArray insertObject:memoryLeakModel atIndex:0];
-    
+        
     // 刷新 UI
     [UIViewController udpateUI];
 }
 
 - (void)amleaks_finder_viewDidAppear:(BOOL)animated {
     [self amleaks_finder_viewDidAppear:animated];
+    
+    AMVCPathModel *pathModel = [AMVCPathModel vcPathModel:NSStringFromClass(self.class) sel:@selector(viewDidAppear:)];
+    [UIViewController.vcPathModels addObject:pathModel];
+
+    [self amleaks_finder_callbackPath:pathModel];
+    
     [self amleaks_finder_normal];
+}
+
+- (void)amleaks_finder_viewDidDisappear:(BOOL)animated {
+    [self amleaks_finder_viewDidDisappear:animated];
+    
+    AMVCPathModel *pathModel = [AMVCPathModel vcPathModel:NSStringFromClass(self.class) sel:@selector(viewDidDisappear:)];
+    [UIViewController.vcPathModels addObject:pathModel];
+
+    [self amleaks_finder_callbackPath:pathModel];
+    
+    [self amleaks_finder_DidDisappear];
+}
+
+- (void)amleaks_finder_callbackPath:(AMVCPathModel *)path {
+    [AMLeaksFinder.vcPathCallbacks enumerateObjectsUsingBlock:^(AMLVCPathCallback  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj(UIViewController.vcPathModels, path);
+    }];
 }
 
 @end

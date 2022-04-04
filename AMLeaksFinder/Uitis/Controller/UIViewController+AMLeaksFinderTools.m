@@ -65,6 +65,24 @@ void am_fi_sw_in_me(Class clas,
     return arr;
 }
 
++ (NSMutableString *)vcPath {
+    static NSMutableString *vcPathStr = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        vcPathStr = [@"" mutableCopy];
+    });
+    return vcPathStr;
+}
+
++ (NSMutableArray<AMVCPathModel *> *)vcPathModels {
+    static NSMutableArray <AMVCPathModel *> *arr = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        arr = @[].mutableCopy;
+    });
+    return arr;
+}
+
 /// 返回 【自己】+【自己所有的子子孙孙控制器】组成的数组
 - (NSArray<UIViewController *> *)amleaks_finder_selfAndAllChildController {
     NSMutableArray *arr = @[self].mutableCopy;
@@ -74,46 +92,42 @@ void am_fi_sw_in_me(Class clas,
     return arr.copy;
 }
 
-- (void)amleaks_finder_self_shouldDealloc {
+- (void)amleaks_finder_DidDisappear {
+    
     [NSObject performTaskOnDefaultRunLoopMode:^{
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-            if (obj1.memoryLeakDeallocModel.controller == self) {
-                obj1.memoryLeakDeallocModel.shouldDealloc = YES;
+            if (obj1.memoryLeakDeallocModel.controller == self
+                && obj1.memoryLeakDeallocModel.shouldDealloc == YES) {
                 obj1.memoryLeakDeallocModel.shouldDeallocDate = NSDate.new;
                 // 获取控制器的 view 以及所有 子子孙孙 view
                 UIViewController *vc = obj1.memoryLeakDeallocModel.controller;
-                [vc.view amleaks_finder_shouldDealloc];
+                [vc.view amleaks_finder_shouldDeallocWithVC:vc];
             }
         }];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             // update ui
             [UIViewController udpateUI];
         });
     }];
 }
 
+- (void)amleaks_finder_self_shouldDealloc {
+    [NSObject performTaskOnDefaultRunLoopMode:^{
+        [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+            if (obj1.memoryLeakDeallocModel.controller == self) {
+                obj1.memoryLeakDeallocModel.shouldDealloc = YES;
+                obj1.memoryLeakDeallocModel.shouldDeallocDate = [NSDate.new initWithTimeIntervalSinceNow:MAXFLOAT];
+            }
+        }];
+    }];
+}
+
 - (void)amleaks_finder_shouldDealloc {
     [NSObject performTaskOnDefaultRunLoopMode:^{
         [self.amleaks_finder_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-                if (obj1.memoryLeakDeallocModel.controller == obj) {
-                    obj1.memoryLeakDeallocModel.shouldDealloc = YES;
-                    obj1.memoryLeakDeallocModel.shouldDeallocDate = NSDate.new;
-                    // 获取控制器的 view 以及所有 子子孙孙 view
-                    UIViewController *vc = obj1.memoryLeakDeallocModel.controller;
-                    [vc.view amleaks_finder_shouldDealloc];
-                }
-            }];
+            [obj amleaks_finder_self_shouldDealloc];
         }];
-        
-        // 延时刷新 UI
-        // 因为控制器在 pop diss 的时候需要时间才回收
-        // 但是要保证数据的准确性，只是延迟刷新 UI
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            // update ui
-            [UIViewController udpateUI];
-        });
     }];
 }
 

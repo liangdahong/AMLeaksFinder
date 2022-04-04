@@ -18,10 +18,8 @@ class PushHasLeakVC: AMBaseVC {
             self.navigationController?.popViewController(animated: true)
         }
         
-        AMLeaksFinder.addLeakCallback { memoryLeakModels, viewMemoryLeakModels in
-            print(memoryLeakModels.first?.memoryLeakDeallocModel?.controller ?? "")
-            print(viewMemoryLeakModels.first?.viewMemoryLeakDeallocModel?.view ?? "")
-            print("vc 泄漏: \(memoryLeakModels.count), view 泄漏：\(viewMemoryLeakModels.count)")
+        AMLeaksFinder.addLeakCallback { ccc, cccccc in
+            
         }
     }
 }

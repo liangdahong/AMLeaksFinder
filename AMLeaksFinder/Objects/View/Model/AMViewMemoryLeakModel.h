@@ -26,10 +26,14 @@
 
 #import <Foundation/Foundation.h>
 #import "AMViewMemoryLeakDeallocModel.h"
+#import "AMMemoryLeakModel.h"
 
 @interface AMViewMemoryLeakModel : NSObject
 
-@property (nullable, nonatomic, weak) AMViewMemoryLeakDeallocModel *viewMemoryLeakDeallocModel;
+@property (nullable, nonatomic, weak, nullable) AMViewMemoryLeakDeallocModel *viewMemoryLeakDeallocModel;
+@property (nonatomic, assign) BOOL isCallback;
+@property (nonatomic, copy, nullable) NSArray <AMVCPathModel *> *vcPathModels;
+@property (nonatomic, copy, nullable) NSString *vcName;
 
 @end
 

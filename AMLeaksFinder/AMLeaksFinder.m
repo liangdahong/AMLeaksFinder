@@ -23,8 +23,10 @@
 #import "AMLeaksFinder.h"
 
 #ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+#import "UIViewController+AMLeaksFinderTools.h"
 
 static NSMutableArray <AMLeakCallback> *blocks = nil;
+static NSMutableArray <AMLVCPathCallback> *vcPathCallbacks = nil;
 
 @implementation AMLeaksFinder
 
@@ -32,7 +34,20 @@ static NSMutableArray <AMLeakCallback> *blocks = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         blocks = @[].mutableCopy;
+        vcPathCallbacks = @[].mutableCopy;
     });
+}
+
++ (NSArray<AMVCPathModel *> *)currentAllVCPathModels {
+    return UIViewController.vcPathModels;
+}
+
++ (NSArray<AMMemoryLeakModel *> *)leakVCModelArray {
+    return UIViewController.memoryLeakModelArray;
+}
+
++ (NSArray<AMViewMemoryLeakModel *> *)leakViewModelArray {
+    return UIViewController.viewMemoryLeakModelArray;
 }
 
 + (void)addLeakCallback:(AMLeakCallback)callback {
@@ -42,6 +57,15 @@ static NSMutableArray <AMLeakCallback> *blocks = nil;
 
 + (NSArray <AMLeakCallback> *)callbacks {
     return blocks;
+}
+
++ (void)addVCPathChangedCallback:(nonnull AMLVCPathCallback)callback {
+    if (vcPathCallbacks == nil) { vcPathCallbacks = @[].mutableCopy; }
+    [vcPathCallbacks addObject:callback];
+}
+
++ (nonnull NSArray <AMLVCPathCallback> *)vcPathCallbacks {
+    return vcPathCallbacks;
 }
 
 @end

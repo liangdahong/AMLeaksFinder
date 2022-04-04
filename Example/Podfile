@@ -7,6 +7,7 @@ target 'AMLeaksFinder_Example' do
   
   pod 'AMLeaksFinder', :path => '../'
   pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git', :branch => 'main', :configurations => ['Debug']
+  pod 'FDFullscreenPopGesture', '1.1'
   
   target 'AMLeaksFinder_Tests' do
     inherit! :search_paths

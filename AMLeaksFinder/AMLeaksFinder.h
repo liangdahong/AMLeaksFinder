@@ -34,13 +34,29 @@
 typedef void(^AMLeakCallback)(NSArray <AMMemoryLeakModel *> * _Nonnull controllerMemoryLeakModels,
                               NSArray <AMViewMemoryLeakModel *> * _Nonnull viewMemoryLeakModels);
 
+typedef void(^AMLVCPathCallback)(NSArray <AMVCPathModel *> * _Nonnull all, AMVCPathModel* _Nonnull current);
+
 @interface AMLeaksFinder : NSObject
 
-/// 泄漏变化数据回调
+/// vc 操作路径
+@property (class, readonly) NSArray <AMVCPathModel *> *currentAllVCPathModels;
+
+/// vc 泄漏数据
+@property (class, readonly) NSArray <AMMemoryLeakModel *> *leakVCModelArray;
+
+/// view 泄漏数据
+@property (class, readonly) NSArray <AMViewMemoryLeakModel *> *leakViewModelArray;
+
+/// 添加泄漏数据回调
 /// @param callback block
 + (void)addLeakCallback:(nonnull AMLeakCallback)callback;
 
+/// 控制器路径变化回调
+/// @param callback block
++ (void)addVCPathChangedCallback:(nonnull AMLVCPathCallback)callback;
+
 + (nonnull NSArray <AMLeakCallback> *)callbacks;
++ (nonnull NSArray <AMLVCPathCallback> *)vcPathCallbacks;
 
 @end
 

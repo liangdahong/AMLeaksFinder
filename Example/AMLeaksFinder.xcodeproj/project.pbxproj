@@ -33,6 +33,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6546C98627FA0FBD00F00A10 /* ViewHasLeakVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */; };
+		65EA6D2727FAA555003DBD91 /* ViewHasLeakVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */; };
 		65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F974C625A4BECA0025BF58 /* AMTabBarController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		AD3FDC707D1800D6655044CE /* libPods-AMLeaksFinder_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A91C4A05F634B6CA390FD4 /* libPods-AMLeaksFinder_Tests.a */; };
@@ -94,6 +96,8 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewHasLeakVC.xib; sourceTree = "<group>"; };
+		65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHasLeakVC.swift; sourceTree = "<group>"; };
 		65F974C525A4BECA0025BF58 /* AMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMTabBarController.h; sourceTree = "<group>"; };
 		65F974C625A4BECA0025BF58 /* AMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMTabBarController.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 		05E1534824E394000047DF42 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				6546C97C27FA0F5800F00A10 /* ViewHasLeak */,
 				05E1534924E394000047DF42 /* HasLeak */,
 				05E1535024E394000047DF42 /* NoLeak */,
 			);
@@ -385,6 +390,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		6546C97C27FA0F5800F00A10 /* ViewHasLeak */ = {
+			isa = PBXGroup;
+			children = (
+				65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */,
+				6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */,
+			);
+			path = ViewHasLeak;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,6 +487,7 @@
 			files = (
 				05E1537224E394310047DF42 /* PushHasLeakVC.xib in Resources */,
 				054732CE249375640082B534 /* AMTopView.xib in Resources */,
+				6546C98627FA0FBD00F00A10 /* ViewHasLeakVC.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				05E1537624E3944D0047DF42 /* PushNoLeakVC.xib in Resources */,
@@ -575,6 +590,7 @@
 				05E1537124E394310047DF42 /* PushHasLeakVC.swift in Sources */,
 				05E1536C24E394000047DF42 /* AMPresentNoLeakVC.m in Sources */,
 				054732D4249375640082B534 /* main.m in Sources */,
+				65EA6D2727FAA555003DBD91 /* ViewHasLeakVC.swift in Sources */,
 				054732D3249375640082B534 /* AMBaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

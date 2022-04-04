@@ -25,8 +25,15 @@
 #ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
 #import "AMViewMemoryLeakModel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
 
 @implementation AMViewMemoryLeakModel
+
+- (instancetype)init {
+    self.isCallback = NO;
+    self.vcPathModels = UIViewController.vcPathModels.copy;
+    return [super init];
+}
 
 @end
 

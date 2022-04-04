@@ -25,8 +25,26 @@
 #ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
 #import "AMMemoryLeakModel.h"
+#import "UIViewController+AMLeaksFinderTools.h"
+
+@implementation AMVCPathModel
+
++ (instancetype)vcPathModel:(NSString *)clasName sel:(SEL)sel {
+    AMVCPathModel *pathModel = [AMVCPathModel new];
+    pathModel.vcName = clasName;
+    pathModel.sel = sel;
+    pathModel.date = [NSDate date];
+    return  pathModel;
+}
+
+@end
 
 @implementation AMMemoryLeakModel
+
+- (instancetype)init {
+    self.isCallback = NO;
+    return [super init];
+}
 
 @end
 

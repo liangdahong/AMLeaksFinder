@@ -35,14 +35,14 @@ void am_fi_sw_in_me(Class clas,
 @interface UIViewController (AMLeaksFinderTools)
 
 @property (class, readonly) NSMutableArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
-
-
-/// 全局管理控制器的 Array
 @property (class, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
 @property (class, readonly) __kindof UIViewController *amleaks_finder_TopViewController;
 @property (class, readonly) __kindof UIWindow *amleaks_finder_TopWindow;
+@property (class, strong, readonly) NSMutableString *vcPath;
+@property (class, readonly) NSMutableArray <AMVCPathModel *> *vcPathModels;
 
 - (void)amleaks_finder_self_shouldDealloc;
+- (void)amleaks_finder_DidDisappear;
 
 /// 控制器标记为准备释放
 - (void)amleaks_finder_shouldDealloc;

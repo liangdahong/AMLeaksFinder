@@ -29,6 +29,7 @@
 #import "UIViewController+AMLeaksFinderTools.h"
 #import "AMLeakOverviewView.h"
 #import "NSObject+RunLoop.h"
+#import "UIView+AMLeaksFinderTools.h"
 
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
@@ -68,10 +69,13 @@ static AMLeakOverviewView *leakOverviewView;
     
     // 控制回调频率
     if (isCallbacking) { return; }
+    
     isCallbacking = true;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         isCallbacking = false;
         [NSObject performTaskOnDefaultRunLoopMode:^{
+            
             UIWindow *window = UIViewController.amleaks_finder_TopWindow;
             [window addSubview:memoryLeakView];
             [window addSubview:leakOverviewView];
@@ -84,7 +88,7 @@ static AMLeakOverviewView *leakOverviewView;
             }];
             
             // 获取泄漏的 controller
-            __block NSMutableArray <AMMemoryLeakDeallocModel *> *vcMemoryLeakDeallocModels = @[].mutableCopy;
+            __block NSMutableArray <AMMemoryLeakModel *> *vcMemoryLeakDeallocModels = @[].mutableCopy;
             __block int leakCount = 0;
             [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (obj.memoryLeakDeallocModel != nil
@@ -118,9 +122,51 @@ static AMLeakOverviewView *leakOverviewView;
             model.viewLeakCount = (int)viewMemoryLeakModels.count;
             leakOverviewView.leakDataModel = model;
             
-            [AMLeaksFinder.callbacks enumerateObjectsUsingBlock:^(AMLeakCallback  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                obj(vcMemoryLeakDeallocModels, viewMemoryLeakModels);
+            // 获取增量泄漏的控制器
+            NSMutableArray <AMMemoryLeakDeallocModel *> *leakVCModels = @[].mutableCopy;
+            [vcMemoryLeakDeallocModels enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (!obj.isCallback) {
+                    // 标记被回调
+                    obj.isCallback = YES;
+                    // 设置操作路径
+                    obj.vcPathModels = UIViewController.vcPathModels.copy;
+                    [leakVCModels addObject:obj];
+                }
             }];
+            
+            // 获取所有泄漏 view 的 root 节点 view 组成的数据，root view 泄漏其子孙视图肯定泄漏
+            NSMutableSet<AMViewMemoryLeakModel *> *rootViewSet = [NSMutableSet new];
+            [viewMemoryLeakModels enumerateObjectsUsingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                UIView *rootView = obj.viewMemoryLeakDeallocModel.view.rootView;
+                if (rootView != nil) {
+                    // 找到 root view model
+                    [viewMemoryLeakModels enumerateObjectsUsingBlock:^(AMViewMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+                        if (!obj1.isCallback
+                            && obj1.viewMemoryLeakDeallocModel.view == rootView
+                            && rootView.aml_currentController == nil) {
+                            [rootViewSet addObject:obj1];
+                            *stop1 = YES;
+                        }
+                    }];
+                }
+            }];
+            
+            // 获取由泄漏 root view 组成的数据
+            NSMutableArray <AMViewMemoryLeakModel *> *leakRooViewModels = [NSMutableArray arrayWithCapacity:rootViewSet.count];
+            [rootViewSet enumerateObjectsUsingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, BOOL * _Nonnull stop) {
+                // 标记被回调
+                obj.isCallback = YES;
+                // 设置操作路径
+                obj.vcPathModels = UIViewController.vcPathModels.copy;
+                [leakRooViewModels addObject:obj];
+            }];
+            
+            // 有增量泄漏才回调
+            if (leakVCModels.count > 0 || leakRooViewModels.count > 0) {
+                [AMLeaksFinder.callbacks enumerateObjectsUsingBlock:^(AMLeakCallback  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    obj(leakVCModels, leakRooViewModels);
+                }];
+            }
         }];
     });
 }

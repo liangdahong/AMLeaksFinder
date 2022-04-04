@@ -17,25 +17,32 @@
 @implementation AMHomeVC
 
 - (IBAction)pushNoLeakButtonClick {
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         AMPushNoLeakVC *vc = AMPushNoLeakVC.new;
         [self.navigationController pushViewController:vc animated:YES];
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.navigationController pushViewController:PushNoLeakVC.new animated:YES];
+        [self.navigationController pushViewController:PushNoLeakVC.new animated:YES];
     }]];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (IBAction)pushHasLeakButtonClick {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
     [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController pushViewController:AMPushHasLeakVC.new animated:YES];
     }]];
+    
     [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [self.navigationController pushViewController:PushHasLeakVC.new animated:YES];
+        [self.navigationController pushViewController:PushHasLeakVC.new animated:YES];
     }]];
+    
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift - 只有 view 泄漏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController pushViewController:ViewHasLeakVC.new animated:YES];
+    }]];
+    
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 

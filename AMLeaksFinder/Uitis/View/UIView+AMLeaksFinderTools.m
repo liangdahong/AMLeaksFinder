@@ -51,10 +51,9 @@
             }
         }];
     }];
-    [UIViewController udpateUI];
 }
 
-- (void)amleaks_finder_shouldDealloc {
+- (void)amleaks_finder_shouldDeallocWithVC:(UIViewController *)vc {
     [self.amleaks_finder_selfAndAllChildViews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         AMViewMemoryLeakDeallocModel *deallocModel = objc_getAssociatedObject(obj, _cmd);
         if (deallocModel) {
@@ -63,16 +62,13 @@
         deallocModel = AMViewMemoryLeakDeallocModel.new;
         objc_setAssociatedObject(obj, _cmd, deallocModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         deallocModel.view = obj;
+        deallocModel.shouldDeallocDate = NSDate.new;
         
         AMViewMemoryLeakModel *memoryLeakModel = AMViewMemoryLeakModel.new;
+        memoryLeakModel.vcName = NSStringFromClass(vc.class);
         memoryLeakModel.viewMemoryLeakDeallocModel = deallocModel;
         [UIViewController.viewMemoryLeakModelArray insertObject:memoryLeakModel atIndex:0];
     }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // view 应该销毁完毕
-        [UIViewController udpateUI];
-    });
 }
 
 - (void)amleaks_finder_normal {
@@ -91,9 +87,26 @@
             }
         }];
     }];
-    if (flag) {
-        [UIViewController udpateUI];
+}
+
+- (UIView *)rootView {
+    UIView *rootView = self;
+    while (rootView.superview != nil) {
+        rootView = rootView.superview;
     }
+    return rootView;
+}
+
+- (nullable UIViewController *)aml_currentController {
+    UIResponder *next = [self nextResponder];
+    do {
+        if ([next isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)next;
+        }
+        next = [next nextResponder];
+    } while (next != nil);
+    
+    return nil;
 }
 
 @end

@@ -35,7 +35,7 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '2.2.0',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '2.2.1',  :configurations => ['Debug']
 
 ```
 
@@ -48,13 +48,55 @@ pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleD
 ## 直接使用
 
 - 请拖拽 `AMLeaksFinder/AMLeaksFinder` 文件夹的全部内容到项目
+- 启用 & 关闭 `AMLeaksFinder`
+  -  打开 `__AUTO_MEMORY_LEAKS_FINDER_ENABLED__` 宏表示启用
+  -  注释 `__AUTO_MEMORY_LEAKS_FINDER_ENABLED__` 宏表示关闭
+  
+## 数据收集
+> 若想收集泄漏相关数据可使用如下 API:
+- https://github.com/liangdahong/AMLeaksFinder/blob/master/AMLeaksFinder/AMLeaksFinder.h#L44
 
-- `启用`  和  `禁用`  ` AMLeaksFinder`  请参考  `AMLeaksFinder.h` 的使用说明 (同时 `release` 下为关闭状态)
-
-  -  打开 `MEMORY_LEAKS_FINDER_ENABLED` 宏表示启用 `AMLeaksFinder`
-
-  -  注释 `MEMORY_LEAKS_FINDER_ENABLED` 宏表示关闭 `AMLeaksFinder`
-  -  如果希望 `release` 也打开请详看 `AMLeaksFinder.h` 文件的宏定义（建议不要打开 😄 ）
+```
+2022-04-04 01:57:35.086809+0800 AMLeaksFinder[56924:992230] 控制器路径变化AMTabBarController viewDidAppear: 2022-04-03 17:57:35 +0000
+2022-04-04 01:57:35.088691+0800 AMLeaksFinder[56924:992230] 控制器路径变化BMNavigationController viewDidAppear: 2022-04-03 17:57:35 +0000
+2022-04-04 01:57:35.089169+0800 AMLeaksFinder[56924:992230] 控制器路径变化AMHomeVC viewDidAppear: 2022-04-03 17:57:35 +0000
+2022-04-04 01:57:35.089653+0800 AMLeaksFinder[56924:992230] 控制器路径变化AMPresentHasLeakVC viewDidDisappear: 2022-04-03 17:57:35 +0000
+⚠️ 控制器泄漏:<AMPresentHasLeakVC: 0x7ff259a2e9d0> 
+ 操作路径:
+BMNavigationController(viewDidLoad:) -> 
+AMTabBarController(viewDidLoad:) -> 
+AMHomeVC(viewDidLoad:) -> 
+AMTabBarController(viewDidAppear:) -> 
+BMNavigationController(viewDidAppear:) -> 
+AMHomeVC(viewDidAppear:) -> 
+_UIAlertControllerTextFieldViewController(viewDidLoad:) -> 
+UIAlertController(viewDidLoad:) -> 
+UIAlertController(viewDidAppear:) -> 
+UIAlertController(viewDidDisappear:) -> 
+AMLeaksFinder.ViewHasLeak(viewDidLoad:) -> 
+AMHomeVC(viewDidDisappear:) -> 
+AMLeaksFinder.ViewHasLeak(viewDidAppear:) -> 
+AMLeaksFinder.ViewHasLeak(viewDidDisappear:) -> 
+AMHomeVC(viewDidAppear:) -> 
+AMPresentHasLeakVC(viewDidLoad:) -> 
+AMPresentHasLeakVC(viewDidAppear:) -> 
+AMTabBarController(viewDidDisappear:) -> 
+BMNavigationController(viewDidDisappear:) -> 
+AMHomeVC(viewDidDisappear:) -> 
+AMTabBarController(viewDidAppear:) -> 
+BMNavigationController(viewDidAppear:) -> 
+AMHomeVC(viewDidAppear:) -> 
+AMPresentHasLeakVC(viewDidDisappear:) -> 
+AMPresentHasLeakVC(viewDidLoad:) -> 
+AMPresentHasLeakVC(viewDidAppear:) -> 
+AMTabBarController(viewDidDisappear:) -> 
+BMNavigationController(viewDidDisappear:) -> 
+AMHomeVC(viewDidDisappear:) -> 
+AMTabBarController(viewDidAppear:) -> 
+BMNavigationController(viewDidAppear:) -> 
+AMHomeVC(viewDidAppear:) -> 
+AMPresentHasLeakVC(viewDidDisappear:) -> 
+```
   
 ## 原理分析 
 
@@ -65,6 +107,8 @@ pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleD
 - 项目文件结构
 ```SWIFT
 ├── AMLeaksFinder
+│   ├── AMLeaksFinder.h
+│   ├── AMLeaksFinder.m
 │   ├── AMLeaksFinder.bundle
 │   │   ├── all@2x.png
 │   │   ├── all@3x.png

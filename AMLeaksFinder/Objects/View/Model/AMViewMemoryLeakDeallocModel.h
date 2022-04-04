@@ -29,8 +29,8 @@
 
 @interface AMViewMemoryLeakDeallocModel : NSObject
 
-@property (nullable, nonatomic, weak) UIView *view;
-@property (nullable, nonatomic, strong) NSDate *shouldDeallocDate; ///<  标记准备释放时间
+@property (nullable, nonatomic, weak, nullable) UIView *view;
+@property (nullable, nonatomic, strong, nullable) NSDate *shouldDeallocDate; ///<  标记准备释放时间
 
 @end
 

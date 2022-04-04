@@ -27,9 +27,21 @@
 #import <Foundation/Foundation.h>
 #import "AMMemoryLeakDeallocModel.h"
 
+@interface AMVCPathModel: NSObject
+
+@property (nonatomic, copy, nullable) NSString *vcName;
+@property (nonatomic, assign) SEL sel;
+@property (nonatomic, copy, nullable) NSDate *date;
+
++ (instancetype)vcPathModel:(NSString *)clasName sel:(SEL)sel;
+
+@end
+
 @interface AMMemoryLeakModel : NSObject
 
 @property (nullable, nonatomic, weak) AMMemoryLeakDeallocModel *memoryLeakDeallocModel;
+@property (nonatomic, assign) BOOL isCallback;
+@property (nonatomic, copy, nullable) NSArray <AMVCPathModel *> *vcPathModels;
 
 @end
 
