@@ -57,26 +57,53 @@ pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleD
 - https://github.com/liangdahong/AMLeaksFinder/blob/master/AMLeaksFinder/AMLeaksFinder.h#L44
 
 ```
-2022-04-04 01:57:35.086809+0800 AMLeaksFinder[56924:992230] 控制器路径变化AMTabBarController viewDidAppear: 2022-04-03 17:57:35 +0000
-2022-04-04 01:57:35.088691+0800 AMLeaksFinder[56924:992230] 控制器路径变化BMNavigationController viewDidAppear: 2022-04-03 17:57:35 +0000
-2022-04-04 01:57:35.089169+0800 AMLeaksFinder[56924:992230] 控制器路径变化AMHomeVC viewDidAppear: 2022-04-03 17:57:35 +0000
-2022-04-04 01:57:35.089653+0800 AMLeaksFinder[56924:992230] 控制器路径变化AMPresentHasLeakVC viewDidDisappear: 2022-04-03 17:57:35 +0000
-⚠️ 控制器泄漏:<AMPresentHasLeakVC: 0x7ff259a2e9d0> 
- 操作路径:
+控制器路径变化AMLeaksFinder.ViewHasLeakVC viewDidDisappear: 2022-04-04 04:21:06 +0000
+控制器路径变化AMHomeVC viewDidAppear: 2022-04-04 04:21:06 +0000
+控制器路径变化AMPresentHasLeakVC viewDidLoad: 2022-04-04 04:21:07 +0000
+控制器路径变化AMPresentHasLeakVC viewDidAppear: 2022-04-04 04:21:07 +0000
+控制器路径变化AMTabBarController viewDidDisappear: 2022-04-04 04:21:07 +0000
+控制器路径变化BMNavigationController viewDidDisappear: 2022-04-04 04:21:07 +0000
+控制器路径变化AMHomeVC viewDidDisappear: 2022-04-04 04:21:07 +0000
+控制器路径变化AMTabBarController viewDidAppear: 2022-04-04 04:21:08 +0000
+控制器路径变化BMNavigationController viewDidAppear: 2022-04-04 04:21:08 +0000
+控制器路径变化AMHomeVC viewDidAppear: 2022-04-04 04:21:08 +0000
+控制器路径变化AMPresentHasLeakVC viewDidDisappear: 2022-04-04 04:21:08 +0000
+⚠️👇🏻
+视图泄漏:<UIView: 0x7f9849a214d0; frame = (65 176; 294 348); autoresize = RM+BM; layer = <CALayer: 0x60000090ed00>> 
+视图所在控制器 AMLeaksFinder.ViewHasLeakVC 
+操作路径:
 BMNavigationController(viewDidLoad:) -> 
 AMTabBarController(viewDidLoad:) -> 
 AMHomeVC(viewDidLoad:) -> 
 AMTabBarController(viewDidAppear:) -> 
 BMNavigationController(viewDidAppear:) -> 
 AMHomeVC(viewDidAppear:) -> 
+AMPresentHasLeakVC(viewDidLoad:) -> 
+AMPresentHasLeakVC(viewDidAppear:) -> 
+AMTabBarController(viewDidDisappear:) -> 
+BMNavigationController(viewDidDisappear:) -> 
+AMHomeVC(viewDidDisappear:) -> 
+AMTabBarController(viewDidAppear:) -> 
+BMNavigationController(viewDidAppear:) -> 
+AMHomeVC(viewDidAppear:) -> 
+AMPresentHasLeakVC(viewDidDisappear:) -> 
+AMPresentHasLeakVC(viewDidLoad:) -> 
+AMPresentHasLeakVC(viewDidAppear:) -> 
+AMTabBarController(viewDidDisappear:) -> 
+BMNavigationController(viewDidDisappear:) -> 
+AMHomeVC(viewDidDisappear:) -> 
+AMTabBarController(viewDidAppear:) -> 
+BMNavigationController(viewDidAppear:) -> 
+AMHomeVC(viewDidAppear:) -> 
+AMPresentHasLeakVC(viewDidDisappear:) -> 
 _UIAlertControllerTextFieldViewController(viewDidLoad:) -> 
 UIAlertController(viewDidLoad:) -> 
 UIAlertController(viewDidAppear:) -> 
 UIAlertController(viewDidDisappear:) -> 
-AMLeaksFinder.ViewHasLeak(viewDidLoad:) -> 
+AMLeaksFinder.ViewHasLeakVC(viewDidLoad:) -> 
 AMHomeVC(viewDidDisappear:) -> 
-AMLeaksFinder.ViewHasLeak(viewDidAppear:) -> 
-AMLeaksFinder.ViewHasLeak(viewDidDisappear:) -> 
+AMLeaksFinder.ViewHasLeakVC(viewDidAppear:) -> 
+AMLeaksFinder.ViewHasLeakVC(viewDidDisappear:) -> 
 AMHomeVC(viewDidAppear:) -> 
 AMPresentHasLeakVC(viewDidLoad:) -> 
 AMPresentHasLeakVC(viewDidAppear:) -> 
@@ -87,15 +114,7 @@ AMTabBarController(viewDidAppear:) ->
 BMNavigationController(viewDidAppear:) -> 
 AMHomeVC(viewDidAppear:) -> 
 AMPresentHasLeakVC(viewDidDisappear:) -> 
-AMPresentHasLeakVC(viewDidLoad:) -> 
-AMPresentHasLeakVC(viewDidAppear:) -> 
-AMTabBarController(viewDidDisappear:) -> 
-BMNavigationController(viewDidDisappear:) -> 
-AMHomeVC(viewDidDisappear:) -> 
-AMTabBarController(viewDidAppear:) -> 
-BMNavigationController(viewDidAppear:) -> 
-AMHomeVC(viewDidAppear:) -> 
-AMPresentHasLeakVC(viewDidDisappear:) -> 
+⚠️👆🏻
 ```
   
 ## 原理分析 
