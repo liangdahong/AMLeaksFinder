@@ -54,7 +54,7 @@ pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleD
   
 ## 数据收集
 > 若想收集泄漏相关数据可使用如下 API:
-- https://github.com/liangdahong/AMLeaksFinder/blob/master/AMLeaksFinder/AMLeaksFinder.h#L44
+- https://github.com/liangdahong/AMLeaksFinder/blob/master/AMLeaksFinder/AMLeaksFinder.h
 
 ```
 控制器路径变化 AMLeaksFinder.ViewHasLeakVC viewDidDisappear: 2022-04-04 04:21:06 +0000
