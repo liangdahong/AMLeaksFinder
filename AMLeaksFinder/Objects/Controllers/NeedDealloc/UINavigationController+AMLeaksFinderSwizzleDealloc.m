@@ -99,7 +99,7 @@
 }
 
 - (UIViewController *)amleaks_finder_popViewControllerAnimated:(BOOL)animated {
-    UIViewController *shouldDeallocVC = [self amleaks_finder_popViewControllerAnimated:YES];
+    UIViewController *shouldDeallocVC = [self amleaks_finder_popViewControllerAnimated:animated];
     // 设置为将要释放
     [shouldDeallocVC amleaks_finder_shouldDealloc];
     return shouldDeallocVC;
