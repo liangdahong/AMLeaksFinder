@@ -35,7 +35,7 @@
 ## Cocoapods
 
 ```
-pod 'AMLeaksFinder', '2.2.1',  :configurations => ['Debug']
+pod 'AMLeaksFinder', '2.2.2',  :configurations => ['Debug']
 
 ```
 
