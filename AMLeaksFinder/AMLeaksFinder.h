@@ -58,6 +58,11 @@ typedef void(^AMLVCPathCallback)(NSArray <AMVCPathModel *> * _Nonnull all, AMVCP
 + (nonnull NSArray <AMLeakCallback> *)callbacks;
 + (nonnull NSArray <AMLVCPathCallback> *)vcPathCallbacks;
 
+// controller 泄漏白名单, 仅用于【泄漏数据回调的过滤】,【泄漏数据实时 UI 状态】暂无此计划
+@property (class) NSSet <NSString *> *controllerWhitelistClassNameSet;
+// view 泄漏白名单, 仅用于【泄漏数据回调的过滤】, 【泄漏数据实时 UI 状态】暂无此计划
+@property (class) NSSet <NSString *> *viewWhitelistClassNameSet;
+
 @end
 
 #endif

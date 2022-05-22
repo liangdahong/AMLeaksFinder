@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtM-WS-klb" userLabel="view 有泄漏 - 但回调已加入白名单">
+                    <rect key="frame" x="0.0" y="69" width="414" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="view 有泄漏 - 但回调已加入白名单"/>
+                    <connections>
+                        <action selector="whitelistViewButtonClick" destination="-1" eventType="touchUpInside" id="zbw-hJ-bWB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="078-oB-P51" userLabel="Controller 有泄漏 - 但回调已加入白名单">
+                    <rect key="frame" x="0.0" y="108" width="414" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="controller 有泄漏 - 但回调已加入白名单"/>
+                    <connections>
+                        <action selector="whitelistButtonClick" destination="-1" eventType="touchUpInside" id="R9K-tq-IZq"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as2-0a-T0G">
                     <rect key="frame" x="20" y="144" width="374" height="40"/>
                     <constraints>
@@ -66,24 +82,17 @@
                         <action selector="chanedRootVCClick" destination="-1" eventType="touchUpInside" id="k0k-Xd-i2p"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7t-ll-eIo">
-                    <rect key="frame" x="40" y="587" width="320" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FfZ-Zd-nDf">
-                    <rect key="frame" x="11" y="436" width="383" height="134"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="078-oB-P51" secondAttribute="trailing" id="0J5-bb-enL"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="as2-0a-T0G" secondAttribute="trailing" constant="20" id="3Nb-hg-bdL"/>
+                <constraint firstItem="xtM-WS-klb" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="421-wi-Mcv"/>
+                <constraint firstItem="as2-0a-T0G" firstAttribute="top" secondItem="078-oB-P51" secondAttribute="bottom" constant="5" id="5tE-q7-WVC"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="top" secondItem="as2-0a-T0G" secondAttribute="bottom" constant="30" id="95z-4n-lu9"/>
                 <constraint firstItem="UjT-m3-NQe" firstAttribute="top" secondItem="F7z-If-cvv" secondAttribute="bottom" constant="20" id="F92-DE-bXa"/>
+                <constraint firstItem="078-oB-P51" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FMF-bk-QmG"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="leading" secondItem="as2-0a-T0G" secondAttribute="leading" id="IBK-vB-Lho"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="trailing" secondItem="as2-0a-T0G" secondAttribute="trailing" id="NYj-gJ-mlU"/>
                 <constraint firstItem="Obv-kk-oGO" firstAttribute="top" secondItem="UjT-m3-NQe" secondAttribute="bottom" constant="20" id="Nm8-id-8Lo"/>
@@ -93,7 +102,9 @@
                 <constraint firstItem="UjT-m3-NQe" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dP1-Md-y8t"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BFL-4D-deu" secondAttribute="trailing" constant="20" id="jkT-G1-Exh"/>
                 <constraint firstItem="as2-0a-T0G" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="l2y-pa-LjK"/>
+                <constraint firstItem="078-oB-P51" firstAttribute="top" secondItem="xtM-WS-klb" secondAttribute="bottom" constant="8" id="mTc-AM-Q0J"/>
                 <constraint firstItem="Obv-kk-oGO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="oQQ-g9-Dho"/>
+                <constraint firstItem="xtM-WS-klb" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="qHB-cZ-DOy"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Obv-kk-oGO" secondAttribute="trailing" constant="20" id="rQz-pI-cnc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="UjT-m3-NQe" secondAttribute="trailing" constant="20" id="w1R-Aa-wEv"/>
             </constraints>

@@ -33,6 +33,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6527C28F283A35DD008D4631 /* WhitelistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527C28E283A35DD008D4631 /* WhitelistVC.swift */; };
+		6527C291283A36F2008D4631 /* WhitelistViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527C290283A36F2008D4631 /* WhitelistViewVC.swift */; };
 		6546C98627FA0FBD00F00A10 /* ViewHasLeakVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */; };
 		65EA6D2727FAA555003DBD91 /* ViewHasLeakVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */; };
 		65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F974C625A4BECA0025BF58 /* AMTabBarController.m */; };
@@ -96,6 +98,8 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6527C28E283A35DD008D4631 /* WhitelistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistVC.swift; sourceTree = "<group>"; };
+		6527C290283A36F2008D4631 /* WhitelistViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistViewVC.swift; sourceTree = "<group>"; };
 		6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewHasLeakVC.xib; sourceTree = "<group>"; };
 		65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHasLeakVC.swift; sourceTree = "<group>"; };
 		65F974C525A4BECA0025BF58 /* AMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMTabBarController.h; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 			children = (
 				05E1536F24E394310047DF42 /* PushHasLeakVC.swift */,
 				05E1537024E394310047DF42 /* PushHasLeakVC.xib */,
+				6527C28E283A35DD008D4631 /* WhitelistVC.swift */,
+				6527C290283A36F2008D4631 /* WhitelistViewVC.swift */,
 			);
 			path = HasLeak;
 			sourceTree = "<group>";
@@ -516,11 +522,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-AMLeaksFinder_Example/Pods-AMLeaksFinder_Example-resources.sh",
 				"${PODS_ROOT}/../../AMLeaksFinder/UI/AMMemoryLeakView.xib",
 				"${PODS_ROOT}/../../AMLeaksFinder/AMLeaksFinder.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMMemoryLeakView.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMLeaksFinder.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -579,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054732CD249375640082B534 /* AMTopView.m in Sources */,
+				6527C28F283A35DD008D4631 /* WhitelistVC.swift in Sources */,
 				054732D5249375640082B534 /* AppDelegate.m in Sources */,
 				05E1536A24E394000047DF42 /* AMPresentHasLeakVC.m in Sources */,
 				65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */,
@@ -591,6 +600,7 @@
 				05E1536C24E394000047DF42 /* AMPresentNoLeakVC.m in Sources */,
 				054732D4249375640082B534 /* main.m in Sources */,
 				65EA6D2727FAA555003DBD91 /* ViewHasLeakVC.swift in Sources */,
+				6527C291283A36F2008D4631 /* WhitelistViewVC.swift in Sources */,
 				054732D3249375640082B534 /* AMBaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
