@@ -25,10 +25,15 @@
 #import "BMNavigationController.h"
 #import "AMTabBarController.h"
 #import "UIViewController+AMLeaksFinderTools.h"
+#import "SVProgressHUD.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    AMLeaksFinder.controllerWhitelistClassNameSet = [NSSet setWithObjects:@"WhitelistVC", nil];
+    AMLeaksFinder.viewWhitelistClassNameSet = [NSSet setWithObjects:@"MyView", nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -40,9 +45,9 @@
     AMTabBarController *tabVC = [[AMTabBarController alloc] init];
     tabVC.viewControllers = @[nav];
     self.window.rootViewController = tabVC;
-    
-    [AMLeaksFinder addLeakCallback:^(NSArray<AMMemoryLeakModel *> * _Nonnull controllerMemoryLeakModels, NSArray<AMViewMemoryLeakModel *> * _Nonnull viewMemoryLeakModels) {
         
+    [AMLeaksFinder addLeakCallback:^(NSArray<AMMemoryLeakModel *> * _Nonnull controllerMemoryLeakModels, NSArray<AMViewMemoryLeakModel *> * _Nonnull viewMemoryLeakModels) {
+        [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"泄漏回调 - VC 泄漏数量：%@ View 泄漏数量：%@", @(controllerMemoryLeakModels.count), @(viewMemoryLeakModels.count)]];
         [controllerMemoryLeakModels enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIViewController *vc = obj.memoryLeakDeallocModel.controller;
             if (vc != nil) {

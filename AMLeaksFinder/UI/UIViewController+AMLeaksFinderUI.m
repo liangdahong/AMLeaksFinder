@@ -76,6 +76,8 @@ static AMLeakOverviewView *leakOverviewView;
         isCallbacking = false;
         [NSObject performTaskOnDefaultRunLoopMode:^{
             
+            
+            
             UIWindow *window = UIViewController.amleaks_finder_TopWindow;
             [window addSubview:memoryLeakView];
             [window addSubview:leakOverviewView];
@@ -123,7 +125,7 @@ static AMLeakOverviewView *leakOverviewView;
             leakOverviewView.leakDataModel = model;
             
             // 获取增量泄漏的控制器
-            NSMutableArray <AMMemoryLeakDeallocModel *> *leakVCModels = @[].mutableCopy;
+            NSMutableArray <AMMemoryLeakModel *> *leakVCModels = @[].mutableCopy;
             [vcMemoryLeakDeallocModels enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (!obj.isCallback) {
                     // 标记被回调
@@ -159,6 +161,31 @@ static AMLeakOverviewView *leakOverviewView;
                 // 设置操作路径
                 obj.vcPathModels = UIViewController.vcPathModels.copy;
                 [leakRooViewModels addObject:obj];
+            }];
+            
+            NSSet <NSString *> *viewWhitelistClassNameSet = AMLeaksFinder.viewWhitelistClassNameSet;
+            NSSet <NSString *> *controllerWhitelistClassNameSet = AMLeaksFinder.controllerWhitelistClassNameSet;;
+            
+            // controller 白名单过滤
+            [leakVCModels enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString *name = NSStringFromClass(obj.memoryLeakDeallocModel.controller.class);
+                [controllerWhitelistClassNameSet enumerateObjectsUsingBlock:^(NSString * _Nonnull obj1, BOOL * _Nonnull stop1) {
+                    if ([name containsString:obj1]) {
+                        [leakVCModels removeObjectAtIndex:idx];
+                        *stop = YES;
+                    }
+                }];
+            }];
+            
+            // view 白名单过滤
+            [leakRooViewModels enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(AMViewMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString *name = NSStringFromClass(obj.viewMemoryLeakDeallocModel.view.class);
+                [viewWhitelistClassNameSet enumerateObjectsUsingBlock:^(NSString * _Nonnull obj1, BOOL * _Nonnull stop1) {
+                    if ([name containsString:obj1]) {
+                        [leakRooViewModels removeObjectAtIndex:idx];
+                        *stop = YES;
+                    }
+                }];
             }];
             
             // 有增量泄漏才回调

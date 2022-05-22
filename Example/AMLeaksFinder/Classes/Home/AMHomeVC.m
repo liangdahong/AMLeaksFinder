@@ -16,6 +16,14 @@
 
 @implementation AMHomeVC
 
+- (IBAction)whitelistButtonClick {
+    [self.navigationController pushViewController:WhitelistVC.new animated:YES];
+}
+
+- (IBAction)whitelistViewButtonClick {
+    [self.navigationController pushViewController:WhitelistViewVC.new animated:YES];
+}
+
 - (IBAction)pushNoLeakButtonClick {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -29,6 +37,7 @@
 }
 
 - (IBAction)pushHasLeakButtonClick {
+    
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"类型选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     [alertVC addAction:[UIAlertAction actionWithTitle:@"OC" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

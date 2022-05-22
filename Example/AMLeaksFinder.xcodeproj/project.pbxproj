@@ -33,6 +33,13 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6527C289283A346F008D4631 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6527C27F283A346F008D4631 /* SVRadialGradientLayer.m */; };
+		6527C28A283A346F008D4631 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6527C282283A346F008D4631 /* SVProgressAnimatedView.m */; };
+		6527C28B283A346F008D4631 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6527C285283A346F008D4631 /* SVProgressHUD.m */; };
+		6527C28C283A346F008D4631 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6527C286283A346F008D4631 /* SVIndefiniteAnimatedView.m */; };
+		6527C28D283A346F008D4631 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6527C287283A346F008D4631 /* SVProgressHUD.bundle */; };
+		6527C28F283A35DD008D4631 /* WhitelistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527C28E283A35DD008D4631 /* WhitelistVC.swift */; };
+		6527C291283A36F2008D4631 /* WhitelistViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527C290283A36F2008D4631 /* WhitelistViewVC.swift */; };
 		6546C98627FA0FBD00F00A10 /* ViewHasLeakVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */; };
 		65EA6D2727FAA555003DBD91 /* ViewHasLeakVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */; };
 		65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F974C625A4BECA0025BF58 /* AMTabBarController.m */; };
@@ -96,6 +103,18 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6527C27F283A346F008D4631 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		6527C280283A346F008D4631 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		6527C281283A346F008D4631 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		6527C282283A346F008D4631 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		6527C283283A346F008D4631 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		6527C284283A346F008D4631 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		6527C285283A346F008D4631 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		6527C286283A346F008D4631 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		6527C287283A346F008D4631 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		6527C288283A346F008D4631 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		6527C28E283A35DD008D4631 /* WhitelistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistVC.swift; sourceTree = "<group>"; };
+		6527C290283A36F2008D4631 /* WhitelistViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistViewVC.swift; sourceTree = "<group>"; };
 		6546C98427FA0FBD00F00A10 /* ViewHasLeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewHasLeakVC.xib; sourceTree = "<group>"; };
 		65EA6D2527FAA555003DBD91 /* ViewHasLeakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHasLeakVC.swift; sourceTree = "<group>"; };
 		65F974C525A4BECA0025BF58 /* AMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMTabBarController.h; sourceTree = "<group>"; };
@@ -214,6 +233,8 @@
 			children = (
 				05E1536F24E394310047DF42 /* PushHasLeakVC.swift */,
 				05E1537024E394310047DF42 /* PushHasLeakVC.xib */,
+				6527C28E283A35DD008D4631 /* WhitelistVC.swift */,
+				6527C290283A36F2008D4631 /* WhitelistViewVC.swift */,
 			);
 			path = HasLeak;
 			sourceTree = "<group>";
@@ -338,6 +359,7 @@
 		6003F593195388D20070C39A /* Example for AMLeaksFinder */ = {
 			isa = PBXGroup;
 			children = (
+				6527C27D283A346F008D4631 /* Libs */,
 				054732C6249375640082B534 /* AppDelegate */,
 				054732AE249375640082B534 /* Classes */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -388,6 +410,31 @@
 				054732D6249376740082B534 /* README_EN.md */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		6527C27D283A346F008D4631 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				6527C27E283A346F008D4631 /* SVProgressHUD */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		6527C27E283A346F008D4631 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6527C27F283A346F008D4631 /* SVRadialGradientLayer.m */,
+				6527C280283A346F008D4631 /* SVIndefiniteAnimatedView.h */,
+				6527C281283A346F008D4631 /* SVProgressHUD.h */,
+				6527C282283A346F008D4631 /* SVProgressAnimatedView.m */,
+				6527C283283A346F008D4631 /* SVProgressHUD-Prefix.pch */,
+				6527C284283A346F008D4631 /* SVRadialGradientLayer.h */,
+				6527C285283A346F008D4631 /* SVProgressHUD.m */,
+				6527C286283A346F008D4631 /* SVIndefiniteAnimatedView.m */,
+				6527C287283A346F008D4631 /* SVProgressHUD.bundle */,
+				6527C288283A346F008D4631 /* SVProgressAnimatedView.h */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		6546C97C27FA0F5800F00A10 /* ViewHasLeak */ = {
@@ -486,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05E1537224E394310047DF42 /* PushHasLeakVC.xib in Resources */,
+				6527C28D283A346F008D4631 /* SVProgressHUD.bundle in Resources */,
 				054732CE249375640082B534 /* AMTopView.xib in Resources */,
 				6546C98627FA0FBD00F00A10 /* ViewHasLeakVC.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
@@ -579,19 +627,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				054732CD249375640082B534 /* AMTopView.m in Sources */,
+				6527C28F283A35DD008D4631 /* WhitelistVC.swift in Sources */,
 				054732D5249375640082B534 /* AppDelegate.m in Sources */,
 				05E1536A24E394000047DF42 /* AMPresentHasLeakVC.m in Sources */,
 				65F974C725A4BECA0025BF58 /* AMTabBarController.m in Sources */,
+				6527C289283A346F008D4631 /* SVRadialGradientLayer.m in Sources */,
+				6527C28B283A346F008D4631 /* SVProgressHUD.m in Sources */,
 				05E1537524E3944D0047DF42 /* PushNoLeakVC.swift in Sources */,
 				054732CC249375640082B534 /* BMNavigationController.m in Sources */,
 				05E1536D24E394000047DF42 /* AMPushNoLeakVC.m in Sources */,
 				054732CB249375640082B534 /* AMHomeVC.m in Sources */,
 				05E1536B24E394000047DF42 /* AMPushHasLeakVC.m in Sources */,
+				6527C28C283A346F008D4631 /* SVIndefiniteAnimatedView.m in Sources */,
 				05E1537124E394310047DF42 /* PushHasLeakVC.swift in Sources */,
 				05E1536C24E394000047DF42 /* AMPresentNoLeakVC.m in Sources */,
 				054732D4249375640082B534 /* main.m in Sources */,
 				65EA6D2727FAA555003DBD91 /* ViewHasLeakVC.swift in Sources */,
+				6527C291283A36F2008D4631 /* WhitelistViewVC.swift in Sources */,
 				054732D3249375640082B534 /* AMBaseVC.m in Sources */,
+				6527C28A283A346F008D4631 /* SVProgressAnimatedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
