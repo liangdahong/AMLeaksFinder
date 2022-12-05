@@ -65,6 +65,10 @@
     return self;
 }
 
+- (IBAction)hidenButtonClick {
+    [self setHidden:true];
+}
+
 - (IBAction)showAllButtonClick {
     self.showAll = YES;
     self.dataSourceArray = self.memoryLeakModelArray;
@@ -189,6 +193,17 @@
             [[UIViewController amleaks_finder_TopViewController] presentViewController:vc animated:YES completion:nil];
         }]];
         [self addRetainCycleDetector:alertVC candidate:model.controller];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+        [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
+    } else {
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"[%@]", model.controller] preferredStyle:UIAlertControllerStyleAlert];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"查看控制器 view" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIView *rootView = model.controller.view;
+            UIView *snapedView = [rootView snapshotViewAfterScreenUpdates:YES];
+            AMSnapedViewViewController *vc = [AMSnapedViewViewController new];
+            vc.snapedView = snapedView;
+            [[UIViewController amleaks_finder_TopViewController] presentViewController:vc animated:YES completion:nil];
+        }]];
         [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
         [UIViewController.amleaks_finder_TopViewController presentViewController:alertVC animated:YES completion:nil];
     }
