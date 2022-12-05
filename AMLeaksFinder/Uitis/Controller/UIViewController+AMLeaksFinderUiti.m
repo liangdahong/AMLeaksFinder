@@ -24,33 +24,38 @@
 
 #ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
-#import <UIKit/UIKit.h>
+#import "UIViewController+AMLeaksFinderUiti.h"
+#import <objc/runtime.h>
+#import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakModel.h"
-#import "AMViewMemoryLeakModel.h"
+#import "UIView+AMLeaksFinderTools.h"
+#import "NSObject+RunLoop.h"
 
-void am_fi_sw_in_me(Class clas,
-                    SEL originalSelector,
-                    SEL swizzledSelector);
+@implementation UIViewController (AMLeaksFinderUiti)
 
-@interface UIViewController (AMLeaksFinderTools)
++ (__kindof UIViewController *)amleaks_finder_TopViewController {
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
+    UIViewController *topvc = window.rootViewController;
+    while (topvc.presentedViewController) {
+        topvc = topvc.presentedViewController;
+    }
+    return topvc;
+}
 
-@property (class, readonly) NSMutableArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
-@property (class, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-@property (class, readonly) NSMutableArray <AMVCPathModel *> *vcPathModels;
-@property (class, strong, readonly) NSMutableString *vcPath;
-
-- (void)amleaks_finder_DidDisappear;
-
-/// 控制器标记为准备释放
-- (void)amleaks_finder_shouldDealloc;
-
-/// 控制器标记为正常
-- (void)amleaks_finder_normal;
-
-/// UIWindow 所有控制器标记为准备释放
-+ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller
-                                                  window:(UIWindow *)window
-                                                   newVC:(UIViewController *)newVC;
+/// 参考自 SVP
++ (__kindof UIWindow *)amleaks_finder_TopWindow {
+    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
+    for (UIWindow *window in frontToBackWindows) {
+        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
+        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
+        BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal
+                                     && window.windowLevel <= UIWindowLevelNormal);
+        if(windowOnMainScreen && windowIsVisible && windowLevelSupported) {
+            return window;
+        }
+    }
+    return UIApplication.sharedApplication.keyWindow;
+}
 
 @end
 

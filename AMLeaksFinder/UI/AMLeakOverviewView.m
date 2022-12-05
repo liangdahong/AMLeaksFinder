@@ -28,6 +28,7 @@
 #import "UIViewController+AMLeaksFinderTools.h"
 #import "UIView+AMLeaksFinderTools.h"
 #import "AMLeakOverviewView.h"
+#import "UIViewController+AMLeaksFinderUiti.h"
 
 @interface AMLeakOverviewView ()
 

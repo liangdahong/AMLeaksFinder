@@ -11,8 +11,15 @@ import UIKit
 
 class PushNoLeakVC: AMBaseVC {
 
+    class VC: UIViewController {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ooooooooo\(NSStringFromClass(VC.self))")
+        
         topView.didClickBlock = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }

@@ -93,6 +93,13 @@ void am_fi_sw_in_me(Class clas,
 }
 
 - (void)amleaks_finder_DidDisappear {
+    NSString *name = [NSString stringWithUTF8String:class_getName(self.class)];
+    for (NSString *ele in AMLeaksFinder.ignoreVCClassNameSet) {
+        if ([name rangeOfString:ele].location != NSNotFound) {
+            // 忽略
+            return;
+        }
+    }
     
     [NSObject performTaskOnDefaultRunLoopMode:^{
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
@@ -113,6 +120,13 @@ void am_fi_sw_in_me(Class clas,
 }
 
 - (void)amleaks_finder_self_shouldDealloc {
+    NSString *name = [NSString stringWithUTF8String:class_getName(self.class)];
+    for (NSString *ele in AMLeaksFinder.ignoreVCClassNameSet) {
+        if ([name rangeOfString:ele].location != NSNotFound) {
+            // 忽略
+            return;
+        }
+    }
     [NSObject performTaskOnDefaultRunLoopMode:^{
         [UIViewController.memoryLeakModelArray enumerateObjectsUsingBlock:^(AMMemoryLeakModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
             if (obj1.memoryLeakDeallocModel.controller == self) {
@@ -124,6 +138,13 @@ void am_fi_sw_in_me(Class clas,
 }
 
 - (void)amleaks_finder_shouldDealloc {
+    NSString *name = [NSString stringWithUTF8String:class_getName(self.class)];
+    for (NSString *ele in AMLeaksFinder.ignoreVCClassNameSet) {
+        if ([name rangeOfString:ele].location != NSNotFound) {
+            // 忽略
+            return;
+        }
+    }
     [NSObject performTaskOnDefaultRunLoopMode:^{
         [self.amleaks_finder_selfAndAllChildController enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj amleaks_finder_self_shouldDealloc];
@@ -181,30 +202,6 @@ void am_fi_sw_in_me(Class clas,
             [UIViewController udpateUI];
         }
     }];
-}
-
-+ (__kindof UIViewController *)amleaks_finder_TopViewController {
-    UIWindow *window = UIApplication.sharedApplication.keyWindow;
-    UIViewController *topvc = window.rootViewController;
-    while (topvc.presentedViewController) {
-        topvc = topvc.presentedViewController;
-    }
-    return topvc;
-}
-
-/// 参考自 SVP
-+ (__kindof UIWindow *)amleaks_finder_TopWindow {
-    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
-    for (UIWindow *window in frontToBackWindows) {
-        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
-        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
-        BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal
-                                     && window.windowLevel <= UIWindowLevelNormal);
-        if(windowOnMainScreen && windowIsVisible && windowLevelSupported) {
-            return window;
-        }
-    }
-    return UIApplication.sharedApplication.keyWindow;
 }
 
 @end

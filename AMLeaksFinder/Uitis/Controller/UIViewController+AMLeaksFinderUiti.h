@@ -27,30 +27,12 @@
 #import <UIKit/UIKit.h>
 #import "AMMemoryLeakModel.h"
 #import "AMViewMemoryLeakModel.h"
+#import <UIKit/UIKit.h>
 
-void am_fi_sw_in_me(Class clas,
-                    SEL originalSelector,
-                    SEL swizzledSelector);
+@interface UIViewController (AMLeaksFinderUiti)
 
-@interface UIViewController (AMLeaksFinderTools)
-
-@property (class, readonly) NSMutableArray <AMViewMemoryLeakModel *> *viewMemoryLeakModelArray;
-@property (class, readonly) NSMutableArray <AMMemoryLeakModel *> *memoryLeakModelArray;
-@property (class, readonly) NSMutableArray <AMVCPathModel *> *vcPathModels;
-@property (class, strong, readonly) NSMutableString *vcPath;
-
-- (void)amleaks_finder_DidDisappear;
-
-/// 控制器标记为准备释放
-- (void)amleaks_finder_shouldDealloc;
-
-/// 控制器标记为正常
-- (void)amleaks_finder_normal;
-
-/// UIWindow 所有控制器标记为准备释放
-+ (void)amleaks_finder_shouldAllDeallocBesidesController:(UIViewController *)controller
-                                                  window:(UIWindow *)window
-                                                   newVC:(UIViewController *)newVC;
+@property (class, readonly) __kindof UIViewController *amleaks_finder_TopViewController;
+@property (class, readonly) __kindof UIWindow *amleaks_finder_TopWindow;
 
 @end
 

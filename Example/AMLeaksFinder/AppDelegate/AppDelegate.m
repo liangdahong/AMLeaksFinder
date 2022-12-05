@@ -33,6 +33,8 @@
     
     AMLeaksFinder.controllerWhitelistClassNameSet = [NSSet setWithObjects:@"WhitelistVC", nil];
     AMLeaksFinder.viewWhitelistClassNameSet = [NSSet setWithObjects:@"MyView", nil];
+    // AMLeaksFinder.ignoreVCClassNameSet = [NSSet setWithObjects:@"PushHasLeakVC", nil];
+    // AMLeaksFinder.ignoreViewClassNameSet = [NSSet setWithObjects:@"View", nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

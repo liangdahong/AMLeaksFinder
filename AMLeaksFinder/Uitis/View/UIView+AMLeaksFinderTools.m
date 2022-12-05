@@ -54,7 +54,25 @@
 }
 
 - (void)amleaks_finder_shouldDeallocWithVC:(UIViewController *)vc {
+    
+    NSString *name = [NSString stringWithUTF8String:class_getName(self.class)];
+    for (NSString *ele in AMLeaksFinder.ignoreViewClassNameSet) {
+        if ([name rangeOfString:ele].location != NSNotFound) {
+            // 忽略
+            return;
+        }
+    }
+    
     [self.amleaks_finder_selfAndAllChildViews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSString *name = [NSString stringWithUTF8String:class_getName(obj.class)];
+        for (NSString *ele in AMLeaksFinder.ignoreViewClassNameSet) {
+            if ([name rangeOfString:ele].location != NSNotFound) {
+                // 忽略
+                return;
+            }
+        }
+        
         AMViewMemoryLeakDeallocModel *deallocModel = objc_getAssociatedObject(obj, _cmd);
         if (deallocModel) {
             return;

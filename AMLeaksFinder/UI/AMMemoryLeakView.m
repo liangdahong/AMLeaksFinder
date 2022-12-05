@@ -28,6 +28,7 @@
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "UIViewController+AMLeaksFinderTools.h"
 #import "UIView+AMLeaksFinderTools.h"
+#import "UIViewController+AMLeaksFinderUiti.h"
 
 #if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
 #import <FBRetainCycleDetector/FBRetainCycleDetector.h>

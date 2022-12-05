@@ -29,6 +29,8 @@ static NSMutableArray <AMLeakCallback> *blocks = nil;
 static NSMutableArray <AMLVCPathCallback> *vcPathCallbacks = nil;
 static NSSet <NSString *> *_controllerWhitelistClassNameSet = nil;
 static NSSet <NSString *> *_viewWhitelistClassNameSet = nil;
+static NSSet <NSString *> *_ignoreVCClassNameSet = nil;
+static NSSet <NSString *> *_ignoreViewClassNameSet = nil;
 
 @implementation AMLeaksFinder
 
@@ -84,6 +86,22 @@ static NSSet <NSString *> *_viewWhitelistClassNameSet = nil;
 
 + (void)setViewWhitelistClassNameSet:(NSSet<NSString *> *)viewWhitelistClassNameSet {
     _viewWhitelistClassNameSet = viewWhitelistClassNameSet;
+}
+
++ (NSSet<NSString *> *)ignoreVCClassNameSet {
+    return _ignoreVCClassNameSet;
+}
+
++ (void)setIgnoreVCClassNameSet:(NSSet<NSString *> *)ignoreVCClassNameSet {
+    _ignoreVCClassNameSet = ignoreVCClassNameSet;
+}
+
++ (NSSet<NSString *> *)ignoreViewClassNameSet {
+    return _ignoreViewClassNameSet;
+}
+
++ (void)setIgnoreViewClassNameSet:(NSSet<NSString *> *)ignoreViewClassNameSet {
+    _ignoreViewClassNameSet = ignoreViewClassNameSet;
 }
 
 @end

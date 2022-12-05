@@ -30,6 +30,7 @@
 #import "AMLeakOverviewView.h"
 #import "NSObject+RunLoop.h"
 #import "UIView+AMLeaksFinderTools.h"
+#import "UIViewController+AMLeaksFinderUiti.h"
 
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
@@ -162,7 +163,7 @@ static AMLeakOverviewView *leakOverviewView;
             }];
             
             NSSet <NSString *> *viewWhitelistClassNameSet = AMLeaksFinder.viewWhitelistClassNameSet;
-            NSSet <NSString *> *controllerWhitelistClassNameSet = AMLeaksFinder.controllerWhitelistClassNameSet;;
+            NSSet <NSString *> *controllerWhitelistClassNameSet = AMLeaksFinder.controllerWhitelistClassNameSet;
             
             // controller 白名单过滤
             [leakVCModels enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(AMMemoryLeakModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
