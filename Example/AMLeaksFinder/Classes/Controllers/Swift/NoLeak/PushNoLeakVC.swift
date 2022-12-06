@@ -9,19 +9,32 @@
 
 import UIKit
 
-class PushNoLeakVC: AMBaseVC {
+private var key = 0
 
-    class VC: UIViewController {
-        
-    }
+class PushNoLeakVC: AMBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("ooooooooo\(NSStringFromClass(VC.self))")
-        
         topView.didClickBlock = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
+        
+        do {
+            let v = LeakView()
+            view.addSubview(v)
+            v.frame = .init(x: 0, y: 0, width: 100, height: 100)
+            objc_setAssociatedObject(v, &key, v, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        
+        do {
+            let v = IgnoreLeakView()
+            view.addSubview(v)
+            v.frame = .init(x: 0, y: 0, width: 100, height: 100)
+            objc_setAssociatedObject(v, &key, v, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
+    
+    class LeakView: UIView { }
+    class IgnoreLeakView: UIView { }
 }
