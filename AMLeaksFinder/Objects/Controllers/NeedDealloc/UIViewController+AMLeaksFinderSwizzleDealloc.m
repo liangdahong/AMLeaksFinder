@@ -42,10 +42,11 @@
 }
 
 - (void)amleaks_finder_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    [self amleaks_finder_dismissViewControllerAnimated:flag completion:completion];
-    UIViewController *dismissedViewController = self.presentedViewController;
-    if (!dismissedViewController && self.presentingViewController) {
-        dismissedViewController = self;
+    __strong typeof(self) strongSelf = self;
+    [strongSelf amleaks_finder_dismissViewControllerAnimated:flag completion:completion];
+    UIViewController *dismissedViewController = strongSelf.presentedViewController;
+    if (!dismissedViewController && strongSelf.presentingViewController) {
+        dismissedViewController = strongSelf;
     }
     if (!dismissedViewController) {
         return;
