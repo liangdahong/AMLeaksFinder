@@ -20,6 +20,8 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
+// #define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__ 0	// 关闭开关
+
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
