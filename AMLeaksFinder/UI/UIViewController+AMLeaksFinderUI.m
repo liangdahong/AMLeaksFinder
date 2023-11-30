@@ -32,8 +32,23 @@
 #import "UIView+AMLeaksFinderTools.h"
 #import "UIViewController+AMLeaksFinderUiti.h"
 
+NSNotificationName const AMLeaksFinderShowUINotification = @"AMLeaksFinderShowUINotification";
+NSNotificationName const AMLeaksFinderHideUINotification = @"AMLeaksFinderHideUINotification";
+
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
+
+static BOOL isShowing = NO;
+
+NS_INLINE void performOnMainThread(dispatch_block_t block) {
+	if (NSThread.isMainThread) {
+		block();
+	} else {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			block();
+		});
+	}
+};
 
 @implementation UIViewController (AMLeaksFinderUI)
 
@@ -52,16 +67,44 @@ static AMLeakOverviewView *leakOverviewView;
             leakOverviewView.autoresizingMask = UIViewAutoresizingNone;
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
-                UIWindow *window = UIViewController.amleaks_finder_TopWindow;
-                [window addSubview:memoryLeakView];
-                [window addSubview:leakOverviewView];
-                leakOverviewView.showDetailsBlock = ^{
-                    memoryLeakView.hidden = !memoryLeakView.isHidden;
-                };
-                [self udpateUI];
+				[self showUI];
             });
+			
+			[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderShowUINotification 
+															object:nil
+															 queue:nil
+														usingBlock:^(NSNotification * _Nonnull notification) {
+															[self showUI];
+														}];
+			[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderHideUINotification 
+															object:nil
+															 queue:nil
+														usingBlock:^(NSNotification * _Nonnull notification) {
+															[self hideUI];
+														}];
         });
     });
+}
+
++ (void)showUI {
+	isShowing = YES;
+	performOnMainThread(^{
+		UIWindow *window = UIViewController.amleaks_finder_TopWindow;
+		[window addSubview:memoryLeakView];
+		[window addSubview:leakOverviewView];
+		leakOverviewView.showDetailsBlock = ^{
+			memoryLeakView.hidden = !memoryLeakView.isHidden;
+		};
+		[self udpateUI];
+	});
+}
+
++ (void)hideUI {
+	isShowing = NO;
+	performOnMainThread(^{
+		[memoryLeakView removeFromSuperview];
+		[leakOverviewView removeFromSuperview];
+	});
 }
 
 + (void)udpateUI {
@@ -69,12 +112,13 @@ static AMLeakOverviewView *leakOverviewView;
     static BOOL isCallbacking = false;
     
     // 控制回调频率
-    if (isCallbacking) { return; }
+    if (isCallbacking || !isShowing) { return; }
     
     isCallbacking = true;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         isCallbacking = false;
+		if (!isShowing) { return; }
         [NSObject performTaskOnDefaultRunLoopMode:^{
             
             UIWindow *window = UIViewController.amleaks_finder_TopWindow;

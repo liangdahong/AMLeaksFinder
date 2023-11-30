@@ -47,9 +47,24 @@ pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleD
 - 关闭 `AMLeaksFinder`
   -  在你的代码中定义宏，`#define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__ 0` 表示关闭
 
+- 显示/隐藏 `AMLeaksFinder` 视图
+  - 发送通知
+    ```ObjectiveC
+    NSNotificationName noti;
+    if (显示UI) {
+      noti = AMLeaksFinderShowUINotification;
+    } else {
+      noti = AMLeaksFinderHideUINotification;
+    }
+    [NSNotificationCenter.defaultCenter postNotificationName:noti object:nil];
+    ```
+
 ## 直接使用
 
 - 请拖拽 `AMLeaksFinder/AMLeaksFinder` 文件夹的全部内容到项目
+
+- 显示/隐藏 `AMLeaksFinder` 视图
+  - 同上
 
 ## 数据收集
 > 若想收集泄漏相关数据可使用如下 API:

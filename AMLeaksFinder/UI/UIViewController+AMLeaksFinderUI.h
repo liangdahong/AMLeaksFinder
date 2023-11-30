@@ -26,6 +26,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSNotificationName _Nonnull const AMLeaksFinderShowUINotification;
+extern NSNotificationName _Nonnull const AMLeaksFinderHideUINotification;
+
 @interface UIViewController (AMLeaksFinderUI)
 
 + (void)udpateUI;

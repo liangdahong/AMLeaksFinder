@@ -14,6 +14,8 @@
 #import "BMNavigationController.h"
 #import "AMLeaksFinder-Swift.h"
 
+#import <AMLeaksFinder/UIViewController+AMLeaksFinderUI.h>
+
 @implementation AMHomeVC
 
 - (IBAction)whitelistButtonClick {
@@ -72,5 +74,16 @@
         UIApplication.sharedApplication.delegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:AMHomeVC.new];
     });
 }
+
+- (IBAction)showSwitchChange:(UISwitch *)sender {
+	NSNotificationName noti;
+	if (sender.on) {
+		noti = AMLeaksFinderShowUINotification;
+	} else {
+		noti = AMLeaksFinderHideUINotification;
+	}
+	[NSNotificationCenter.defaultCenter postNotificationName:noti object:nil];
+}
+
 
 @end
