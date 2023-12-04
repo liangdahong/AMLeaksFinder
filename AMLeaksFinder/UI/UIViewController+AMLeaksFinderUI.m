@@ -38,7 +38,7 @@ NSNotificationName const AMLeaksFinderHideUINotification = @"AMLeaksFinderHideUI
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
 
-static BOOL isShowing = NO;
+static BOOL isShowing = YES;
 
 NS_INLINE void performOnMainThread(dispatch_block_t block) {
 	if (NSThread.isMainThread) {
@@ -55,6 +55,19 @@ NS_INLINE void performOnMainThread(dispatch_block_t block) {
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+		[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderShowUINotification
+														object:nil
+														 queue:nil
+													usingBlock:^(NSNotification * _Nonnull notification) {
+			[self showUI];
+		}];
+		[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderHideUINotification
+														object:nil
+														 queue:nil
+													usingBlock:^(NSNotification * _Nonnull notification) {
+			[self hideUI];
+		}];
+		
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             
             NSBundle *bundle = [NSBundle bundleForClass:AMMemoryLeakView.class];
@@ -66,22 +79,11 @@ NS_INLINE void performOnMainThread(dispatch_block_t block) {
             leakOverviewView = AMLeakOverviewView.new;
             leakOverviewView.autoresizingMask = UIViewAutoresizingNone;
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
-				[self showUI];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+				if (isShowing) {
+					[self showUI];
+				}
             });
-			
-			[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderShowUINotification 
-															object:nil
-															 queue:nil
-														usingBlock:^(NSNotification * _Nonnull notification) {
-															[self showUI];
-														}];
-			[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderHideUINotification 
-															object:nil
-															 queue:nil
-														usingBlock:^(NSNotification * _Nonnull notification) {
-															[self hideUI];
-														}];
         });
     });
 }
