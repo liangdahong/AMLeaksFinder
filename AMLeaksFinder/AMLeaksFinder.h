@@ -20,7 +20,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-// v: 2.2.5
+// v: 2.2.6
 
 // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 // 打开宏表示【 启用内存泄漏监控 】

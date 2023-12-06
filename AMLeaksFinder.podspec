@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'AMLeaksFinder'
-s.version      = '2.2.5'
+s.version      = '2.2.6'
 s.summary      = 'A small tool for automatically detecting the [controller view memory leak] in the project'
 s.homepage     = 'https://github.com/liangdahong/AMLeaksFinder'
 s.license      = 'MIT'

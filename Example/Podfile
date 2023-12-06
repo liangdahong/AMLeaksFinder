@@ -9,7 +9,7 @@ target 'AMLeaksFinder_Example' do
   
   pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git', :branch => 'main', :configurations => ['Debug']
   pod 'FDFullscreenPopGesture', '1.1'
-  pod 'SVProgressHUD', '2.2.5'
+  pod 'SVProgressHUD', '2.2.6'
 
   target 'AMLeaksFinder_Tests' do
     inherit! :search_paths
