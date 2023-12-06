@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtM-WS-klb" userLabel="view 有泄漏 - 但回调已加入白名单">
-                    <rect key="frame" x="0.0" y="69" width="414" height="31"/>
+                    <rect key="frame" x="0.0" y="66" width="414" height="34.5"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="view 有泄漏 - 但回调已加入白名单"/>
                     <connections>
@@ -28,7 +28,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="078-oB-P51" userLabel="Controller 有泄漏 - 但回调已加入白名单">
-                    <rect key="frame" x="0.0" y="108" width="414" height="31"/>
+                    <rect key="frame" x="0.0" y="108.5" width="414" height="34.5"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="controller 有泄漏 - 但回调已加入白名单"/>
                     <connections>
@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as2-0a-T0G">
-                    <rect key="frame" x="20" y="144" width="374" height="40"/>
+                    <rect key="frame" x="20" y="148" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Mhh-bY-JAI"/>
                     </constraints>
@@ -46,7 +46,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7z-If-cvv">
-                    <rect key="frame" x="20" y="214" width="374" height="40"/>
+                    <rect key="frame" x="20" y="218" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="U3q-UU-iTH"/>
                     </constraints>
@@ -56,7 +56,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjT-m3-NQe">
-                    <rect key="frame" x="20" y="274" width="374" height="40"/>
+                    <rect key="frame" x="20" y="278" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="lAb-5W-Jio"/>
                     </constraints>
@@ -66,7 +66,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-kk-oGO">
-                    <rect key="frame" x="20" y="334" width="374" height="40"/>
+                    <rect key="frame" x="20" y="338" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="kg1-Yd-b1A"/>
                     </constraints>
@@ -76,12 +76,29 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFL-4D-deu">
-                    <rect key="frame" x="20" y="404" width="374" height="30"/>
+                    <rect key="frame" x="20" y="408" width="374" height="30"/>
                     <state key="normal" title="换 root VC"/>
                     <connections>
                         <action selector="chanedRootVCClick" destination="-1" eventType="touchUpInside" id="k0k-Xd-i2p"/>
                     </connections>
                 </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qaO-Zc-h1T">
+                    <rect key="frame" x="135.5" y="468" width="143" height="31"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI显示开关" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Ib-Ezh">
+                            <rect key="frame" x="0.0" y="0.0" width="86" height="31"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="UI显示开关" translatesAutoresizingMaskIntoConstraints="NO" id="Ilm-Ff-f8x">
+                            <rect key="frame" x="94" y="0.0" width="51" height="31"/>
+                            <connections>
+                                <action selector="showSwitchChange:" destination="-1" eventType="valueChanged" id="QPk-7h-Z6e"/>
+                            </connections>
+                        </switch>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,6 +108,8 @@
                 <constraint firstItem="xtM-WS-klb" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="421-wi-Mcv"/>
                 <constraint firstItem="as2-0a-T0G" firstAttribute="top" secondItem="078-oB-P51" secondAttribute="bottom" constant="5" id="5tE-q7-WVC"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="top" secondItem="as2-0a-T0G" secondAttribute="bottom" constant="30" id="95z-4n-lu9"/>
+                <constraint firstItem="qaO-Zc-h1T" firstAttribute="top" secondItem="BFL-4D-deu" secondAttribute="bottom" constant="30" id="Ad5-Gy-uka"/>
+                <constraint firstItem="qaO-Zc-h1T" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="EKv-jj-6NG"/>
                 <constraint firstItem="UjT-m3-NQe" firstAttribute="top" secondItem="F7z-If-cvv" secondAttribute="bottom" constant="20" id="F92-DE-bXa"/>
                 <constraint firstItem="078-oB-P51" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FMF-bk-QmG"/>
                 <constraint firstItem="F7z-If-cvv" firstAttribute="leading" secondItem="as2-0a-T0G" secondAttribute="leading" id="IBK-vB-Lho"/>

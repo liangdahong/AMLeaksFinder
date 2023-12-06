@@ -44,14 +44,28 @@ pod 'AMLeaksFinder', '2.2.5',  :configurations => ['Debug']
 ```
 pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git', :branch => 'main', :configurations => ['Debug']
 ```
+- 关闭 `AMLeaksFinder`
+  -  在你的代码中定义宏，`#define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__ 0` 表示关闭
+
+- 显示/隐藏 `AMLeaksFinder` 视图
+  - 发送通知
+    ```ObjectiveC
+    NSNotificationName noti;
+    if (显示UI) {
+      noti = AMLeaksFinderShowUINotification;
+    } else {
+      noti = AMLeaksFinderHideUINotification;
+    }
+    [NSNotificationCenter.defaultCenter postNotificationName:noti object:nil];
+    ```
 
 ## 直接使用
 
 - 请拖拽 `AMLeaksFinder/AMLeaksFinder` 文件夹的全部内容到项目
-- 启用 & 关闭 `AMLeaksFinder`
-  -  打开 `__AUTO_MEMORY_LEAKS_FINDER_ENABLED__` 宏表示启用
-  -  注释 `__AUTO_MEMORY_LEAKS_FINDER_ENABLED__` 宏表示关闭
-  
+
+- 显示/隐藏 `AMLeaksFinder` 视图
+  - 同上
+
 ## 数据收集
 > 若想收集泄漏相关数据可使用如下 API:
 - https://github.com/liangdahong/AMLeaksFinder/blob/master/AMLeaksFinder/AMLeaksFinder.h
@@ -69,55 +83,55 @@ pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleD
 控制器路径变化 AMHomeVC viewDidAppear: 2022-04-04 04:21:08 +0000
 控制器路径变化 AMPresentHasLeakVC viewDidDisappear: 2022-04-04 04:21:08 +0000
 ⚠️👇🏻
-视图泄漏: <UIView: 0x7f9849a214d0; frame = (65 176; 294 348); autoresize = RM+BM; layer = <CALayer: 0x60000090ed00>> 
-视图所在控制器 AMLeaksFinder.ViewHasLeakVC 
+视图泄漏: <UIView: 0x7f9849a214d0; frame = (65 176; 294 348); autoresize = RM+BM; layer = <CALayer: 0x60000090ed00>>
+视图所在控制器 AMLeaksFinder.ViewHasLeakVC
 操作路径:
-BMNavigationController(viewDidLoad:) -> 
-AMTabBarController(viewDidLoad:) -> 
-AMHomeVC(viewDidLoad:) -> 
-AMTabBarController(viewDidAppear:) -> 
-BMNavigationController(viewDidAppear:) -> 
-AMHomeVC(viewDidAppear:) -> 
-AMPresentHasLeakVC(viewDidLoad:) -> 
-AMPresentHasLeakVC(viewDidAppear:) -> 
-AMTabBarController(viewDidDisappear:) -> 
-BMNavigationController(viewDidDisappear:) -> 
-AMHomeVC(viewDidDisappear:) -> 
-AMTabBarController(viewDidAppear:) -> 
-BMNavigationController(viewDidAppear:) -> 
-AMHomeVC(viewDidAppear:) -> 
-AMPresentHasLeakVC(viewDidDisappear:) -> 
-AMPresentHasLeakVC(viewDidLoad:) -> 
-AMPresentHasLeakVC(viewDidAppear:) -> 
-AMTabBarController(viewDidDisappear:) -> 
-BMNavigationController(viewDidDisappear:) -> 
-AMHomeVC(viewDidDisappear:) -> 
-AMTabBarController(viewDidAppear:) -> 
-BMNavigationController(viewDidAppear:) -> 
-AMHomeVC(viewDidAppear:) -> 
-AMPresentHasLeakVC(viewDidDisappear:) -> 
-_UIAlertControllerTextFieldViewController(viewDidLoad:) -> 
-UIAlertController(viewDidLoad:) -> 
-UIAlertController(viewDidAppear:) -> 
-UIAlertController(viewDidDisappear:) -> 
-AMLeaksFinder.ViewHasLeakVC(viewDidLoad:) -> 
-AMHomeVC(viewDidDisappear:) -> 
-AMLeaksFinder.ViewHasLeakVC(viewDidAppear:) -> 
-AMLeaksFinder.ViewHasLeakVC(viewDidDisappear:) -> 
-AMHomeVC(viewDidAppear:) -> 
-AMPresentHasLeakVC(viewDidLoad:) -> 
-AMPresentHasLeakVC(viewDidAppear:) -> 
-AMTabBarController(viewDidDisappear:) -> 
-BMNavigationController(viewDidDisappear:) -> 
-AMHomeVC(viewDidDisappear:) -> 
-AMTabBarController(viewDidAppear:) -> 
-BMNavigationController(viewDidAppear:) -> 
-AMHomeVC(viewDidAppear:) -> 
-AMPresentHasLeakVC(viewDidDisappear:) -> 
+BMNavigationController(viewDidLoad:) ->
+AMTabBarController(viewDidLoad:) ->
+AMHomeVC(viewDidLoad:) ->
+AMTabBarController(viewDidAppear:) ->
+BMNavigationController(viewDidAppear:) ->
+AMHomeVC(viewDidAppear:) ->
+AMPresentHasLeakVC(viewDidLoad:) ->
+AMPresentHasLeakVC(viewDidAppear:) ->
+AMTabBarController(viewDidDisappear:) ->
+BMNavigationController(viewDidDisappear:) ->
+AMHomeVC(viewDidDisappear:) ->
+AMTabBarController(viewDidAppear:) ->
+BMNavigationController(viewDidAppear:) ->
+AMHomeVC(viewDidAppear:) ->
+AMPresentHasLeakVC(viewDidDisappear:) ->
+AMPresentHasLeakVC(viewDidLoad:) ->
+AMPresentHasLeakVC(viewDidAppear:) ->
+AMTabBarController(viewDidDisappear:) ->
+BMNavigationController(viewDidDisappear:) ->
+AMHomeVC(viewDidDisappear:) ->
+AMTabBarController(viewDidAppear:) ->
+BMNavigationController(viewDidAppear:) ->
+AMHomeVC(viewDidAppear:) ->
+AMPresentHasLeakVC(viewDidDisappear:) ->
+_UIAlertControllerTextFieldViewController(viewDidLoad:) ->
+UIAlertController(viewDidLoad:) ->
+UIAlertController(viewDidAppear:) ->
+UIAlertController(viewDidDisappear:) ->
+AMLeaksFinder.ViewHasLeakVC(viewDidLoad:) ->
+AMHomeVC(viewDidDisappear:) ->
+AMLeaksFinder.ViewHasLeakVC(viewDidAppear:) ->
+AMLeaksFinder.ViewHasLeakVC(viewDidDisappear:) ->
+AMHomeVC(viewDidAppear:) ->
+AMPresentHasLeakVC(viewDidLoad:) ->
+AMPresentHasLeakVC(viewDidAppear:) ->
+AMTabBarController(viewDidDisappear:) ->
+BMNavigationController(viewDidDisappear:) ->
+AMHomeVC(viewDidDisappear:) ->
+AMTabBarController(viewDidAppear:) ->
+BMNavigationController(viewDidAppear:) ->
+AMHomeVC(viewDidAppear:) ->
+AMPresentHasLeakVC(viewDidDisappear:) ->
 ⚠️👆🏻
 ```
-  
-## 原理分析 
+
+## 原理分析
 
 - [原理分析](principle.md)
 - 数据结构图
