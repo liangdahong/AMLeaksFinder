@@ -17,9 +17,5 @@ class PushHasLeakVC: AMBaseVC {
         topView.didClickBlock = {
             self.navigationController?.popViewController(animated: true)
         }
-        
-        AMLeaksFinder.addLeakCallback { ccc, cccccc in
-            
-        }
     }
 }

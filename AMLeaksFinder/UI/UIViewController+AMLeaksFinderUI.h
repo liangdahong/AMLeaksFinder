@@ -22,12 +22,9 @@
 
 #import "AMLeaksFinder.h"
 
-#if __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
 #import <UIKit/UIKit.h>
-
-extern NSNotificationName _Nonnull const AMLeaksFinderShowUINotification;
-extern NSNotificationName _Nonnull const AMLeaksFinderHideUINotification;
 
 @interface UIViewController (AMLeaksFinderUI)
 

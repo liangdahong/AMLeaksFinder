@@ -23,13 +23,11 @@
 // v: 2.2.5
 
 // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
-// 宏=1表示【 启用内存泄漏监控 】
-#ifndef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
-	#define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__ 1
-#endif
+// 打开宏表示【 启用内存泄漏监控 】
+#define __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 // 👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
 
-#if __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
 #import "AMMemoryLeakModel.h"
 #import "AMViewMemoryLeakModel.h"

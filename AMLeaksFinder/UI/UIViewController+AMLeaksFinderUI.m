@@ -22,7 +22,7 @@
 
 #import "AMLeaksFinder.h"
 
-#if __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
 #import "UIViewController+AMLeaksFinderUI.h"
 #import "AMMemoryLeakView.h"
@@ -31,9 +31,6 @@
 #import "NSObject+RunLoop.h"
 #import "UIView+AMLeaksFinderTools.h"
 #import "UIViewController+AMLeaksFinderUiti.h"
-
-NSNotificationName const AMLeaksFinderShowUINotification = @"AMLeaksFinderShowUINotification";
-NSNotificationName const AMLeaksFinderHideUINotification = @"AMLeaksFinderHideUINotification";
 
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
@@ -55,13 +52,13 @@ NS_INLINE void performOnMainThread(dispatch_block_t block) {
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-		[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderShowUINotification
+		[NSNotificationCenter.defaultCenter addObserverForName:@"AMLeaksFinderShowUINotification"
 														object:nil
 														 queue:nil
 													usingBlock:^(NSNotification * _Nonnull notification) {
 			[self showUI];
 		}];
-		[NSNotificationCenter.defaultCenter addObserverForName:AMLeaksFinderHideUINotification
+		[NSNotificationCenter.defaultCenter addObserverForName:@"AMLeaksFinderHideUINotification"
 														object:nil
 														 queue:nil
 													usingBlock:^(NSNotification * _Nonnull notification) {

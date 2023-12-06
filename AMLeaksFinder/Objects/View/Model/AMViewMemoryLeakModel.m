@@ -22,7 +22,7 @@
 
 #import "AMLeaksFinder.h"
 
-#if __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
+#ifdef __AUTO_MEMORY_LEAKS_FINDER_ENABLED__
 
 #import "AMViewMemoryLeakModel.h"
 #import "UIViewController+AMLeaksFinderTools.h"
