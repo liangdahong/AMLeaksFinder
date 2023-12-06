@@ -111,13 +111,12 @@ NS_INLINE void performOnMainThread(dispatch_block_t block) {
     static BOOL isCallbacking = false;
     
     // 控制回调频率
-    if (isCallbacking || !isShowing) { return; }
+    if (isCallbacking) { return; }
     
     isCallbacking = true;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         isCallbacking = false;
-		if (!isShowing) { return; }
         [NSObject performTaskOnDefaultRunLoopMode:^{
             
             UIWindow *window = UIViewController.amleaks_finder_TopWindow;
