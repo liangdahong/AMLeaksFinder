@@ -35,8 +35,6 @@
 static AMMemoryLeakView *memoryLeakView;
 static AMLeakOverviewView *leakOverviewView;
 
-static BOOL isShowing = YES;
-
 NS_INLINE void performOnMainThread(dispatch_block_t block) {
 	if (NSThread.isMainThread) {
 		block();
@@ -56,13 +54,15 @@ NS_INLINE void performOnMainThread(dispatch_block_t block) {
 														object:nil
 														 queue:nil
 													usingBlock:^(NSNotification * _Nonnull notification) {
-			[self showUI];
+            memoryLeakView.alpha = 1;
+            leakOverviewView.alpha = 1;
 		}];
 		[NSNotificationCenter.defaultCenter addObserverForName:@"AMLeaksFinderHideUINotification"
 														object:nil
 														 queue:nil
 													usingBlock:^(NSNotification * _Nonnull notification) {
-			[self hideUI];
+            memoryLeakView.alpha = 0;
+            leakOverviewView.alpha = 0;
 		}];
 		
         dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -76,34 +76,17 @@ NS_INLINE void performOnMainThread(dispatch_block_t block) {
             leakOverviewView = AMLeakOverviewView.new;
             leakOverviewView.autoresizingMask = UIViewAutoresizingNone;
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-				if (isShowing) {
-					[self showUI];
-				}
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
+                UIWindow *window = UIViewController.amleaks_finder_TopWindow;
+                [window addSubview:memoryLeakView];
+                [window addSubview:leakOverviewView];
+                leakOverviewView.showDetailsBlock = ^{
+                    memoryLeakView.hidden = !memoryLeakView.isHidden;
+                };
+                [self udpateUI];
             });
         });
     });
-}
-
-+ (void)showUI {
-	isShowing = YES;
-	performOnMainThread(^{
-		UIWindow *window = UIViewController.amleaks_finder_TopWindow;
-		[window addSubview:memoryLeakView];
-		[window addSubview:leakOverviewView];
-		leakOverviewView.showDetailsBlock = ^{
-			memoryLeakView.hidden = !memoryLeakView.isHidden;
-		};
-		[self udpateUI];
-	});
-}
-
-+ (void)hideUI {
-	isShowing = NO;
-	performOnMainThread(^{
-		[memoryLeakView removeFromSuperview];
-		[leakOverviewView removeFromSuperview];
-	});
 }
 
 + (void)udpateUI {
