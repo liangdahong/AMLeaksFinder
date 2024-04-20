@@ -196,13 +196,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-
+    CGRect frame = self.frame;
     if (!self.hiddenButton.isSelected) {
         CGFloat height = CGRectGetHeight(self.hiddenButton.bounds) + CGRectGetHeight(self.descLabel.bounds) + CGRectGetHeight(self.detailsButton.bounds);
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 88, height);
+        frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 88, height);
     }
-
-    CGRect frame = self.frame;
     UIWindow *window = UIViewController.amleaks_finder_TopWindow;
     CGFloat window_width = window.bounds.size.width;
     CGFloat window_height = window.bounds.size.height;
